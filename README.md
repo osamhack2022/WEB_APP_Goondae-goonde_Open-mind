@@ -34,3 +34,9 @@ $ yarn start or npm run start
 ```
 
 ## 프로젝트 사용법 (Getting Started)
+
+## 팀 정보 (Team Information)
+- Choi Sung Hyun (1233day@naver.com), Github Id: foggy-hyun
+-  (), Github Id: 
+-  (), Github Id: 
+-  (), Github Id: 
