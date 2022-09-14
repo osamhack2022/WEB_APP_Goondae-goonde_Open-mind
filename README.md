@@ -12,3 +12,25 @@
  - "군대군데"는 외출, 외박, 휴가 장병들이 혜택을 누릴 수 있도록 현재 위치 주변의 군 장병 우대 업소를 추천(인기도, 거리순 등 고려)해주며 해당 업소의 혜택(할인혜택, 환급 혜택)등을 알려주는 플랫폼입니다.
  
    또한 해당 업소의 리뷰를 공유할 수 있는 커뮤니티를 이용 할 수 있고, 지도를 통해 해당 업소의 위치도 파악할 수 있습니다.
+
+## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
+
+## 기술 스택 (Technique Used) 
+### Server(back-end)
+ -  nodejs, php, java 등 서버 언어 버전 
+ - express, laravel, sptring boot 등 사용한 프레임워크 
+ - DB 등 사용한 다른 프로그램 
+ 
+### Front-end
+ -  react.js front-end 프레임워크 
+ -  UI framework
+ - 기타 사용한 라이브러리
+
+## 설치 안내 (Installation Process)
+```bash
+$ git clone git주소
+$ yarn or npm install
+$ yarn start or npm run start
+```
+
+## 프로젝트 사용법 (Getting Started)
