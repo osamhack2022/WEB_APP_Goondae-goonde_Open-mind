@@ -37,6 +37,6 @@ $ yarn start or npm run start
 
 ## 팀 정보 (Team Information)
 - Choi Sung Hyun (1233day@naver.com), Github Id: foggy-hyun
--  (), Github Id: 
+- Lee Seung Won (tmddnjs9318@naver.com), Github Id: SolfE
 -  (), Github Id: 
 -  (), Github Id: 
