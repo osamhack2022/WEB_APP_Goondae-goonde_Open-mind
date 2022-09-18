@@ -36,6 +36,9 @@ $ yarn start or npm run start
 ## 프로젝트 사용법 (Getting Started)
 
 ## 팀 정보 (Team Information)
+[Open-mind]
+> "오픈소스를 열린마음으로 개발하자!"
+
 - Choi Sung Hyun (1233day@naver.com), Github Id: foggy-hyun
 - Lee Seung Won (tmddnjs9318@naver.com), Github Id: SolfE
 - Park Sin Woo (passenger0209@naver.com), Github Id : KimPalZa
