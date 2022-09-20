@@ -46,6 +46,6 @@ $ yarn start or npm run start
 
 
 ## 저작권 및 사용권 정보 (Copyleft / End User License)
- * [MIT](https://github.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/edit/main/LICENSE)
+ * [MIT](https://github.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/LICENSE)
 
 This project is licensed under the terms of the MIT license.
