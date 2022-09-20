@@ -43,3 +43,9 @@ $ yarn start or npm run start
 - Lee Seung Won (tmddnjs9318@naver.com), Github Id: SolfE
 - Park Sin Woo (passenger0209@naver.com), Github Id : KimPalZa
 - Kang In Woong (inwoong100@gmail.com), Github Id: in-woong  
+
+
+## 저작권 및 사용권 정보 (Copyleft / End User License)
+ * [MIT](https://github.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/edit/main/license)
+
+This project is licensed under the terms of the MIT license.
