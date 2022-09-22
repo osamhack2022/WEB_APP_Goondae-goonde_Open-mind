@@ -46,6 +46,17 @@
 - feature : 단위 기능을 개발하는 브랜치로 기능 개발이 완료되면 develop 브랜치에 합칩니다.
 - hotfix : master 브랜치로 배포를 했는데 버그가 생겼을 떄 긴급 수정하는 브랜치 입니다.
 
+#### commit log
+
+출처: https://jryoun1.github.io/git/gitCommitLog/
+
+**[Git] git commit log 작성 방법**
+
+- subject와 body 사이는 한 줄 띄워 구분하기
+- subject line의 글자수는 50자 이내로 제한하기
+- subject line의 첫 글자는 대문자 사용하기
+- subject line의 마지막에 마침표(.)
+
 #### 코드 리뷰
 
 > Pull Request를 다른 프론트엔드 혹은 백엔드 팀원이 확인 및 피드백을 통해, 팀원들의 진행 상황과 전체적인 프로젝트의 흐름을 확인
