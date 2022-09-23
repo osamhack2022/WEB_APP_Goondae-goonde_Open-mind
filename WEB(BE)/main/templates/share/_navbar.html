@@ -1,0 +1,31 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="{% url 'main' %}">군대군데</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      {% if user.is_authenticated %}
+      <h3> {{ user.username }}님 환영합니다.</h3>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'logout' %}">로그아웃 <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'posts:new' %}">새글 쓰기</a>
+      </li>
+      {% else %}
+      <h3> 로그인이 필요합니다.</h3>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'login' %}">로그인 <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'signup' %}">회원가입</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">새글 쓰기</a>
+      </li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
