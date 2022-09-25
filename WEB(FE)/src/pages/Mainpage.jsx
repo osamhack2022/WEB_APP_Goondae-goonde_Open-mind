@@ -18,7 +18,7 @@ const Mainpage = () => {
         className='drawer-toggle'
         ref={$hamburger}
       />
-      <section className='drawer-content' ref={$pages}>
+      <section className='drawer-content relative' ref={$pages}>
         <HeaderContainer />
         <ItemsContainer />
         <FooterContainer />
