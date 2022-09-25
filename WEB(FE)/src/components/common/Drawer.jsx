@@ -1,11 +1,15 @@
 import { Link } from 'react-router-dom';
-import Search from './Search';
+import tw from 'tailwind-styled-components';
+
+const DrawerSide = tw.div`
+  drawer-sideS
+`;
 
 const Drawer = ({ closeOverlay }) => {
   return (
-    <div className='drawer-side'>
+    <DrawerSide>
       <label htmlFor='side-menu' className='drawer-overlay'></label>
-      <ul className='menu w-60 sm:w-80 p-4 overflow-y-auto bg-white dark:bg-base-100'>
+      <ul className=' menu w-60 sm:w-80 p-4 overflow-y-auto bg-white dark:bg-base-100'>
         <li>
           <input type='search' className='input input-bordered' />
         </li>
@@ -19,7 +23,7 @@ const Drawer = ({ closeOverlay }) => {
           </Link>
         </li>
       </ul>
-    </div>
+    </DrawerSide>
   );
 };
 export default Drawer;

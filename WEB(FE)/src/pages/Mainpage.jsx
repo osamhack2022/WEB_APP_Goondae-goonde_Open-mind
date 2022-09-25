@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import DrawerContainer from '../containers/common/DrawerContainer';
 import FooterContainer from '../containers/common/FooterContainer';
 import HeaderContainer from '../containers/common/HeaderContainer';
+import ItemsContainer from '../containers/intro/ItemsContainer';
 
 const Mainpage = () => {
   const $hamburger = useRef(null);
@@ -19,7 +20,7 @@ const Mainpage = () => {
       />
       <section className='drawer-content' ref={$pages}>
         <HeaderContainer />
-        <div>MainPage</div>
+        <ItemsContainer />
         <FooterContainer />
       </section>
       <DrawerContainer closeOverlay={closeOverlay} />

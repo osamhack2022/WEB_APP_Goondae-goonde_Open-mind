@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import Header from '../../components/common/Header';
 
-const themeLight = 'light';
+const themeLight = 'emerald';
 const themeDark = 'dark';
 const $html = document.querySelector('html');
 
