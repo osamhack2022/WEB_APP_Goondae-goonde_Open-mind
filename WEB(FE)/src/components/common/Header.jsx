@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom';
 import Search from './Search';
+import tw from 'tailwind-styled-components';
+
+const HeaderBlock = tw.div`
+navbar bg-base-100 drop-shadow-md
+`;
 
 const Header = ({ themeChange }) => {
   return (
-    <div className='navbar bg-base-100 drop-shadow-md'>
+    <HeaderBlock>
       <div className='navbar-start'>
         <label
           htmlFor='side-menu'
@@ -97,7 +102,7 @@ const Header = ({ themeChange }) => {
           </li>
         </ul>
       </div>
-    </div>
+    </HeaderBlock>
   );
 };
 

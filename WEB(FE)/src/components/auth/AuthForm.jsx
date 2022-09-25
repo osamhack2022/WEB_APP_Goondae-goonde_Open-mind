@@ -1,64 +1,85 @@
 import { Link } from 'react-router-dom';
+import tw from 'tailwind-styled-components';
+
+const Wrapper = tw.div`
+flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 my-auto
+`;
+const AuthFormBlock = tw.div`
+w-full max-w-md space-y-8
+`;
+
+const Form = tw.form`
+mt-8 space-y-6
+`;
+
+const StyledInput = tw.input`
+relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-emerald-500 focus:outline-none focus:ring-emerald-500 sm:text-sm
+`;
+
+const Button = tw.button`
+group relative flex w-full justify-center rounded-md border border-transparent bg-emerald-600 py-2 px-4 text-sm font-medium text-white hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2
+`;
 
 const AuthForm = () => {
   return (
-    <div class='flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8 my-auto'>
-      <div class='w-full max-w-md space-y-8'>
+    <Wrapper>
+      <AuthFormBlock>
         <div>
-          <h2 class='mt-6 text-center text-3xl font-bold tracking-tight text-gray-900'>
+          <h2 className=' mt-6 text-center text-3xl font-bold tracking-tight text-gray-900'>
             WELCOME OPENMIND
           </h2>
         </div>
-        <form class='mt-8 space-y-6' action='#' method='POST'>
+        <Form action='#' method='POST'>
           <input type='hidden' name='remember' value='true' />
-          <div class='-space-y-px rounded-md shadow-sm'>
+          <div className='-space-y-px rounded-md shadow-sm'>
             <div>
-              <label for='email-address' class='sr-only'>
+              <label for='email-address' className='sr-only'>
                 Email address
               </label>
-              <input
+              <StyledInput
                 id='email-address'
                 name='email'
                 type='email'
                 autocomplete='email'
                 required
-                class='relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
                 placeholder='Email address'
               />
             </div>
             <div>
-              <label for='password' class='sr-only'>
+              <label for='password' className='sr-only'>
                 Password
               </label>
-              <input
+              <StyledInput
                 id='password'
                 name='password'
                 type='password'
                 autocomplete='current-password'
                 required
-                class='relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
                 placeholder='Password'
               />
             </div>
           </div>
 
-          <div class='flex items-center justify-between'>
-            <div class='flex items-center'>
+          <div className='flex items-center justify-between'>
+            <div className='flex items-center'>
               <input
                 id='remember-me'
                 name='remember-me'
                 type='checkbox'
-                class='h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500'
+                className='h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500'
               />
-              <label for='remember-me' class='ml-2 block text-sm text-gray-900'>
+              <label
+                for='remember-me'
+                className='ml-2 block text-sm text-gray-900'
+              >
                 Remember me
               </label>
             </div>
 
-            <div class='text-sm'>
+            <div className='text-sm'>
               <Link
                 to='#'
-                class='font-medium text-indigo-600 hover:text-indigo-500'
+                className='font-medium text-emerald-600 hover:text-emerald-500'
               >
                 Forgot your password?
               </Link>
@@ -66,13 +87,10 @@ const AuthForm = () => {
           </div>
 
           <div>
-            <button
-              type='submit'
-              class='group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
-            >
-              <span class='absolute inset-y-0 left-0 flex items-center pl-3'>
+            <Button type='submit'>
+              <span className=' absolute inset-y-0 left-0 flex items-center pl-3'>
                 <svg
-                  class='h-5 w-5 text-indigo-500 group-hover:text-indigo-400'
+                  className='h-5 w-5 text-emerald-500 group-hover:text-emerald-400'
                   xmlns='http://www.w3.org/2000/svg'
                   viewBox='0 0 20 20'
                   fill='currentColor'
@@ -86,11 +104,11 @@ const AuthForm = () => {
                 </svg>
               </span>
               Sign in
-            </button>
+            </Button>
           </div>
-        </form>
-      </div>
-    </div>
+        </Form>
+      </AuthFormBlock>
+    </Wrapper>
   );
 };
 export default AuthForm;
