@@ -1,7 +1,7 @@
 const IntroMain = ({ img, title }) => {
   return (
     <div
-      className='hero min-h-[92vh]'
+      className='hero min-h-full'
       style={{
         backgroundImage: `url(${img})`,
       }}

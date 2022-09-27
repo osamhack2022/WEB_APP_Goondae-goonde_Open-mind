@@ -19,8 +19,13 @@ relative block w-full appearance-none rounded-none rounded-t-md border border-gr
 const Button = tw.button`
 group relative flex w-full justify-center rounded-md border border-transparent bg-emerald-600 py-2 px-4 text-sm font-medium text-white hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2
 `;
+const textMap = {
+  login: '로그인',
+  register: '회원가입',
+};
 
-const AuthForm = () => {
+const AuthForm = ({ type, form, onChange, onSubmit }) => {
+  const text = textMap[type];
   return (
     <Wrapper>
       <AuthFormBlock>
@@ -29,20 +34,22 @@ const AuthForm = () => {
             WELCOME OPENMIND
           </h2>
         </div>
-        <Form action='#' method='POST'>
+        <Form onSubmit={onSubmit} action='#' method='POST'>
+          <h3>{text}</h3>
           <input type='hidden' name='remember' value='true' />
           <div className='-space-y-px rounded-md shadow-sm'>
             <div>
-              <label for='email-address' className='sr-only'>
-                Email address
+              <label for='username' className='sr-only'>
+                username
               </label>
               <StyledInput
-                id='email-address'
-                name='email'
-                type='email'
-                autocomplete='email'
+                id='username'
+                name='username'
+                autocomplete='username'
                 required
-                placeholder='Email address'
+                placeholder='username'
+                onChange={onChange}
+                value={form.username}
               />
             </div>
             <div>
@@ -56,8 +63,27 @@ const AuthForm = () => {
                 autocomplete='current-password'
                 required
                 placeholder='Password'
+                onChange={onChange}
+                value={form.password}
               />
             </div>
+            {type === 'register' && (
+              <div>
+                <label for='password-confirm' className='sr-only'>
+                  Password
+                </label>
+                <StyledInput
+                  id='password-confirm'
+                  name='password2'
+                  type='password'
+                  autocomplete='current-password'
+                  required
+                  placeholder='Password Confirm'
+                  onChange={onChange}
+                  value={form.passwordConfirm}
+                />
+              </div>
+            )}
           </div>
 
           <div className='flex items-center justify-between'>
@@ -87,24 +113,45 @@ const AuthForm = () => {
           </div>
 
           <div>
-            <Button type='submit'>
-              <span className=' absolute inset-y-0 left-0 flex items-center pl-3'>
-                <svg
-                  className='h-5 w-5 text-emerald-500 group-hover:text-emerald-400'
-                  xmlns='http://www.w3.org/2000/svg'
-                  viewBox='0 0 20 20'
-                  fill='currentColor'
-                  aria-hidden='true'
-                >
-                  <path
-                    fill-rule='evenodd'
-                    d='M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z'
-                    clip-rule='evenodd'
-                  />
-                </svg>
-              </span>
-              Sign in
-            </Button>
+            {type === 'login' ? (
+              <Button type='submit'>
+                <span className=' absolute inset-y-0 left-0 flex items-center pl-3'>
+                  <svg
+                    className='h-5 w-5 text-emerald-500 group-hover:text-emerald-400'
+                    xmlns='http://www.w3.org/2000/svg'
+                    viewBox='0 0 20 20'
+                    fill='currentColor'
+                    aria-hidden='true'
+                  >
+                    <path
+                      fill-rule='evenodd'
+                      d='M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z'
+                      clip-rule='evenodd'
+                    />
+                  </svg>
+                </span>
+                Sign In
+              </Button>
+            ) : (
+              <Button type='submit'>
+                <span className=' absolute inset-y-0 left-0 flex items-center pl-3'>
+                  <svg
+                    className='h-5 w-5 text-emerald-500 group-hover:text-emerald-400'
+                    xmlns='http://www.w3.org/2000/svg'
+                    viewBox='0 0 20 20'
+                    fill='currentColor'
+                    aria-hidden='true'
+                  >
+                    <path
+                      fill-rule='evenodd'
+                      d='M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z'
+                      clip-rule='evenodd'
+                    />
+                  </svg>
+                </span>
+                REGISTER
+              </Button>
+            )}
           </div>
         </Form>
       </AuthFormBlock>
