@@ -42,9 +42,9 @@ const LoginForm = () => {
     if (auth) {
       console.log('로그인 성공');
       console.log(auth);
-      dispatch(check());
+      dispatch(check({ form, auth }));
     }
-  }, [auth, authError, dispatch]);
+  }, [auth, form, authError, dispatch]);
 
   useEffect(() => {
     if (user) {

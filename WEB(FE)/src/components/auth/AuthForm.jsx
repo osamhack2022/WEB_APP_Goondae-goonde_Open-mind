@@ -31,21 +31,20 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
       <AuthFormBlock>
         <div>
           <h2 className=' mt-6 text-center text-3xl font-bold tracking-tight text-gray-900'>
-            WELCOME OPENMIND
+            {text}
           </h2>
         </div>
         <Form onSubmit={onSubmit} action='#' method='POST'>
-          <h3>{text}</h3>
           <input type='hidden' name='remember' value='true' />
           <div className='-space-y-px rounded-md shadow-sm'>
             <div>
-              <label for='username' className='sr-only'>
+              <label htmlFor='username' className='sr-only'>
                 username
               </label>
               <StyledInput
                 id='username'
                 name='username'
-                autocomplete='username'
+                autoComplete='username'
                 required
                 placeholder='username'
                 onChange={onChange}
@@ -53,14 +52,14 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
               />
             </div>
             <div>
-              <label for='password' className='sr-only'>
+              <label htmlFor='password' className='sr-only'>
                 Password
               </label>
               <StyledInput
                 id='password'
                 name='password'
                 type='password'
-                autocomplete='current-password'
+                autoComplete='current-password'
                 required
                 placeholder='Password'
                 onChange={onChange}
@@ -68,48 +67,69 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
               />
             </div>
             {type === 'register' && (
-              <div>
-                <label for='password-confirm' className='sr-only'>
-                  Password
-                </label>
-                <StyledInput
-                  id='password-confirm'
-                  name='password2'
-                  type='password'
-                  autocomplete='current-password'
-                  required
-                  placeholder='Password Confirm'
-                  onChange={onChange}
-                  value={form.passwordConfirm}
-                />
-              </div>
+              <>
+                <div>
+                  <label htmlFor='password-confirm' className='sr-only'>
+                    Password
+                  </label>
+                  <StyledInput
+                    id='password-confirm'
+                    name='passwordConfirm'
+                    type='password'
+                    autoComplete='current-password'
+                    required
+                    placeholder='Password Confirm'
+                    onChange={onChange}
+                    value={form.passwordConfirm}
+                  />
+                </div>
+                <div>
+                  <label htmlFor='email' className='sr-only'>
+                    EMAIL
+                  </label>
+                  <StyledInput
+                    id='email'
+                    name='email'
+                    type='email'
+                    autoComplete='email'
+                    required
+                    placeholder='Email'
+                    onChange={onChange}
+                    value={form.email}
+                  />
+                </div>
+              </>
             )}
           </div>
 
           <div className='flex items-center justify-between'>
-            <div className='flex items-center'>
-              <input
-                id='remember-me'
-                name='remember-me'
-                type='checkbox'
-                className='h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500'
-              />
-              <label
-                for='remember-me'
-                className='ml-2 block text-sm text-gray-900'
-              >
-                Remember me
-              </label>
-            </div>
+            {type === 'login' && (
+              <div className='flex items-center'>
+                <input
+                  id='remember-me'
+                  name='remember-me'
+                  type='checkbox'
+                  className='h-4 w-4 rounded border-gray-300 text-emerald-600 focus:ring-emerald-500'
+                />
+                <label
+                  htmlFor='remember-me'
+                  className='ml-2 block text-sm text-gray-900'
+                >
+                  Remember me
+                </label>
+              </div>
+            )}
 
-            <div className='text-sm'>
-              <Link
-                to='#'
-                className='font-medium text-emerald-600 hover:text-emerald-500'
-              >
-                Forgot your password?
-              </Link>
-            </div>
+            {type === 'login' && (
+              <div className='text-sm'>
+                <Link
+                  to='/register'
+                  className='font-medium text-emerald-600 hover:text-emerald-500'
+                >
+                  회원가입하기
+                </Link>
+              </div>
+            )}
           </div>
 
           <div>
@@ -124,9 +144,9 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
                     aria-hidden='true'
                   >
                     <path
-                      fill-rule='evenodd'
+                      fillRule='evenodd'
                       d='M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z'
-                      clip-rule='evenodd'
+                      clipRule='evenodd'
                     />
                   </svg>
                 </span>
@@ -143,9 +163,9 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
                     aria-hidden='true'
                   >
                     <path
-                      fill-rule='evenodd'
+                      fillRule='evenodd'
                       d='M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z'
-                      clip-rule='evenodd'
+                      clipRule='evenodd'
                     />
                   </svg>
                 </span>

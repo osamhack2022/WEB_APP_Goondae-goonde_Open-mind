@@ -1,4 +1,6 @@
+import RegisterForm from '../containers/auth/RegisterForm';
+
 const RegisterPage = () => {
-  return <div>RegisterPage</div>;
+  return <RegisterForm />;
 };
 export default RegisterPage;
