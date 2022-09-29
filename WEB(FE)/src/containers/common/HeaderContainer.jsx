@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../components/common/Header';
+import { logout } from '../../modules/user';
 
 const themeLight = 'emerald';
 const themeDark = 'dark';
@@ -25,6 +27,12 @@ const HeaderContainer = () => {
     $html?.setAttribute('data-theme', themeDark);
     localStorage.setItem('theme', themeDark);
   };
+  const { user } = useSelector(({ user }) => ({ user: user.user }));
+  const dispatch = useDispatch();
+  const onLogOut = () => {
+    console.log('logout');
+    dispatch(logout());
+  };
 
   useEffect(() => {
     if (themeLight === localStorage.getItem('theme')) {
@@ -35,7 +43,7 @@ const HeaderContainer = () => {
     }
   }, []);
 
-  return <Header themeChange={themeChange} />;
+  return <Header user={user} onLogOut={onLogOut} themeChange={themeChange} />;
 };
 
 export default HeaderContainer;

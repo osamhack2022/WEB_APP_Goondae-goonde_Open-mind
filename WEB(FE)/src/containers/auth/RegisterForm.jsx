@@ -36,7 +36,7 @@ const RegisterForm = () => {
       );
       return;
     }
-    dispatch(register({ username, password }));
+    dispatch(register({ username, password, passwordConfirm, email }));
   };
 
   useEffect(() => {
@@ -55,9 +55,9 @@ const RegisterForm = () => {
     if (auth) {
       console.log('회원가입 성공');
       console.log(auth);
-      dispatch(check());
+      dispatch(check({ auth, form }));
     }
-  }, [auth, authError, dispatch]);
+  }, [auth, form, authError, dispatch]);
 
   useEffect(() => {
     if (user) {
