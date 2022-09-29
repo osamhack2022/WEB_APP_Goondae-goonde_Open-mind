@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom';
 import Search from './Search';
 import tw from 'tailwind-styled-components';
+import user from '../../modules/user';
 
 const HeaderBlock = tw.div`
 navbar bg-base-100 drop-shadow-md fixed top-0 left-0 z-30
 `;
 
-const Header = ({ themeChange }) => {
+const Header = ({ user, onLogOut, themeChange }) => {
   return (
     <HeaderBlock>
       <div className='navbar-start'>
@@ -97,9 +98,22 @@ const Header = ({ themeChange }) => {
               </li>
             </ul>
           </li>
-          <li>
-            <Link to='/login'>로그인</Link>
-          </li>
+          {user ? (
+            <>
+              <li>
+                <Link>{user.username}</Link>
+              </li>
+              <li>
+                <button onClick={onLogOut} className='font-bold'>
+                  LOGOUT
+                </button>
+              </li>
+            </>
+          ) : (
+            <li>
+              <Link to='/login'>로그인</Link>
+            </li>
+          )}
         </ul>
       </div>
     </HeaderBlock>
