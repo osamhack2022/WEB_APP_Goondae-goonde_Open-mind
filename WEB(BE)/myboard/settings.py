@@ -61,7 +61,7 @@ REST_AUTH_REGISTER_SERIALIZERS = {
 
 SITE_ID = 1
 
-AUTH_USER_MODEL = 'accounts.User'
+#AUTH_USER_MODEL = 'accounts.User'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 

@@ -54,8 +54,8 @@ class UserLoginSerializer(serializers.Serializer):
             'token': jwt_token
         }
         
-# 사용자 정보 추출
-class UserSerializer(serializers.ModelSerializer):
+
+class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = Profile
         fields = ('id', 'username', 'nickname', 'profile_image')

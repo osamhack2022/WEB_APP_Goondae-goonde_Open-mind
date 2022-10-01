@@ -18,8 +18,8 @@ from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from allauth.account.models import EmailConfirmation, EmailConfirmationHMAC
 
-from .serializers import UserSerializer
-from .models import User
+from .serializers import ProfileSerializer
+from .models import Profile
 
 
 
@@ -98,5 +98,5 @@ class ConfirmEmailView(APIView):
         return qs
 
 class ProfileView(generics.RetrieveUpdateAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
