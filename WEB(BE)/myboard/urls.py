@@ -50,7 +50,7 @@ urlpatterns = [
     # 회원가입
     path('rest-auth/registration', RegisterView.as_view(), name='rest_register'),
     #
-    path('accounts/', include('allauth.urls')),
+    path('accounts/', include('accounts.urls')),
 	
     # 이메일 관련 필요
     path('accounts/allauth/', include('allauth.urls')),
