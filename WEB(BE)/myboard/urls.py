@@ -23,6 +23,10 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
+from rest_auth.views import LoginView, LogoutView, PasswordChangeView, PasswordResetView, PasswordResetConfirmView
+from rest_auth.registration.views import RegisterView, VerifyEmailView
+
+
 schema_view = get_schema_view(
     openapi.Info(
         title="게시판 API",
@@ -35,8 +39,21 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('users/', include('users.urls')),
-    path('', include('posts.urls'))
+    
+    path('accounts/', include('allauth.urls')),
+    # 로그인
+    path('rest-auth/login', LoginView.as_view(), name='rest_login'),
+    path('rest-auth/logout', LogoutView.as_view(), name='rest_logout'),
+    path('rest-auth/password/change', PasswordChangeView.as_view(), name='rest_password_change'),
+
+    # 회원가입
+    path('rest-auth/registration', RegisterView.as_view(), name='rest_register'),
+
+    path('verify-email/', VerifyEmailView.as_view(), name='rest_verify_email'),
+    path('account-confirm-email/', VerifyEmailView.as_view(), name='account_email_verification_sent'),
+    re_path(r'^account-confirm-email/(?P<key>[-:\w]+)/$', VerifyEmailView.as_view(), name='account_confirm_email'),
+
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
