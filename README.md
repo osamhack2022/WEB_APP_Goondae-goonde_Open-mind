@@ -112,8 +112,8 @@ $ git clone git주소
 $ yarn or npm install
 $ yarn start or npm run start
 [Back]
-$ pip install -r requirements.txt
 $ cd WEB\(BE\)
+$ pip install -r requirements.txt
 $ python manage.py runserver
 
 ```
