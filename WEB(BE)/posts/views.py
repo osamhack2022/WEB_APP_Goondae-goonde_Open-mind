@@ -1,7 +1,10 @@
+from django.shortcuts import render
+
+# Create your views here.
 from rest_framework import viewsets
 from django_filters.rest_framework import DjangoFilterBackend
 
-from users.models import Profile
+from accounts.models import Profile
 from .models import Post
 from .permissions import CustomReadOnly
 from .serializers import PostSerializer, PostCreateSerializer

@@ -29,11 +29,20 @@
 
 ## 기술 스택 (Technique Used)
 
-### Server(back-end)
+### Server(Back-end)
 
-- nodejs, php, java 등 서버 언어 버전
-- express, laravel, sptring boot 등 사용한 프레임워크
-- DB 등 사용한 다른 프로그램
+- Python 3.10.7 
+- django 3.2
+- 기타 사용한 라이브러리
+  - "djangorestframework==3.14.0",
+    "django-cors-headers==3.13.0",
+    "Pillow==9.2.0",
+    "django-filter==22.1",
+    "drf-yasg==1.21.4",
+    "django-allauth==0.51.0",
+    "django-rest-auth==0.9.5",
+    "djangorestframework-jwt==1.11.0"
+
 
 ### Front-end
 
@@ -99,8 +108,14 @@
 
 ```bash
 $ git clone git주소
+[Front]
 $ yarn or npm install
 $ yarn start or npm run start
+[Back]
+$ pip install -r requirements.txt
+$ cd WEB\(BE\)
+$ python manage.py runserver
+
 ```
 
 ## 프로젝트 사용법 (Getting Started)
@@ -111,10 +126,10 @@ $ yarn start or npm run start
 
 > "오픈소스를 열린마음으로 개발하자!"
 
-- Choi Sung Hyun (1233day@naver.com), Github Id: foggy-hyun
-- Lee Seung Won (tmddnjs9318@naver.com), Github Id: SolfE
-- Park Sin Woo (passenger0209@naver.com), Github Id : KimPalZa
-- Kang In Woong (inwoong100@gmail.com), Github Id: in-woong
+- Choi Sung Hyun (1233day@naver.com), Github Id: foggy-hyun - 팀장, 백엔드 개발
+- Lee Seung Won (tmddnjs9318@naver.com), Github Id: SolfE - 데이터 처리, 백엔드 개발
+- Park Sin Woo (passenger0209@naver.com), Github Id : KimPalZa - 크롤링, 앱개발 
+- Kang In Woong (inwoong100@gmail.com), Github Id: in-woong - 프론트엔드 개발, 디자인
 
 ## 저작권 및 사용권 정보 (Copyleft / End User License)
 
