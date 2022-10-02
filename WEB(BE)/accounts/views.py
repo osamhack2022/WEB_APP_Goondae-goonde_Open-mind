@@ -21,6 +21,7 @@ from allauth.account.models import EmailConfirmation, EmailConfirmationHMAC
 from .serializers import ProfileSerializer
 from .models import Profile
 
+from .permissions import CustomReadOnly
 
 
 # 누구나 접근 가능
@@ -70,7 +71,7 @@ class Login(generics.GenericAPIView):
             }
         )
 
-class ConfirmEmailView(APIView):
+'''class ConfirmEmailView(APIView):
     permission_classes = [AllowAny]
 
     def get(self, *args, **kwargs):
@@ -95,8 +96,9 @@ class ConfirmEmailView(APIView):
     def get_queryset(self):
         qs = EmailConfirmation.objects.all_valid()
         qs = qs.select_related("email_address__user")
-        return qs
+        return qs'''
 
+@permission_classes([CustomReadOnly])
 class ProfileView(generics.RetrieveUpdateAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer

@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.account',
      # 회원 관리용 app
-    'accounts'
+    'accounts',
+    'posts',
 ]
 
 ACCOUNT_ADAPTER = 'accounts.adapter.CustomAccountAdapter'
