@@ -7,5 +7,5 @@ from django.utils.translation import gettext as _
 class CustomASCIIUsernameValidator(validators.RegexValidator):
     regex = r'^[\w]+$'
     message = _(
-        'Please enter a vliad username. You input something wrong.'
+        'Please enter a valid username. You input something wrong.'
     )
