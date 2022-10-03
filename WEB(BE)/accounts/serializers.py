@@ -20,15 +20,12 @@ User = get_user_model()
 # 회원가입
 class CustomRegisterSerializer(RegisterSerializer):
     username = serializers.CharField(required=True, min_length=6, max_length=15, validators=[CustomASCIIUsernameValidator()])
-    nickname = serializers.CharField(required=False, max_length=50)
-    profile_image = serializers.ImageField(required=False)
-
-    def get_cleaned_data(self):
+    
+    '''def get_cleaned_data(self):
         data_dict = super().get_cleaned_data() # username, password, email이 디폴트
         data_dict['nickname'] = self.validated_data.get('nickname', '')
-        data_dict['profile_image'] = self.validated_data.get('profile_image', '')
 
-        return data_dict
+        return data_dict'''
 
 # 로그인 
 class UserLoginSerializer(serializers.Serializer):
