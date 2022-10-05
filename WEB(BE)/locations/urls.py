@@ -1,9 +1,9 @@
-from django.urls import path
+from rest_framework.routers import DefaultRouter
 
 from locations import views
 
+router = DefaultRouter()
+router.register(r'', views.LocationViewSet, basename='location')
 
-
-urlpatterns = [
-    path('', views.LocationList.as_view(), name='location-list'),
-]
+urlpatterns = []
+urlpatterns += router.urls
