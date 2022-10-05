@@ -24,7 +24,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
 from rest_auth.views import LoginView, LogoutView, PasswordChangeView, PasswordResetView, PasswordResetConfirmView
-from rest_auth.registration.views import RegisterView, VerifyEmailView
+from rest_auth.registration.views import RegisterView, VerifyEmailView, ConfirmEmailView
 
 
 
@@ -42,6 +42,14 @@ schema_view = get_schema_view(
 urlpatterns = [
     path("admin/", admin.site.urls),
     
+    # 이메일 관련 필요
+    path('accounts/allauth/', include('allauth.urls')),
+    # 유효한 이메일이 유저에게 전달
+    re_path(r'^account-confirm-email/$', VerifyEmailView.as_view(), name='account_email_verification_sent'),
+    # 유저가 클릭한 이메일(=링크) 확인
+    re_path(r'^account-confirm-email/(?P<key>[-:\w]+)/$', ConfirmEmailView.as_view(), name='account_confirm_email'),
+    path('', include('posts.urls')),
+
     # 로그인
     path('rest-auth/login', LoginView.as_view(), name='rest_login'),
     path('rest-auth/logout', LogoutView.as_view(), name='rest_logout'),
@@ -52,12 +60,7 @@ urlpatterns = [
     #
     path('accounts/', include('accounts.urls')),
 	
-    # 이메일 관련 필요
-    path('accounts/allauth/', include('allauth.urls')),
-    # 유효한 이메일이 유저에게 전달
-    re_path(r'^account-confirm-email/$', VerifyEmailView.as_view(), name='account_email_verification_sent'),
-
-    path('', include('posts.urls')),
+    
 
     # 음식점 및 숙박시설 DB
     path('locations/', include('locations.urls')),
