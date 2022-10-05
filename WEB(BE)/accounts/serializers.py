@@ -8,6 +8,8 @@ from rest_auth.registration.serializers import RegisterSerializer
 
 from .models import *
 
+from .validators import CustomASCIIUsernameValidator
+
 # JWT 사용을 위한 설정
 JWT_PAYLOAD_HANDLER = api_settings.JWT_PAYLOAD_HANDLER
 JWT_ENCODE_HANDLER = api_settings.JWT_ENCODE_HANDLER
@@ -17,15 +19,13 @@ User = get_user_model()
 
 # 회원가입
 class CustomRegisterSerializer(RegisterSerializer):
-    nickname = serializers.CharField(required=False, max_length=50)
-    profile_image = serializers.ImageField(required=False)
-
-    def get_cleaned_data(self):
+    username = serializers.CharField(required=True, min_length=6, max_length=15, validators=[CustomASCIIUsernameValidator()])
+    
+    '''def get_cleaned_data(self):
         data_dict = super().get_cleaned_data() # username, password, email이 디폴트
         data_dict['nickname'] = self.validated_data.get('nickname', '')
-        data_dict['profile_image'] = self.validated_data.get('profile_image', '')
 
-        return data_dict
+        return data_dict'''
 
 # 로그인 
 class UserLoginSerializer(serializers.Serializer):
@@ -58,4 +58,4 @@ class UserLoginSerializer(serializers.Serializer):
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
-        fields = ('nickname', 'profile_image')
+        fields = ('profile_image',)
