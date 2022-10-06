@@ -45,14 +45,19 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_filters',
     'drf_yasg',
+
     # user authentication basic module
     'django.contrib.sites',
     'allauth',
     'allauth.socialaccount',
     'allauth.account',
+
      # 회원 관리용 app
     'accounts',
     'posts',
+
+    # 음식점 및 숙박시설 app
+    'locations',
 ]
 
 REST_AUTH_REGISTER_SERIALIZERS = {
@@ -140,9 +145,17 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
-    }
+    },
+    # Crawler DB
+    "locations_db": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "crawler" / "data.db",
+    },
 }
 
+DATABASE_ROUTERS = [
+    'myboard.router.LocationRouter',
+    ]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
