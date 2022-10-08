@@ -1,6 +1,6 @@
 const Search = () => {
   return (
-    <div className='navbar-center w-[30%] form-control lg:visible invisible '>
+    <div className='lg:navbar-center w-[30%] form-control lg:visible invisible '>
       <input
         type='text'
         placeholder='Search'

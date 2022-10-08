@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const IntroMain = ({ img, title }) => {
   return (
     <div
@@ -18,7 +20,9 @@ const IntroMain = ({ img, title }) => {
           <p className='mb-5'>
             100일만에 보는 내 여자친구 같이 어디가면 좋을까...
           </p>
-          <button className='btn btn-primary'>여기서 알아보기</button>
+          <Link to='/index' className='btn btn-primary'>
+            여기서 알아보기
+          </Link>
         </div>
       </div>
     </div>

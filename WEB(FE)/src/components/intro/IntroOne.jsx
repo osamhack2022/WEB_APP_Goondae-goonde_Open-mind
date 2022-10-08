@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const IntroOne = ({ img, title, des }) => {
   return (
     <div className='hero min-h-screen bg-base-200'>
@@ -6,7 +8,9 @@ const IntroOne = ({ img, title, des }) => {
         <div>
           <h1 className='text-5xl font-bold'>{title}</h1>
           <p className='py-6  max-w-2xl'>{des}</p>
-          <button className='btn btn-primary'>지금 확인하기</button>
+          <Link to='/index' className='btn btn-primary'>
+            지금 확인하기
+          </Link>
         </div>
       </div>
     </div>

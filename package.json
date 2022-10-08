@@ -1,5 +1,13 @@
 {
   "devDependencies": {
+    "@headlessui/react": "^1.7.3",
+    "@heroicons/react": "^2.0.12",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "classnames": "^2.3.2",
     "tailwind-styled-components": "^2.2.0"
+  },
+  "dependencies": {
+    "react-kakao-maps-sdk": "^1.1.4",
+    "styled-components": "^5.3.6"
   }
 }

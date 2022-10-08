@@ -7,7 +7,7 @@ const themeLight = 'emerald';
 const themeDark = 'dark';
 const $html = document.querySelector('html');
 
-const HeaderContainer = () => {
+const HeaderContainer = ({ visible = true }) => {
   const themeChange = (event) => {
     if (event.target.checked) {
       setLight();
@@ -27,8 +27,10 @@ const HeaderContainer = () => {
     $html?.setAttribute('data-theme', themeDark);
     localStorage.setItem('theme', themeDark);
   };
+
   const { user } = useSelector(({ user }) => ({ user: user.user }));
   const dispatch = useDispatch();
+
   const onLogOut = () => {
     console.log('logout');
     dispatch(logout());
@@ -43,7 +45,14 @@ const HeaderContainer = () => {
     }
   }, []);
 
-  return <Header user={user} onLogOut={onLogOut} themeChange={themeChange} />;
+  return (
+    <Header
+      visible={visible}
+      user={user}
+      onLogOut={onLogOut}
+      themeChange={themeChange}
+    />
+  );
 };
 
 export default HeaderContainer;
