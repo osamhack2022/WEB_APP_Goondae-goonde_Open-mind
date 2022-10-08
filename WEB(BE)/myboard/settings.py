@@ -146,16 +146,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     },
-    # Crawler DB
-    "locations_db": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "crawler" / "data.db",
-    },
 }
-
-DATABASE_ROUTERS = [
-    'myboard.router.LocationRouter',
-    ]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
