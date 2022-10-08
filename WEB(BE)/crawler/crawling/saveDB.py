@@ -32,5 +32,14 @@ class saveDB:
         for data in save_data:
         	amount += 1
         return amount
-
     
+    def MOU_crawt_db(self):
+        self.curser.execute("""CREATE TABLE MOU_data(
+                            name TEXT, 
+                            region TEXT,  
+                            number TEXT, 
+                            benefit TEXT)""")
+        
+    def MOU_into_db(self, MOUdata):
+        self.curser.executemany("INSERT INTO MOU_data VALUES(:name, :region, :number, :benefit)", MOUdata)
+        self.connect.commit()
