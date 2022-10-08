@@ -280,7 +280,7 @@ class crawling(HTMLrequest):
                 n += 4
 
         return result
-
+    
     def pocheonsi(self):
         result = []
         headers = {
@@ -294,17 +294,38 @@ class crawling(HTMLrequest):
         }
 
         response = requests.get('https://api.odcloud.kr/api/15106202/v1/uddi:*', params=params, headers=headers)
+
         raw_data = response.json()["data"]
 
         for data in  raw_data:
             into = {
                 'name' : data['상호명'],
-            	'category' : data['업종'],
-            	'address' : data['사업장 주소'],
-            	'number' : data['전화번호'],
-            	'benefit' : data['할인내용'],
+                'category' : data['업종'],
+                'address' : data['사업장 주소'],
+                'number' : data['전화번호'],
+                'benefit' : data['할인내용'],
             }
-            
+
             result.append(into)
             crawling.crawled_data.append(into)
         return result
+    
+    def MOUdata(self):
+        result = []
+        response = requests.get('https://openapi.mnd.go.kr/*/json/DS_MND_ENLSTMN_DCNT_BEF_INF/1/100')
+
+        json = response.json()
+        raw_data = json['DS_MND_ENLSTMN_DCNT_BEF_INF']['row']
+
+        for data in  raw_data:
+            into = {
+                'name' : data['instltnnm'],
+                'region' : data['rgn'],
+                'number' : data['cntadr'],
+                'benefit' : data['dtlexpln'],
+            }
+
+            result.append(into)
+            
+        return result
+        
