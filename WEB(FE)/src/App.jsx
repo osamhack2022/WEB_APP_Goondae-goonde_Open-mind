@@ -22,12 +22,15 @@ function App() {
           <Route index element={<IndexPage />} />
           <Route path=':placeId' element={<PlacePage />} />
         </Route>
-        <Route path='/posts' element={<PostListPage />} />
+        <Route path='/posts'>
+          <Route index element={<PostListPage />} />
+          <Route path='write' element={<WritePage />} />
+        </Route>
         <Route path='/post/@:username'>
           <Route index element={<PostListPage />} />
           <Route path=':postId' element={<PostPage />} />
         </Route>
-        <Route path='/write' element={<WritePage />} />
+
         <Route path='/map' element={<MapPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />

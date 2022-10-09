@@ -1,10 +1,13 @@
+import MyPageContainer from '../containers/auth/MyPageContainer';
+import FooterContainer from '../containers/common/FooterContainer';
 import HeaderContainer from '../containers/common/HeaderContainer';
 
 const MyPage = () => {
   return (
     <>
       <HeaderContainer visible={false} />
-      <h1 className='pt-[4rem]'>MyPage</h1>
+      <MyPageContainer />
+      <FooterContainer />
     </>
   );
 };
