@@ -1,11 +1,14 @@
 import FooterContainer from '../containers/common/FooterContainer';
 import HeaderContainer from '../containers/common/HeaderContainer';
+import PaginationContainer from '../containers/posts/PaginationContainer';
+import PostListContainer from '../containers/posts/PostListContainer';
 
 const PostListPage = () => {
   return (
     <>
       <HeaderContainer />
-      <h1 className='pt-[4rem]'>PostListPAge</h1>
+      <PostListContainer />
+      <PaginationContainer />
       <FooterContainer />
     </>
   );
