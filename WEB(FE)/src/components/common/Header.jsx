@@ -97,6 +97,12 @@ const Header = ({ visible, user, onLogOut, themeChange }) => {
               </li>
             </ul>
           </li> */}
+          <li>
+            <Link to='/map'>지도</Link>
+          </li>
+          <li>
+            <Link to='/posts'>게시판</Link>
+          </li>
           {user ? (
             <>
               <li>

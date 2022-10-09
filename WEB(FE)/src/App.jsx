@@ -7,6 +7,9 @@ import MyPage from './pages/MyPage';
 import RegisterPage from './pages/RegisterPage';
 import PlacePage from './pages/PlacePage';
 import MapPage from './pages/MapPage';
+import PostListPage from './pages/PostListPage';
+import PostPage from './pages/PostPage';
+import WritePage from './pages/WritePage';
 function App() {
   return (
     <div className='App h-screen'>
@@ -19,6 +22,12 @@ function App() {
           <Route index element={<IndexPage />} />
           <Route path=':placeId' element={<PlacePage />} />
         </Route>
+        <Route path='/posts' element={<PostListPage />} />
+        <Route path='/post/@:username'>
+          <Route index element={<PostListPage />} />
+          <Route path=':postId' element={<PostPage />} />
+        </Route>
+        <Route path='/write' element={<WritePage />} />
         <Route path='/map' element={<MapPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
