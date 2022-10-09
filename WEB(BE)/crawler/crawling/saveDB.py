@@ -5,7 +5,7 @@ import os
 
 class saveDB:
     def __init__(self):
-        self.dbname = 'data.db'
+        self.dbname = '../db.sqlite3'
         self.connect = sqlite3.connect(self.dbname)
         self.curser = self.connect.cursor()
         
