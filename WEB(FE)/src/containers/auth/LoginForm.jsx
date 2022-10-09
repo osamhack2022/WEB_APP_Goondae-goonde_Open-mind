@@ -19,6 +19,7 @@ const LoginForm = () => {
   const onChange = (e) => {
     const { value, name } = e.target;
     dispatch(changeField({ form: 'login', key: name, value }));
+    setError('');
   };
 
   const onSubmit = (e) => {
