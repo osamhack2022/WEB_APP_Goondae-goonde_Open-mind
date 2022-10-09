@@ -20,7 +20,6 @@ function App() {
           <Route path=':placeId' element={<PlacePage />} />
         </Route>
         <Route path='/map' element={<MapPage />} />
-
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
         <Route path='/mypage' element={<MyPage />} />
