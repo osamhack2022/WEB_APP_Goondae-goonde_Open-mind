@@ -1,16 +1,15 @@
 import { Link } from 'react-router-dom';
 import Search from './Search';
 import tw from 'tailwind-styled-components';
-import user from '../../modules/user';
 
 const HeaderBlock = tw.div`
 navbar bg-base-100 drop-shadow-md fixed top-0 left-0 z-30
 `;
 
-const Header = ({ user, onLogOut, themeChange }) => {
+const Header = ({ visible, user, onLogOut, themeChange }) => {
   return (
     <HeaderBlock>
-      <div className='navbar-start'>
+      <div className='lg:navbar-start'>
         <label
           htmlFor='side-menu'
           className='flex-none lg:hidden btn btn-square btn-ghost w-10 sm:w-auto'
@@ -34,8 +33,8 @@ const Header = ({ user, onLogOut, themeChange }) => {
           OPEN MIND
         </Link>
       </div>
-      <Search />
-      <div className='navbar-end lg:visible invisible'>
+      {visible && <Search />}
+      <div className='lg:navbar-end lg:visible invisible'>
         <label className='swap swap-rotate mr-2 sm:mr-4'>
           <input type='checkbox' className='js-theme' onChange={themeChange} />
           <svg
@@ -54,7 +53,7 @@ const Header = ({ user, onLogOut, themeChange }) => {
           </svg>
         </label>
         <ul className='menu menu-horizontal p-0'>
-          <li tabIndex={0}>
+          {/* <li tabIndex={0}>
             <Link to='/'>
               메뉴 1
               <svg
@@ -97,11 +96,11 @@ const Header = ({ user, onLogOut, themeChange }) => {
                 <Link to='/'>Submenu 2</Link>
               </li>
             </ul>
-          </li>
+          </li> */}
           {user ? (
             <>
               <li>
-                <Link>{user.username}</Link>
+                <Link to='/mypage'>{user.username}</Link>
               </li>
               <li>
                 <button onClick={onLogOut} className='font-bold'>

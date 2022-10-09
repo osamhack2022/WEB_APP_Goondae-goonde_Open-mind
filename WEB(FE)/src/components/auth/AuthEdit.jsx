@@ -29,7 +29,7 @@ const textMap = {
   register: '회원가입',
 };
 
-const AuthForm = ({ type, form, onChange, onSubmit }) => {
+const AuthEdit = ({ type, form, onChange, onSubmit }) => {
   const text = textMap[type];
   return (
     <Wrapper>
@@ -197,4 +197,4 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
     </Wrapper>
   );
 };
-export default AuthForm;
+export default AuthEdit;

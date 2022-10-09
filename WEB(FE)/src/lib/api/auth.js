@@ -1,13 +1,14 @@
 import client from './client';
 
 export const login = ({ username, password }) =>
-  client.post('/users/login/', { username, password });
+  client.post('/rest-auth/login', { username, password });
 
-export const register = ({ username, password, passwordConfirm, email }) => {
-  return client.post('/users/register/', {
+export const register = ({ username, password1, password2, email }) => {
+  console.log(username, password1, password2, email);
+  return client.post('/rest-auth/registration', {
     username,
-    password,
-    password2: passwordConfirm,
+    password1,
+    password2,
     email,
   });
 };
@@ -16,6 +17,4 @@ export const check = () => {
   console.log('check');
 };
 
-export const logout = () => {
-  console.log('logout');
-};
+export const logout = () => client.post('/rest-auth/logout');

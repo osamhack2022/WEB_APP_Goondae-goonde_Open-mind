@@ -23,20 +23,18 @@ const RegisterForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const { username, password, passwordConfirm, email } = form;
-    if ([username, password, passwordConfirm, email].includes('')) {
+    const { username, password1, password2, email } = form;
+    if ([username, password1, password2, email].includes('')) {
       setError('빈 칸을 모두 입력하세요');
       return;
     }
-    if (password !== passwordConfirm) {
+    if (password1 !== password2) {
       setError('비밀번호가 일치하지 않습니다.');
-      dispatch(changeField({ form: 'register', key: 'password', value: '' }));
-      dispatch(
-        changeField({ form: 'register', key: 'passwordConfirm', value: '' })
-      );
+      dispatch(changeField({ form: 'register', key: 'password1', value: '' }));
+      dispatch(changeField({ form: 'register', key: 'password2', value: '' }));
       return;
     }
-    dispatch(register({ username, password, passwordConfirm, email }));
+    dispatch(register({ username, password1, password2, email }));
   };
 
   useEffect(() => {
@@ -68,7 +66,7 @@ const RegisterForm = () => {
 
   useEffect(() => {
     if (user) {
-      navigate('/');
+      navigate('/index');
       try {
         localStorage.setItem('user', JSON.stringify(user));
       } catch (e) {
