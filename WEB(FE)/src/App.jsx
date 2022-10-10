@@ -30,10 +30,6 @@ function App() {
           <Route index element={<PostListPage />} />
           <Route path=':postId' element={<PostPage />} />
         </Route>
-<<<<<<< HEAD
-
-=======
->>>>>>> hotfix/conflict
         <Route path='/map' element={<MapPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/register' element={<RegisterPage />} />
