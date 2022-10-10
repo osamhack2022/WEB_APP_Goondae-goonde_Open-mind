@@ -29,7 +29,8 @@ const textMap = {
   register: '회원가입',
 };
 
-const AuthForm = ({ type, form, onChange, onSubmit }) => {
+const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
+  console.log(error, 'authform');
   const text = textMap[type];
   return (
     <Wrapper>
@@ -123,6 +124,7 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
               </>
             )}
           </div>
+          <span className='text-red-600'>{error}</span>
 
           <div className='flex items-center justify-between'>
             {type === 'login' && (

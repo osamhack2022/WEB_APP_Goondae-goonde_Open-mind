@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../components/common/Header';
+import { initializeForm } from '../../modules/auth';
 import { logout } from '../../modules/user';
 
 const themeLight = 'emerald';
@@ -34,6 +35,7 @@ const HeaderContainer = ({ visible = true }) => {
   const onLogOut = () => {
     console.log('logout');
     dispatch(logout());
+    dispatch(initializeForm('auth'));
   };
 
   useEffect(() => {

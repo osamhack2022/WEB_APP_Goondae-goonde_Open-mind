@@ -1,15 +1,14 @@
-import MyPageContainer from '../containers/auth/MyPageContainer';
 import FooterContainer from '../containers/common/FooterContainer';
 import HeaderContainer from '../containers/common/HeaderContainer';
 
-const MyPage = () => {
+const PostPage = () => {
   return (
     <>
-      <HeaderContainer visible={false} />
-      <MyPageContainer />
+      <HeaderContainer />
+      <h1 className='pt-[4rem]'>postpage</h1>;
       <FooterContainer />
     </>
   );
 };
 
-export default MyPage;
+export default PostPage;
