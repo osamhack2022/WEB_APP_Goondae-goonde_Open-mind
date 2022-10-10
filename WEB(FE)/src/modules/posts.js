@@ -25,12 +25,13 @@ const initialState = {
   lastPage: 1,
 };
 
+const POSTS_PER_PAGE = 3;
 const posts = handleActions(
   {
-    [LIST_POSTS_SUCCESS]: (state, { payload: posts, meta: response }) => ({
+    [LIST_POSTS_SUCCESS]: (state, { payload: posts }) => ({
       ...state,
       posts,
-      lastPage: parseInt(response.headers['last-page'], 10),
+      lastPage: Math.ceil(posts.count / POSTS_PER_PAGE),
     }),
     [LIST_POSTS_FAILURE]: (state, { payload: error }) => ({
       ...state,

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const PostListBlock = styled(Responsive)`
   margin-top: 7rem;
-  height: 60vh;
+  min-height: 60vh;
 `;
 
 const WritePostButtonWrapper = styled.div`
@@ -41,22 +41,17 @@ const PostItemBlock = styled.div`
 `;
 
 const PostItem = ({ post }) => {
-  const { publishedDate, user, title, body, _id } = post;
+  const { created_at, author, title, content, pk } = post;
   return (
     <PostItemBlock>
-      <Link to={`/@${user?.username || 'name'}/${_id}`}>{title}</Link>
-      <SubInfo
-        username={user?.username || 'name'}
-        publishedDate={new Date(publishedDate)}
-      />
-      <p>{body}</p>
+      <Link to={`/post/@${author || 'name'}/${pk}`}>{title}</Link>
+      <SubInfo author={author || 'name'} created_at={new Date(created_at)} />
+      <p>{content}</p>
     </PostItemBlock>
   );
 };
 
 const PostList = ({ loading, error, posts, showWriteButton }) => {
-  posts = posts && posts.result;
-  console.log('posts', posts);
   if (error) {
     return <PostListBlock>에러가 발생했습니다.</PostListBlock>;
   }
@@ -71,7 +66,7 @@ const PostList = ({ loading, error, posts, showWriteButton }) => {
       </WritePostButtonWrapper>
       {!loading && posts && (
         <div>
-          {posts.map((post) => (
+          {posts.results.map((post) => (
             <PostItem post={post} key={post._id} />
           ))}
         </div>

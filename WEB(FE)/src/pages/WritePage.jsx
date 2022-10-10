@@ -5,7 +5,6 @@ import WriteActionButtonsContainer from '../containers/write/WriteActionButtonsC
 import { Helmet } from 'react-helmet-async';
 import HeaderContainer from '../containers/common/HeaderContainer';
 import FooterContainer from '../containers/common/FooterContainer';
-import styled from 'daisyui/dist/styled';
 
 const WritePage = () => {
   return (
