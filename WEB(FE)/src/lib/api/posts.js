@@ -1,7 +1,17 @@
 import client from './client';
 
-export const writePost = () => {
-  console.log('write');
+export const writePost = ({ title, content }) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  console.log(user.token);
+  return client.post(
+    '/posts/',
+    { title, content },
+    {
+      headers: {
+        Authorization: user.token,
+      },
+    }
+  );
 };
 
 export const updatePost = () => {

@@ -19,15 +19,18 @@ export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({
   key,
   value,
 }));
-export const writePost = createAction(WRITE_POST, ({ title, body, tags }) => ({
+export const writePost = createAction(WRITE_POST, ({ title, content }) => ({
   title,
-  body,
-  tags,
+  content,
 }));
 export const setOriginalPost = createAction(SET_ORIGINAL_POST, (post) => post);
 export const updatePost = createAction(
   UPDATE_POST,
-  ({ id, title, body, tags }) => ({ id, title, body, tags })
+  ({ id, title, content }) => ({
+    id,
+    title,
+    content,
+  })
 );
 
 const writePostSaga = createRequestSaga(WRITE_POST, postsAPI.writePost);
@@ -40,8 +43,7 @@ export function* writeSaga() {
 
 const initialState = {
   title: '',
-  body: '',
-  tags: [],
+  content: '',
   post: null,
   postError: null,
   originalPostId: null,
@@ -70,8 +72,7 @@ const write = handleActions(
     [SET_ORIGINAL_POST]: (state, { payload: post }) => ({
       ...state,
       title: post.title,
-      body: post.body,
-      tags: post.tags,
+      content: post.content,
       originalPostId: post._id,
     }),
     [UPDATE_POST_SUCCESS]: (state, { payload: post }) => ({

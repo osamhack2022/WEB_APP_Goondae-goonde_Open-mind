@@ -7,11 +7,10 @@ import { updatePost, writePost } from '../../modules/write';
 const WriteActionButtonsContainer = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { title, body, tags, post, postError, originalPostId } = useSelector(
+  const { title, content, post, postError, originalPostId } = useSelector(
     ({ write }) => ({
       title: write.title,
-      body: write.body,
-      tags: write.tags,
+      content: write.content,
       post: write.post,
       postError: write.postError,
       originalPostId: write.originalPostId,
@@ -23,8 +22,7 @@ const WriteActionButtonsContainer = () => {
       dispatch(
         updatePost({
           title,
-          body,
-          tags,
+          content,
           originalPostId: originalPostId,
         })
       );
@@ -33,8 +31,7 @@ const WriteActionButtonsContainer = () => {
     dispatch(
       writePost({
         title,
-        body,
-        tags,
+        content,
       })
     );
   };

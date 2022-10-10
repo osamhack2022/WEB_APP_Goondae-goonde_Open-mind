@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import qs from 'qs';
-import Button from '../common/Button';
+import Button from './Button';
 
 const PaginationBlock = styled.div`
   width: 320px;
@@ -12,19 +11,13 @@ const PaginationBlock = styled.div`
 
 const PageNumber = styled.div``;
 
-const buildLink = ({ username, tag, page }) => {
-  const query = qs.stringify({ tag, page });
-  return username ? `/@${username}?${query}` : `/?${query}`;
-};
-
-const Pagination = ({ page, lastPage, username, tag }) => {
+const Pagination = ({ page, lastPage, username, buildLink }) => {
+  console.log(page, lastPage, page === 1, page === lastPage);
   return (
     <PaginationBlock>
       <Button
         disabled={page === 1}
-        to={
-          page === 1 ? undefined : buildLink({ username, tag, page: page - 1 })
-        }
+        to={page === 1 ? undefined : buildLink({ username, page: page - 1 })}
       >
         이전
       </Button>
@@ -34,7 +27,7 @@ const Pagination = ({ page, lastPage, username, tag }) => {
         to={
           page === lastPage
             ? undefined
-            : buildLink({ username, tag, page: page + 1 })
+            : buildLink({ username, page: page + 1 })
         }
       >
         다음
