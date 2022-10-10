@@ -17,6 +17,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from allauth.account.models import EmailConfirmation, EmailConfirmationHMAC
+from django.http import HttpResponseRedirect
 
 from .serializers import ProfileSerializer
 from .models import Profile
@@ -71,7 +72,7 @@ class Login(generics.GenericAPIView):
             }
         )
 
-'''class ConfirmEmailView(APIView):
+class ConfirmEmailView(APIView):
     permission_classes = [AllowAny]
 
     def get(self, *args, **kwargs):
@@ -96,7 +97,7 @@ class Login(generics.GenericAPIView):
     def get_queryset(self):
         qs = EmailConfirmation.objects.all_valid()
         qs = qs.select_related("email_address__user")
-        return qs'''
+        return qs
 
 @permission_classes([CustomReadOnly])
 class ProfileView(generics.RetrieveUpdateAPIView):

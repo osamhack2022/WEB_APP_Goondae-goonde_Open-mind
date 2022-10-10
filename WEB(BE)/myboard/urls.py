@@ -24,7 +24,8 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
 from rest_auth.views import LoginView, LogoutView, PasswordChangeView, PasswordResetView, PasswordResetConfirmView
-from rest_auth.registration.views import RegisterView, VerifyEmailView, ConfirmEmailView
+from rest_auth.registration.views import RegisterView, VerifyEmailView
+from accounts.views import ConfirmEmailView
 
 
 
