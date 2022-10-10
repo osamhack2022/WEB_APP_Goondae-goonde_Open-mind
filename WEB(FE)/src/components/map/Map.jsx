@@ -18,7 +18,7 @@ const Map = () => {
       style={{
         width: '100%',
         height: '100%',
-        paddingTop: '4rem',
+        paddingTop: '6rem',
         display: 'inline-block',
         marginLeft: '5px',
         marginRight: '5px',

@@ -4,7 +4,7 @@ const client = axios.create();
 
 client.defaults.baseURL = 'http://127.0.0.1:8000';
 
-// client.defaults.headers.common['Authorization']="Bearer"
+client.defaults.headers.common['Authorization'] = 'Bearer';
 
 // axios.intercepter.response.use(
 //   (response) => {
