@@ -12,7 +12,6 @@ const PaginationBlock = styled.div`
 const PageNumber = styled.div``;
 
 const Pagination = ({ page, lastPage, username, buildLink }) => {
-  console.log(page, lastPage, page === 1, page === lastPage);
   return (
     <PaginationBlock>
       <Button

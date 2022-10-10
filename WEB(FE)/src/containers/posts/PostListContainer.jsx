@@ -18,18 +18,21 @@ const PostListContainer = () => {
   );
 
   useEffect(() => {
-    const tag = searchParams.get('tag');
     const page = parseInt(searchParams.get('page'), 10) || 1;
-    dispatch(listPosts({ tag, username, page }));
+    dispatch(listPosts({ username, page }));
   }, [dispatch, searchParams, username]);
 
   return (
-    <PostList
-      loading={loading}
-      error={error}
-      posts={posts}
-      showWriteButton={user}
-    />
+    <>
+      {!loading && posts && (
+        <PostList
+          loading={loading}
+          error={error}
+          posts={posts}
+          showWriteButton={user}
+        />
+      )}
+    </>
   );
 };
 export default PostListContainer;

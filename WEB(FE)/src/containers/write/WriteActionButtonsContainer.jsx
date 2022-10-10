@@ -42,8 +42,8 @@ const WriteActionButtonsContainer = () => {
 
   useEffect(() => {
     if (post) {
-      const { _id, user } = post;
-      navigate(`/@${user.username}/${_id}`);
+      const { profile, pk } = post;
+      navigate(`/post/@${profile.username}/${pk}`);
     }
     if (postError) {
       console.log(postError);
