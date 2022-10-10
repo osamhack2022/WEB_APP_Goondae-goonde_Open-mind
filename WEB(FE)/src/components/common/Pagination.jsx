@@ -13,7 +13,7 @@ const PageNumber = styled.div``;
 
 const Pagination = ({ page, lastPage, username, buildLink }) => {
   return (
-    <PaginationBlock>
+    <div className='w-[320px] mx-auto flex justify-between mb-[3rem]'>
       <Button
         disabled={page === 1}
         to={page === 1 ? undefined : buildLink({ username, page: page - 1 })}
@@ -31,7 +31,7 @@ const Pagination = ({ page, lastPage, username, buildLink }) => {
       >
         다음
       </Button>
-    </PaginationBlock>
+    </div>
   );
 };
 

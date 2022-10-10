@@ -19,7 +19,6 @@ const PostListContainer = () => {
 
   useEffect(() => {
     const page = parseInt(searchParams.get('page'), 10) || 1;
-    console.log(page);
     dispatch(listPosts({ username, page }));
   }, [dispatch, searchParams, username]);
 
