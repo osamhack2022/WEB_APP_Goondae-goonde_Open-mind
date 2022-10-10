@@ -19,13 +19,17 @@ export function* locationsSaga() {
 const initialState = {
   locations: null,
   locationsError: null,
+  lastPage: 1,
 };
+
+const PAGE_PER_LOCATION = 3;
 
 const locations = handleActions(
   {
     [LIST_SUCCESS]: (state, { payload: locations }) => ({
       ...state,
-      locations,
+      locations: locations.results,
+      lastPage: Math.ceil(locations.count / PAGE_PER_LOCATION),
       locationsError: null,
     }),
     [LIST_FAILURE]: (state, { payload: error }) => ({

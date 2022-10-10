@@ -31,7 +31,11 @@ const QuillWrapper = styled.div`
   }
 `;
 
+<<<<<<< HEAD
 const Editor = ({ title, body, onChangeField }) => {
+=======
+const Editor = ({ title, content, onChangeField }) => {
+>>>>>>> hotfix/conflict
   const quillElement = useRef(null);
   const quillInstance = useRef(null);
 
@@ -52,7 +56,11 @@ const Editor = ({ title, body, onChangeField }) => {
     const quill = quillInstance.current;
     quill.on('text-change', (delta, oldDelta, source) => {
       if (source === 'user') {
+<<<<<<< HEAD
         onChangeField({ key: 'body', value: quill.root.innerHTML });
+=======
+        onChangeField({ key: 'content', value: quill.root.innerHTML });
+>>>>>>> hotfix/conflict
       }
     });
   }, [onChangeField]);
@@ -62,8 +70,13 @@ const Editor = ({ title, body, onChangeField }) => {
   useEffect(() => {
     if (mounted.current) return;
     mounted.current = true;
+<<<<<<< HEAD
     quillInstance.current.root.innerHTML = body;
   }, [body]);
+=======
+    quillInstance.current.root.innerHTML = content;
+  }, [content]);
+>>>>>>> hotfix/conflict
 
   const onChangeTitle = (e) => {
     onChangeField({ key: 'title', value: e.target.value });
