@@ -17,7 +17,7 @@ const PaginationContainer = () => {
 
   const buildLink = ({ username, page }) => {
     const query = qs.stringify({ page });
-    return username ? `/post/@${username}?${query}` : `/posts/?${query}`;
+    return username ? `/posts/@${username}?${query}` : `/posts/?${query}`;
   };
 
   if (!posts || loading) return null;

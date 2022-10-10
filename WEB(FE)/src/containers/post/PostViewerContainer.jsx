@@ -1,14 +1,8 @@
 import { useEffect } from 'react';
-import {
-  useDispatch,
-  useSelector,
-} from '../../../node_modules/react-redux/es/exports';
+import { useDispatch, useSelector } from 'react-redux';
 import PostViewer from '../../components/post/PostViewer';
 import { readPost, unloadPost } from '../../modules/post';
-import {
-  useParams,
-  useNavigate,
-} from '../../../node_modules/react-router-dom/index';
+import { useParams, useNavigate } from 'react-router-dom';
 import PostActionButtons from '../../components/post/PostActionButtons';
 import { setOriginalPost } from '../../modules/write';
 import { removePost } from '../../lib/api/posts';
@@ -47,7 +41,7 @@ const PostViewerContainer = () => {
     }
   };
 
-  const ownPost = (user && user._id) === (post && post.user._id);
+  const ownPost = (user && user.name) === (post && post.profile.username);
   return (
     <PostViewer
       post={post}

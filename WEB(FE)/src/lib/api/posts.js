@@ -14,8 +14,20 @@ export const writePost = ({ title, content }) => {
   );
 };
 
+export const readPost = (id) => client.get(`/posts/${id}`);
+
 export const updatePost = () => {
   console.log('update');
 };
 
-export const listPosts = () => client.get('/posts');
+export const removePost = () => {
+  console.log('remove');
+};
+
+export const listPosts = ({ page }) => {
+  if (page) {
+    return client.get(`/posts/?page=${page}`);
+  } else {
+    return client.get('/posts');
+  }
+};

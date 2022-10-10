@@ -19,18 +19,25 @@ const PostListContainer = () => {
 
   useEffect(() => {
     const page = parseInt(searchParams.get('page'), 10) || 1;
+    console.log(page);
     dispatch(listPosts({ username, page }));
   }, [dispatch, searchParams, username]);
 
   return (
     <>
-      {!loading && posts && (
-        <PostList
-          loading={loading}
-          error={error}
-          posts={posts}
-          showWriteButton={user}
-        />
+      {loading ? (
+        <>
+          <PostList />
+        </>
+      ) : (
+        posts && (
+          <PostList
+            loading={loading}
+            error={error}
+            posts={posts}
+            showWriteButton={user}
+          />
+        )
       )}
     </>
   );

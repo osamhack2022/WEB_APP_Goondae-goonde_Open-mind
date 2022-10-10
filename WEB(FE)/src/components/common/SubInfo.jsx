@@ -23,7 +23,7 @@ const SubInfo = ({ author, created_at, hasMarginTop }) => {
     <SubInfoBlock hasMarginTop={hasMarginTop}>
       <span>
         <b>
-          <Link to={`/post/@${author}`}>{author}</Link>
+          <Link to={`/posts/@${author}`}>{author}</Link>
         </b>
       </span>
       <span>{new Date(created_at).toLocaleDateString()}</span>
