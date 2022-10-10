@@ -1,0 +1,27 @@
+<!-- email_confirmation_signup_message.html (본문) -->
+{% load account %}
+{% load i18n %}
+{% block content %}
+{% autoescape off %}
+{% user_display user as user_display %}
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}
+
+<!DOCTYPE html>
+<html>
+...
+<p>
+  귀하의 아이디는
+  	<span style="font-weight:bold;">{{ user_display }}</span>
+  입니다.
+</p>
+  
+<a href="{{ activate_url }}" target="_blank">
+  계정 인증하기
+</a>
+<p>위 링크가 안될 시 <a href="{{ activate_url }}">{{ activate_url }}</a> 이 링크로 직접 인증해주세요. </p>
+...
+</html>
+
+{% endblocktrans %}
+{% endautoescape %}
+{% endblock %}
