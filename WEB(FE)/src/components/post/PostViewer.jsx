@@ -5,7 +5,8 @@ import SubInfo from '../common/SubInfo';
 import { Helmet } from 'react-helmet-async';
 
 const PostViewerBlock = styled(Responsive)`
-  margin-top: 4rem;
+  margin-top: 6rem;
+  min-height: 65vh;
 `;
 
 const PostHead = styled.div`
@@ -35,15 +36,19 @@ const PostViewer = ({ post, error, loading, actionButtons }) => {
   if (loading || !post) {
     return null;
   }
-  const { title, content, user } = post;
+  const { title, content, profile, created_at } = post;
   return (
     <PostViewerBlock>
       <Helmet>
         <title> {title} - REACTERS </title>
       </Helmet>
       <PostHead>
-        <h2>{title}</h2>
-        <SubInfo username={user?.username || 'name'} hasMarginTop />
+        <h2 className='text-4xl font-extrabold'>{title}</h2>
+        <SubInfo
+          author={profile?.username || 'name'}
+          created_at={created_at}
+          hasMarginTop
+        />
       </PostHead>
       {actionButtons}
       <PostContent dangerouslySetInnerHTML={{ __html: content }} />

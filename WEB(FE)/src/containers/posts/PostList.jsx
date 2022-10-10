@@ -44,7 +44,7 @@ const PostItem = ({ post }) => {
   const { created_at, author, title, content, pk } = post;
   return (
     <PostItemBlock>
-      <Link to={`/post/@${author || 'name'}/${pk}`}>{title}</Link>
+      <Link to={`/posts/@${author || 'name'}/${pk}`}>{title}</Link>
       <SubInfo author={author || 'name'} created_at={new Date(created_at)} />
       <p>{content}</p>
     </PostItemBlock>
@@ -67,7 +67,7 @@ const PostList = ({ loading, error, posts, showWriteButton }) => {
       {!loading && posts && (
         <div>
           {posts.results.map((post) => (
-            <PostItem post={post} key={post._id} />
+            <PostItem post={post} key={post.pk} />
           ))}
         </div>
       )}

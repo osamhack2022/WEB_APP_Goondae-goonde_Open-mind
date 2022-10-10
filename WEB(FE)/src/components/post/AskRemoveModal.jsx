@@ -1,4 +1,4 @@
-import AskModal from '../common/askModal';
+import AskModal from '../common/AskModal';
 
 const AskMoveModal = ({ visible, onConfirm, onCancel }) => {
   return (
