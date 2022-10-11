@@ -12,6 +12,7 @@ import PostPage from './pages/PostPage';
 import WritePage from './pages/WritePage';
 import { useRef } from 'react';
 import DrawerContainer from './containers/common/DrawerContainer';
+
 function App() {
   const $hamburger = useRef(null);
   const $pages = useRef(null);
@@ -26,7 +27,7 @@ function App() {
         className='drawer-toggle'
         ref={$hamburger}
       />
-      <section className='drawer-content relative' ref={$pages}>
+      <section className='drawer-content relative ' id='scrollbar' ref={$pages}>
         <Helmet>
           <title>OPEN MIND</title>
         </Helmet>
