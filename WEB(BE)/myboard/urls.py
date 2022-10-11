@@ -62,7 +62,6 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
 	
     
-
     # 음식점 및 숙박시설 DB
     path('locations/', include('locations.urls')),
 

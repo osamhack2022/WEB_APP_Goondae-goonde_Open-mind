@@ -11,7 +11,7 @@ class saveDB:
         
     def creat_db(self):
         self.curser.execute("""CREATE TABLE crawled_data(
-                            name TEXT, 
+                            name TEXT PRIMARY KEY, 
                             category TEXT, 
                             address TEXT, 
                             number TEXT, 
@@ -35,7 +35,7 @@ class saveDB:
     
     def MOU_crawt_db(self):
         self.curser.execute("""CREATE TABLE MOU_data(
-                            name TEXT, 
+                            name TEXT PRIMARY KEY, 
                             region TEXT,  
                             number TEXT, 
                             benefit TEXT)""")
