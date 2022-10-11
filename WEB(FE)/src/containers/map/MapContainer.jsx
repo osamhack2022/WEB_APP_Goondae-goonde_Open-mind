@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
+import useGeolocation from '../../lib/hooks/useGeolocation';
 const { kakao } = window;
-const MapContainer = ({ searchAddress }) => {
+const MapContainer = ({ searchAddress, mine }) => {
+  const myLocation = useGeolocation();
   const [state, setState] = useState({
     // 지도의 초기 위치
     center: { lat: 37.49676871972202, lng: 127.02474726969814 },
@@ -10,17 +12,23 @@ const MapContainer = ({ searchAddress }) => {
     isPanto: true,
   });
 
-  const [position, setPosition] = useState();
+  const [positions, setPosition] = useState([]);
+  useEffect(() => {
+    myLocation.loaded &&
+      setPosition([
+        ...positions,
+        { lat: myLocation.coordinates.lat, lng: myLocation.coordinates.lng },
+      ]);
+  }, [myLocation]);
 
   const geocoder = new kakao.maps.services.Geocoder();
   let callback = function (result, status) {
     if (status === kakao.maps.services.Status.OK) {
       const newSearch = result[0];
-      console.log(newSearch);
       setState({
         center: { lat: newSearch.y, lng: newSearch.x },
       });
-      setPosition({ lat: newSearch.y, lng: newSearch.x });
+      setPosition([...positions, { lat: newSearch.y, lng: newSearch.x }]);
     }
   };
   useEffect(() => geocoder.addressSearch(`${searchAddress}`, callback), []);
@@ -32,7 +40,10 @@ const MapContainer = ({ searchAddress }) => {
       style={{ width: '100%', height: '100%' }}
       level={3}
     >
-      {position && <MapMarker position={position} />}
+      {positions &&
+        positions.map((position, index) => (
+          <MapMarker key={index} position={position} />
+        ))}
     </Map>
   );
 };
