@@ -40,7 +40,7 @@ const PostViewer = ({ post, error, loading, actionButtons }) => {
   return (
     <PostViewerBlock>
       <Helmet>
-        <title> {title} - REACTERS </title>
+        <title>OPEN MIND - {title} </title>
       </Helmet>
       <PostHead>
         <h2 className='text-4xl font-extrabold'>{title}</h2>
