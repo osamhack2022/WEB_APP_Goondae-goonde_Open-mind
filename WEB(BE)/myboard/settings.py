@@ -184,7 +184,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS':
     'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE':
-    3,
+    8,
 }
 
 JWT_AUTH = {
@@ -217,6 +217,17 @@ JWT_AUTH = {
 }
 
 REST_USE_JWT = True
+
+# Swagger API
+SWAGGER_SETTINGS = {
+      'SECURITY_DEFINITIONS': {
+         'JSW Token': {
+               'type': 'apiKey',
+               'name': 'Authorization',
+               'in': 'header'
+         }
+      }
+   }
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
