@@ -11,14 +11,15 @@ class saveDB:
         
     def creat_db(self):
         self.curser.execute("""CREATE TABLE crawled_data(
-                            name TEXT PRIMARY KEY, 
+                            id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            name TEXT, 
                             category TEXT, 
                             address TEXT, 
                             number TEXT, 
                             benefit TEXT)""")
         
     def into_db(self, crawled_data):
-        self.curser.executemany("INSERT INTO crawled_data VALUES(:name, :category, :address, :number, :benefit)", crawled_data)
+        self.curser.executemany("INSERT INTO crawled_data (name, category, address, number, benefit) VALUES (:name, :category, :address, :number, :benefit)", crawled_data)
         self.connect.commit()
                             
     def close_db(self):
@@ -35,11 +36,12 @@ class saveDB:
     
     def MOU_crawt_db(self):
         self.curser.execute("""CREATE TABLE MOU_data(
-                            name TEXT PRIMARY KEY, 
+                            id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            name TEXT, 
                             region TEXT,  
                             number TEXT, 
                             benefit TEXT)""")
         
     def MOU_into_db(self, MOUdata):
-        self.curser.executemany("INSERT INTO MOU_data VALUES(:name, :region, :number, :benefit)", MOUdata)
+        self.curser.executemany("INSERT INTO MOU_data (name, region, number, benefit) VALUES (:name, :region, :number, :benefit)", MOUdata)
         self.connect.commit()

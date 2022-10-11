@@ -4,9 +4,10 @@ from django.contrib.auth.models import User
 from accounts.models import Profile
 
 
-# Location model, pk = name 
+# Location model, pk = id
 class Location(models.Model):
-    name = models.TextField(blank=True, primary_key=True)
+    id = models.AutoField(primary_key=True)
+    name = models.TextField(blank=True)
     category = models.TextField(blank=True, null=True)
     address = models.TextField(blank=True, null=True)
     number = models.TextField(blank=True, null=True)
@@ -16,9 +17,7 @@ class Location(models.Model):
         # Only read crawled_data table
         managed = False
         db_table = 'crawled_data'
-    
-    def __str__(self):
-        return self.name
+
 
 # Review model, pk = id
 class Review(models.Model):
