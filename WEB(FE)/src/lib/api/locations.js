@@ -8,4 +8,5 @@ export const locationsList = ({ page }) => {
   }
 };
 
-export const locationsRead = ({ name }) => client.get(`/locations/${name}`);
+export const readLocation = ({ placeId }) =>
+  client.get(`/locations/${placeId}`);

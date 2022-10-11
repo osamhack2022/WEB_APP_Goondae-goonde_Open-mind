@@ -42,7 +42,6 @@ function App() {
           </Route>
           <Route path='/posts/@:username'>
             <Route index element={<PostListPage />} />
-
             <Route path=':postId' element={<PostPage />} />
           </Route>
           <Route path='/map' element={<MapPage />} />

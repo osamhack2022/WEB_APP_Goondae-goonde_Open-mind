@@ -1,4 +1,4 @@
-import Map from '../components/map/Map';
+import MapContainer from '../containers/map/MapContainer';
 import FooterContainer from '../containers/common/FooterContainer';
 import HeaderContainer from '../containers/common/HeaderContainer';
 
@@ -6,7 +6,7 @@ const MapPage = () => {
   return (
     <>
       <HeaderContainer />
-      <Map />;
+      <MapContainer searchAddress={'경기 고양시 덕양구 화정로 52'} />;
       <FooterContainer />
     </>
   );
