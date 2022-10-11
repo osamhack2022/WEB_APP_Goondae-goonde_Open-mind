@@ -60,7 +60,6 @@ const user = handleActions(
         },
       }
     ) => {
-      console.log(username, token);
       return {
         ...state,
         user: { username, token },
