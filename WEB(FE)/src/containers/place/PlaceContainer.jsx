@@ -17,7 +17,6 @@ const PlaceContainer = () => {
     })
   );
 
-  console.log(location, loading);
   useEffect(() => {
     dispatch(readLocation({ placeId }));
   }, [dispatch, placeId]);
