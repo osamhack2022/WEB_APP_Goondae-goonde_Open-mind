@@ -5,7 +5,7 @@ const DrawerSide = tw.div`
   drawer-side
 `;
 
-const Drawer = ({ closeOverlay }) => {
+const Drawer = ({ closeOverlay, user }) => {
   return (
     <DrawerSide>
       <label htmlFor='side-menu' className='drawer-overlay'></label>
@@ -18,13 +18,23 @@ const Drawer = ({ closeOverlay }) => {
           />
         </li>
         <li className='mt-2'>
-          <Link
-            className='bg-gray-300 hover:bg-gray-500 text-gray-700 active:text-white dark:text-white'
-            to='login'
-            onClick={closeOverlay}
-          >
-            로그인
-          </Link>
+          {user ? (
+            <Link
+              className='bg-gray-300 hover:bg-gray-500 text-gray-700 active:text-white dark:text-white'
+              to='mypage'
+              onClick={closeOverlay}
+            >
+              {user.username}
+            </Link>
+          ) : (
+            <Link
+              className='bg-gray-300 hover:bg-gray-500 text-gray-700 active:text-white dark:text-white'
+              to='login'
+              onClick={closeOverlay}
+            >
+              로그인
+            </Link>
+          )}
         </li>
         <li className='mt-2'>
           <Link
