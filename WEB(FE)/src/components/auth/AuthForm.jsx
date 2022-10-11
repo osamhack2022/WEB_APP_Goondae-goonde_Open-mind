@@ -30,7 +30,6 @@ const textMap = {
 };
 
 const AuthForm = ({ type, form, onChange, onSubmit, error }) => {
-  console.log(error, 'authform');
   const text = textMap[type];
   return (
     <Wrapper>
