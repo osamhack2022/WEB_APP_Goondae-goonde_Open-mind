@@ -5,13 +5,12 @@ import WriteActionButtonsContainer from '../containers/write/WriteActionButtonsC
 import { Helmet } from 'react-helmet-async';
 import HeaderContainer from '../containers/common/HeaderContainer';
 import FooterContainer from '../containers/common/FooterContainer';
-import styled from 'daisyui/dist/styled';
 
 const WritePage = () => {
   return (
     <>
       <Helmet>
-        <title>글 작성하기 - REACTERS</title>
+        <title>OPEN MIND - 글 작성하기</title>
       </Helmet>
       <HeaderContainer />
       <div className='pt-[4rem] h-full'>

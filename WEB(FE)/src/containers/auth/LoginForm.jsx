@@ -24,7 +24,6 @@ const LoginForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log('submit');
     const { username, password } = form;
     dispatch(login({ username, password }));
   };
@@ -42,7 +41,6 @@ const LoginForm = () => {
     }
     if (auth) {
       console.log('로그인 성공');
-      console.log(auth);
       dispatch(check({ form, auth }));
     }
   }, [auth, form, authError, dispatch]);

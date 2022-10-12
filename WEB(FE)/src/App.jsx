@@ -10,32 +10,48 @@ import MapPage from './pages/MapPage';
 import PostListPage from './pages/PostListPage';
 import PostPage from './pages/PostPage';
 import WritePage from './pages/WritePage';
-function App() {
-  return (
-    <div className='App h-screen'>
-      <Helmet>
-        <title>OPEN MIND</title>
-      </Helmet>
-      <Routes>
-        <Route path='/' element={<MainPage />} />
-        <Route path='/index'>
-          <Route index element={<IndexPage />} />
-          <Route path=':placeId' element={<PlacePage />} />
-        </Route>
-        <Route path='/posts'>
-          <Route index element={<PostListPage />} />
-          <Route path='write' element={<WritePage />} />
-        </Route>
-        <Route path='/post/@:username'>
-          <Route index element={<PostListPage />} />
-          <Route path=':postId' element={<PostPage />} />
-        </Route>
+import { useRef } from 'react';
+import DrawerContainer from './containers/common/DrawerContainer';
 
-        <Route path='/map' element={<MapPage />} />
-        <Route path='/login' element={<LoginPage />} />
-        <Route path='/register' element={<RegisterPage />} />
-        <Route path='/mypage' element={<MyPage />} />
-      </Routes>
+function App() {
+  const $hamburger = useRef(null);
+  const $pages = useRef(null);
+  const closeOverlay = () => {
+    $hamburger.current.click();
+  };
+  return (
+    <div className='App h-screen drawer'>
+      <input
+        type='checkbox'
+        id='side-menu'
+        className='drawer-toggle'
+        ref={$hamburger}
+      />
+      <section className='drawer-content relative ' id='scrollbar' ref={$pages}>
+        <Helmet>
+          <title>OPEN MIND</title>
+        </Helmet>
+        <Routes>
+          <Route path='/' element={<MainPage />} />
+          <Route path='/index'>
+            <Route index element={<IndexPage />} />
+            <Route path=':placeId' element={<PlacePage />} />
+          </Route>
+          <Route path='/posts'>
+            <Route index element={<PostListPage />} />
+            <Route path='write' element={<WritePage />} />
+          </Route>
+          <Route path='/posts/@:username'>
+            <Route index element={<PostListPage />} />
+            <Route path=':postId' element={<PostPage />} />
+          </Route>
+          <Route path='/map' element={<MapPage />} />
+          <Route path='/login' element={<LoginPage />} />
+          <Route path='/register' element={<RegisterPage />} />
+          <Route path='/mypage' element={<MyPage />} />
+        </Routes>
+      </section>
+      <DrawerContainer closeOverlay={closeOverlay} />
     </div>
   );
 }

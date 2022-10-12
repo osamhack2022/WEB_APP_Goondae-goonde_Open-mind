@@ -10,6 +10,7 @@ import createSagaMiddleware from '@redux-saga/core';
 import { applyMiddleware, createStore } from 'redux';
 import rootReducer, { rootSaga } from './modules';
 import { tempSetUser, check } from './modules/user';
+import ScrollToTop from './components/common/ScrollToTop';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
@@ -36,7 +37,9 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <HelmetProvider>
-        <App />
+        <ScrollToTop>
+          <App />
+        </ScrollToTop>
       </HelmetProvider>
     </BrowserRouter>
   </Provider>

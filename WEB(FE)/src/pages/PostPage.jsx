@@ -1,11 +1,12 @@
 import FooterContainer from '../containers/common/FooterContainer';
 import HeaderContainer from '../containers/common/HeaderContainer';
+import PostViewerContainer from '../containers/post/PostViewerContainer';
 
 const PostPage = () => {
   return (
     <>
       <HeaderContainer />
-      <h1 className='pt-[4rem]'>postpage</h1>;
+      <PostViewerContainer />
       <FooterContainer />
     </>
   );

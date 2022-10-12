@@ -1,11 +1,13 @@
 import { StarIcon } from '@heroicons/react/20/solid';
+import Map from '../map/Map';
 import { RadioGroup } from '@headlessui/react';
+import MapContainer from '../../containers/map/MapContainer';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-const Place = ({ product, reviews }) => {
+const Place = ({ product, location, reviews }) => {
   return (
     <div className='bg-white'>
       <div className='pt-6'>
@@ -43,7 +45,7 @@ const Place = ({ product, reviews }) => {
                 aria-current='page'
                 className='font-medium text-gray-500 hover:text-gray-600'
               >
-                {product.name}
+                {location.name}
               </a>
             </li>
           </ol>
@@ -75,11 +77,12 @@ const Place = ({ product, reviews }) => {
             </div>
           </div>
           <div className='aspect-w-4 aspect-h-5 sm:overflow-hidden sm:rounded-lg lg:aspect-w-3 lg:aspect-h-4'>
-            <img
+            {/* <img
               src={product.images[3].src}
               alt={product.images[3].alt}
               className='h-full w-full object-cover object-center'
-            />
+            /> */}
+            <MapContainer searchAddress={location.address} />
           </div>
         </div>
 
@@ -87,15 +90,22 @@ const Place = ({ product, reviews }) => {
         <div className='mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24'>
           <div className='lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8'>
             <h1 className='text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl'>
-              {product.name}
+              {location.name}{' '}
+              <span className='text-md sm:text-lg text-gray-400'>
+                {' '}
+                {location.category}
+              </span>
             </h1>
           </div>
 
           {/* Options */}
           <div className='mt-4 lg:row-span-3 lg:mt-0'>
             <h2 className='sr-only'>Product information</h2>
-            <p className='text-3xl tracking-tight text-gray-900'>
-              {product.price}
+            <p className='text-2xl tracking-tight text-gray-900'>
+              {location.address}
+            </p>
+            <p className='text-xl tracking-tight text-gray-600'>
+              {location.number}
             </p>
 
             {/* Reviews */}
@@ -257,7 +267,7 @@ const Place = ({ product, reviews }) => {
                 type='submit'
                 className='mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
               >
-                Add to bag
+                사이트 바로가기
               </button>
             </form>
           </div>
@@ -268,11 +278,11 @@ const Place = ({ product, reviews }) => {
               <h3 className='sr-only'>Description</h3>
 
               <div className='space-y-6'>
-                <p className='text-base text-gray-900'>{product.description}</p>
+                <p className='text-base text-gray-900'>{location.benefit}</p>
               </div>
             </div>
 
-            <div className='mt-10'>
+            {/* <div className='mt-10'>
               <h3 className='text-sm font-medium text-gray-900'>Highlights</h3>
 
               <div className='mt-4'>
@@ -284,15 +294,15 @@ const Place = ({ product, reviews }) => {
                   ))}
                 </ul>
               </div>
-            </div>
+            </div> */}
 
-            <div className='mt-10'>
+            {/* <div className='mt-10'>
               <h2 className='text-sm font-medium text-gray-900'>Details</h2>
 
               <div className='mt-4 space-y-6'>
                 <p className='text-sm text-gray-600'>{product.details}</p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
