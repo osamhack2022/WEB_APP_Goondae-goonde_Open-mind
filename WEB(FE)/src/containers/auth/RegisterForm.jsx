@@ -18,6 +18,10 @@ const RegisterForm = () => {
 
   const onChange = (e) => {
     const { value, name } = e.target;
+    if (authError) {
+      dispatch(initializeForm('authError'));
+      setError('');
+    }
     dispatch(changeField({ form: 'register', key: name, value }));
   };
 
