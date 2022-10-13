@@ -34,7 +34,19 @@ const PostViewer = ({ post, error, loading, actionButtons }) => {
   }
 
   if (loading || !post) {
-    return null;
+    return (
+      <PostViewerBlock>
+        <Helmet>
+          <title>OPEN MIND - 로딩중 </title>
+        </Helmet>
+        <PostHead>
+          <h2 className='text-4xl font-extrabold'>"로딩중"</h2>
+          <SubInfo author={'loading'} created_at={'loading'} hasMarginTop />
+        </PostHead>
+        {actionButtons}
+        <PostContent dangerouslySetInnerHTML={{ __html: 'loading' }} />
+      </PostViewerBlock>
+    );
   }
   const { title, content, profile, created_at } = post;
   return (
