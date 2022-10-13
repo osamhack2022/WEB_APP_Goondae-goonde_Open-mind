@@ -6,7 +6,7 @@ from PyKakao import KakaoLocal
 class processing:
     def __init__(self):
         # kakao rest api key
-        self.rest_key = '*'
+        self.rest_key = '459a42eda57fb7c90780fd8deee6b162'
         self.local = KakaoLocal(self.rest_key)
         
         
@@ -19,8 +19,10 @@ class processing:
             try:    
                 search = self.local.search_address(raw_address)
                 address = search['documents'][0]['road_address']
-                address = str(address)
-                data.update({'address': address})
+                data.update({'address': address['address_name']})
+                data['region'] = address['region_1depth_name']
+                data['x'] = float(address['x'])
+                data['y'] = float(address['y'])
                 result.append(data)
             except:
                 i += 1
