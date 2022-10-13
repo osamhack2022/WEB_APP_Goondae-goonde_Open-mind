@@ -20,7 +20,9 @@ class processing:
                 search = self.local.search_address(raw_address)
                 address = search['documents'][0]['road_address']
                 data.update({'address': address['address_name']})
-                data['region'] = address['region_1depth_name']
+                data['region1'] = address['region_1depth_name']
+                data['region2'] = address['region_2depth_name']
+                data['region3'] = address['region_3depth_name']
                 data['x'] = float(address['x'])
                 data['y'] = float(address['y'])
                 result.append(data)
