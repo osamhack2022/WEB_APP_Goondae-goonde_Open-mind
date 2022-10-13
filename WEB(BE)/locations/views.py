@@ -16,7 +16,7 @@ from locations.permissions import ReviewPermission
 class LocationViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = []
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['category', 'region']
+    filterset_fields = ['category', 'region1', 'region2', 'region3']
     
     serializer_class = LocationSerializer
     queryset = Location.objects.all()
