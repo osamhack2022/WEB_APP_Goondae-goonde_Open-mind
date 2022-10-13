@@ -33,6 +33,7 @@ const PostActionButtons = ({ onEdit, onRemove }) => {
   const [modal, setModal] = useState(false);
 
   const onRemoveClick = () => {
+    console.log('click');
     setModal(true);
   };
 
@@ -53,6 +54,7 @@ const PostActionButtons = ({ onEdit, onRemove }) => {
       </PostActionButtonsBlock>
       <AskRemoveModal
         visible={modal}
+        setVisible={setModal}
         onConfirm={onConfirm}
         onCancel={onCancel}
       />

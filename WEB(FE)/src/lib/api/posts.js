@@ -14,14 +14,28 @@ export const writePost = ({ title, content }) => {
   );
 };
 
-export const readPost = (id) => client.get(`/posts/${id}`);
+export const readPost = (id) => client.get(`/posts/${id}/`);
 
-export const updatePost = () => {
-  console.log('update');
+export const updatePost = ({ title, content, originalPostId }) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  return client.put(
+    `/posts/${originalPostId}/`,
+    { title, content },
+    {
+      headers: {
+        Authorization: `jwt ${user.token}`,
+      },
+    }
+  );
 };
 
-export const removePost = () => {
-  console.log('remove');
+export const removePost = (id) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  return client.delete(`/posts/${id}/`, {
+    headers: {
+      Authorization: `jwt ${user.token}`,
+    },
+  });
 };
 
 export const listPosts = ({ page }) => {

@@ -4,6 +4,7 @@ import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 
 const AskModal = ({
   visible,
+  setVisible,
   title,
   description,
   confirmText = '확인',
@@ -20,7 +21,7 @@ const AskModal = ({
         as='div'
         className='relative z-10'
         initialFocus={cancelButtonRef}
-        // onClose={setOpen}
+        onClose={setVisible}
       >
         <Transition.Child
           as={Fragment}
