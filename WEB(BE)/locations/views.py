@@ -34,7 +34,7 @@ class ReviewViewSet(viewsets.ModelViewSet):
         return ReviewCreateSerializer
     
     def perform_create(self, serializer):
-        location = Location.objects.get(name=self.request.data['location_name'])
+        location = Location.objects.get(id=self.request.data['location_id'])
         profile = Profile.objects.get(user=self.request.user)
         serializer.save(location=location, author=self.request.user, profile=profile)
         
@@ -43,7 +43,7 @@ class ReviewViewSet(viewsets.ModelViewSet):
 def like_review(request, pk):
     review = get_object_or_404(Review, pk=pk)
     if request.user in review.likes.all():
-        review.likes.removew(request.user)
+        review.likes.remove(request.user)
     else:
         review.likes.add(request.user)
     
