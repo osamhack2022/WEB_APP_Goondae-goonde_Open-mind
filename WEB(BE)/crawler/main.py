@@ -7,7 +7,7 @@ import sqlite3
 import os
 
 #calss 호출
-from crawling import crawler
+from crawling import crawler, data_processing
 from crawling import saveDB
 
 crawling = crawler.crawling()
@@ -53,7 +53,7 @@ while True:
         
     if select == 'db':
         while True:
-            print("1. db.creat_db()\n2. db.into_db()\n3. db.close_db()\n4. db.crawled_amount\n###MOU\n5.MOU_crawt_db()\n6.MOU_into_db()")
+            print("1. db.creat_db()\n2. db.into_db()\n3. db.close_db()\n4. db.crawled_amount\n5. data_proccesing(카카오 REST API KEY 필수)\n###MOU\n6. MOU_crawt_db()\n7. MOU_into_db()")
             select = input("기능수행(숫자), 뒤로가기(back) : ")
             if select.isdigit():
                 try:
@@ -67,8 +67,11 @@ while True:
                         amount = db.crawled_amount()
                         print('저장된 데이터는 %d개 입니다' %amount)
                     elif select == "5":
-                        db.MOU_crawt_db()
+                        processing = data_processing.processing()
+                        crawling.crawled_data = processing.return_address(crawling.crawled_data)2
                     elif select == "6":
+                        db.MOU_crawt_db()
+                    elif select == "7":
                         db.MOU_into_db(crawling.crawled_data)
                 except:
                     print('존재하지 않는 명령이거나 오류가 발생했습니다.')
