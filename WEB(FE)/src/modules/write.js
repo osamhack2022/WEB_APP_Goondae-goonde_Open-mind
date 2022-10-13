@@ -26,10 +26,10 @@ export const writePost = createAction(WRITE_POST, ({ title, content }) => ({
 export const setOriginalPost = createAction(SET_ORIGINAL_POST, (post) => post);
 export const updatePost = createAction(
   UPDATE_POST,
-  ({ id, title, content }) => ({
-    id,
+  ({ title, content, originalPostId }) => ({
     title,
     content,
+    originalPostId,
   })
 );
 
@@ -73,7 +73,7 @@ const write = handleActions(
       ...state,
       title: post.title,
       content: post.content,
-      originalPostId: post._id,
+      originalPostId: post.pk,
     }),
     [UPDATE_POST_SUCCESS]: (state, { payload: post }) => ({
       ...state,
