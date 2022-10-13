@@ -20,9 +20,9 @@ const RegisterForm = () => {
     const { value, name } = e.target;
     if (authError) {
       dispatch(initializeForm('authError'));
-      setError('');
     }
     dispatch(changeField({ form: 'register', key: name, value }));
+    setError('');
   };
 
   const onSubmit = (e) => {
@@ -43,6 +43,8 @@ const RegisterForm = () => {
 
   useEffect(() => {
     dispatch(initializeForm('register'));
+    dispatch(initializeForm('authError'));
+    setError('');
   }, [dispatch]);
 
   useEffect(() => {
@@ -54,10 +56,12 @@ const RegisterForm = () => {
       setError('회원가입 실패');
       return;
     }
-    if (auth) {
+    if (auth === 'email') {
       console.log('회원가입 성공');
       console.log(auth);
-      dispatch(check({ auth, form }));
+      setError('이메일을 확인하세요');
+      dispatch(initializeForm('register'));
+      dispatch(initializeForm('auth'));
     }
   }, [auth, form, authError, dispatch]);
 
