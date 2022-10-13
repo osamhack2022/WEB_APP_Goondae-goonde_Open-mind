@@ -41,12 +41,11 @@ const PostItemBlock = styled.div`
 `;
 
 const PostItem = ({ post }) => {
-  const { created_at, author, title, content, pk } = post;
+  const { created_at, author, title, pk } = post;
   return (
     <PostItemBlock>
       <Link to={`/posts/@${author || 'name'}/${pk}`}>{title}</Link>
       <SubInfo author={author || 'name'} created_at={new Date(created_at)} />
-      <p>{content}</p>
     </PostItemBlock>
   );
 };
