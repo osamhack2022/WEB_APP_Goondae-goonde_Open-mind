@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const PlaceItem = ({ location }) => {
   return (
-    <Link to={`${location.name}`} className='group '>
+    <Link to={`${location.id}`} className='group '>
       <div className='aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8'>
         <img
           src={
@@ -21,9 +21,9 @@ const PlaceItem = ({ location }) => {
       </h3>
       <p className='mt-1 text-sm font-normal text-gray-900  group-hover:text-gray-400'>
         <span>{location.address}</span>
-        <span className='ml-2 text-gray-600  group-hover:text-gray-300'>
-          {location.number}
-        </span>
+      </p>
+      <p className='mt-1 text-sm font-normal text-gray-900  group-hover:text-gray-400'>
+        <span>{location.number}</span>
       </p>
 
       <p className='mt-1 text-lg font-medium text-blue-400 group-hover:text-blue-200'>

@@ -10,6 +10,11 @@ const LoadingPlaceList = () => {
           <LoadingPlaceItem />
           <LoadingPlaceItem />
           <LoadingPlaceItem />
+          <LoadingPlaceItem />
+          <LoadingPlaceItem />
+          <LoadingPlaceItem />
+          <LoadingPlaceItem />
+          <LoadingPlaceItem />
         </div>
       </div>
     </div>
