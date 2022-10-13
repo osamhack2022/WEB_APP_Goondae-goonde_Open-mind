@@ -19,6 +19,7 @@ class processing:
             try:    
                 search = self.local.search_address(raw_address)
                 address = search['documents'][0]['road_address']
+                address = str(address)
                 data.update({'address': address})
                 result.append(data)
             except:

@@ -68,9 +68,7 @@ while True:
                         print('저장된 데이터는 %d개 입니다' %amount)
                     elif select == "5":
                         processing = data_processing.processing()
-                        print(crawling.crawled_data)
                         crawling.crawled_data = processing.return_address(crawling.crawled_data)
-                        print(crawling.crawled_data)
                     elif select == "6":
                         db.MOU_crawt_db()
                     elif select == "7":
