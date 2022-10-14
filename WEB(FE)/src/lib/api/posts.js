@@ -27,6 +27,18 @@ export const updatePost = ({ title, content, originalPostId }) => {
       },
     }
   );
+
+export const addLike = ({ likeCnt, postId }) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  return client.patch(
+    `/posts/${postId}/`,
+    { likes: likeCnt + 1 },
+    {
+      headers: {
+        Authorization: `jwt ${user.token}`,
+      },
+    }
+  );
 };
 
 export const removePost = (id) => {

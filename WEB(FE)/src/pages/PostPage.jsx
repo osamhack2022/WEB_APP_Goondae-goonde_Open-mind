@@ -1,5 +1,6 @@
 import FooterContainer from '../containers/common/FooterContainer';
 import HeaderContainer from '../containers/common/HeaderContainer';
+import LikeContainer from '../containers/post/LikeContainer';
 import PostViewerContainer from '../containers/post/PostViewerContainer';
 
 const PostPage = () => {
@@ -7,6 +8,7 @@ const PostPage = () => {
     <>
       <HeaderContainer />
       <PostViewerContainer />
+      <LikeContainer />
       <FooterContainer />
     </>
   );

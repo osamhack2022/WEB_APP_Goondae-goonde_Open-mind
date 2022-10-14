@@ -8,13 +8,18 @@ import { takeLatest } from 'redux-saga/effects';
 const [READ_POST, READ_POST_SUCCESS, READ_POST_FAILURE] =
   createRequestActionTypes('post/READ_POST');
 const UNLOAD_POST = 'post/UNLOAD_POST';
+const [ADD_LIKE, ADD_LIKE_SUCCESS, ADD_LIKE_FAILURE] =
+  createRequestActionTypes('post/ADD_LIKE');
 
+export const addLike = createAction(ADD_LIKE, (id) => id);
 export const readPost = createAction(READ_POST, (id) => id);
 export const unloadPost = createAction(UNLOAD_POST);
 
 const readPostSaga = createRequestSaga(READ_POST, postsAPI.readPost);
+const addLikeSaga = createRequestSaga(ADD_LIKE, postsAPI.addLike);
 export function* postSaga() {
   yield takeLatest(READ_POST, readPostSaga);
+  yield takeLatest(ADD_LIKE, addLikeSaga);
 }
 
 const initialState = {
@@ -29,6 +34,14 @@ const post = handleActions(
       post,
     }),
     [READ_POST_FAILURE]: (state, { payload: error }) => ({
+      ...state,
+      error,
+    }),
+    [ADD_LIKE_SUCCESS]: (state, { payload: post }) => ({
+      ...state,
+      post,
+    }),
+    [ADD_LIKE_FAILURE]: (state, { payload: error }) => ({
       ...state,
       error,
     }),
