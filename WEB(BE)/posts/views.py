@@ -32,7 +32,7 @@ class PostViewSet(viewsets.ModelViewSet):
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def like_post(request, pk):
-    post = get_object_or_404(post, pk=pk)
+    post = get_object_or_404(Post, pk=pk)
     if request.user in post.likes.all():
         post.likes.remove(request.user)
     else:
