@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import AuthForm from '../../components/auth/AuthForm';
 import { changeField, initializeForm, register } from '../../modules/auth';
 import { useNavigate } from 'react-router-dom';
-import { check } from '../../modules/user';
 
 const RegisterForm = () => {
   const [error, setError] = useState(null);
