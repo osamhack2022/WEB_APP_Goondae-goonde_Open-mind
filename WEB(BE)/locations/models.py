@@ -10,6 +10,11 @@ class Location(models.Model):
     name = models.TextField(blank=True)
     category = models.TextField(blank=True, null=True)
     address = models.TextField(blank=True, null=True)
+    region1 = models.TextField(blank=True, null=True)
+    region2 = models.TextField(blank=True, null=True)
+    region3 = models.TextField(blank=True, null=True)
+    x = models.FloatField(blank=True, null=True)
+    y = models.FloatField(blank=True, null=True)
     number = models.TextField(blank=True, null=True)
     benefit = models.TextField(blank=True, null=True)
 

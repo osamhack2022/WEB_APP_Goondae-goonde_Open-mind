@@ -27,7 +27,6 @@ export const updatePost = ({ title, content, originalPostId }) => {
       },
     }
   );
-};
 
 export const addLike = ({ likeCnt, postId }) => {
   const user = JSON.parse(localStorage.getItem('user'));

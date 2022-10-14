@@ -14,12 +14,17 @@ class saveDB:
                             id INTEGER PRIMARY KEY AUTOINCREMENT,
                             name TEXT, 
                             category TEXT, 
-                            address TEXT, 
+                            address TEXT,
+                            region1 TEXT,
+                            region2 TEXT,
+                            region3 TEXT,
+                            x REAL,
+                            y REAL,
                             number TEXT, 
                             benefit TEXT)""")
         
     def into_db(self, crawled_data):
-        self.curser.executemany("INSERT INTO crawled_data (name, category, address, number, benefit) VALUES (:name, :category, :address, :number, :benefit)", crawled_data)
+        self.curser.executemany("INSERT INTO crawled_data (name, category, address, region1, region2, region3, x, y, number, benefit) VALUES (:name, :category, :address, :region1, :region2, :region3, :x, :y, :number, :benefit)", crawled_data)
         self.connect.commit()
                             
     def close_db(self):
@@ -38,7 +43,7 @@ class saveDB:
         self.curser.execute("""CREATE TABLE MOU_data(
                             id INTEGER PRIMARY KEY AUTOINCREMENT,
                             name TEXT, 
-                            region TEXT,  
+                            region TEXT,
                             number TEXT, 
                             benefit TEXT)""")
         
