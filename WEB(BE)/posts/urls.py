@@ -7,5 +7,5 @@ router = routers.SimpleRouter()
 router.register('posts', PostViewSet)
 
 urlpatterns = router.urls + [
-    path('like/<int:pk>/', like_post, name='like_post')
+    path('posts/like/<int:pk>/', like_post, name='like_post')
 ]
