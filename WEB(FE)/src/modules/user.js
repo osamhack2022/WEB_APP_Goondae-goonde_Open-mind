@@ -1,29 +1,14 @@
-// import createRequestSaga, {
-//   createRequestActionTypes,
-// } from '../lib/createRequestSaga';
 import { createAction, handleActions } from 'redux-actions';
 import * as authAPI from '../lib/api/auth';
 import { takeLatest, call } from 'redux-saga/effects';
 
 const TEMP_SET_USER = 'user/TEMP_SET_USER';
 const CHECK = 'user/CHECK';
-// const [CHECK, CHECK_SUCCESS, CHECK_FAILURE] =
-//   createRequestActionTypes('user/CHECK');
 const LOGOUT = 'user/LOGOUT';
 
 export const tempSetUser = createAction(TEMP_SET_USER, (user) => user);
 export const check = createAction(CHECK, ({ auth, form }) => ({ auth, form }));
 export const logout = createAction(LOGOUT);
-
-// const checkSaga = createRequestSaga(CHECK, authAPI.check);
-
-// function checkFailureSaga() {
-//   try {
-//     localStorage.removeItem('user');
-//   } catch (e) {
-//     console.log('localStorage is not working');
-//   }
-// }
 
 function* logoutSaga() {
   try {
@@ -35,8 +20,6 @@ function* logoutSaga() {
 }
 
 export function* userSaga() {
-  // yield takeLatest(CHECK, checkSaga);
-  // yield takeLatest(CHECK_FAILURE, checkFailureSaga);
   yield takeLatest(LOGOUT, logoutSaga);
 }
 
@@ -56,13 +39,13 @@ const user = handleActions(
       {
         payload: {
           auth: { token },
-          form: { username },
+          form: { username, email },
         },
       }
     ) => {
       return {
         ...state,
-        user: { username, token },
+        user: { username, token, email },
       };
     },
     // [CHECK_SUCCESS]: (state, { payload: user }) => ({

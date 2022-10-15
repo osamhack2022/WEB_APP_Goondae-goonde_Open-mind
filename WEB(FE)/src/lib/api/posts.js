@@ -27,18 +27,15 @@ export const updatePost = ({ title, content, originalPostId }) => {
       },
     }
   );
+};
 
-export const addLike = ({ likeCnt, postId }) => {
+export const addLike = ({ postId }) => {
   const user = JSON.parse(localStorage.getItem('user'));
-  return client.patch(
-    `/posts/${postId}/`,
-    { likes: likeCnt + 1 },
-    {
-      headers: {
-        Authorization: `jwt ${user.token}`,
-      },
-    }
-  );
+  return client.get(`/posts/like/${postId}`, {
+    headers: {
+      Authorization: `jwt ${user.token}`,
+    },
+  });
 };
 
 export const removePost = (id) => {
