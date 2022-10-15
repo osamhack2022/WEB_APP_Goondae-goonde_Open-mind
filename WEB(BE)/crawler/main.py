@@ -3,6 +3,7 @@
 import requests
 from bs4 import BeautifulSoup
 import lxml
+from html_table_parser import parser_functions
 import sqlite3
 import os
 
@@ -10,18 +11,52 @@ import os
 from crawling import crawler, data_processing
 from crawling import saveDB
 
+requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
+
 crawling = crawler.crawling()
 db = saveDB.saveDB()
+processing = data_processing.processing()
 
 def result(crawled_data, temp):
 	return print("크롤링 완료(크롤링 한 데이터 %d개, 총 데이터 %d개)" %(len(temp), len(crawled_data)))
 
 while True:
-    print("1. deogyanggun\n2. goseonggun\n3. hwacheongun\n4. yanggugun\n5. cheolwongun\n6. uijeongbusi\n7. donghaesi\n###MOU###\n8. MOUdata")
+    print('''0. ALL\n1. deogyanggun\n2. goseonggun\n3. hwacheongun\n4. yanggugun\n5. cheolwongun\n\
+6. uijeongbusi\n7. donghaesi\n8. sokcho\n9. inje\n10. hongcheon\n11. pocheonsi\n\
+12. changwon\n13. nonsan\n14. yeongcheon\n###MOU###\n99. MOUdata''')
     select = input("크롤링 할 웹페이지 선택(숫자), DB기능수행(db), 나가기(exit) : ")
     if select.isdigit():
         try:
-            if select == "1":
+            if select == "0":
+                temp = crawling.deogyanggun()
+                result(crawling.crawled_data, temp)
+                temp = crawling.goseonggun()
+                result(crawling.crawled_data, temp)
+                temp = crawling.hwacheongun()
+                result(crawling.crawled_data, temp)
+                temp = crawling.yanggugun()
+                temp = crawling.cheolwongun()
+                result(crawling.crawled_data, temp)
+                temp = crawling.uijeongbusi()
+                result(crawling.crawled_data, temp)
+                temp = crawling.donghaesi()
+                result(crawling.crawled_data, temp)
+                temp = crawling.sokcho()
+                result(crawling.crawled_data, temp)
+                temp = crawling.inje()
+                result(crawling.crawled_data, temp)
+                temp = crawling.hongcheon()
+                result(crawling.crawled_data, temp)
+                temp = crawling.pocheonsi()
+                result(crawling.crawled_data, temp)
+                temp = crawling.changwon()
+                result(crawling.crawled_data, temp)
+                temp = crawling.nonsan()
+                result(crawling.crawled_data, temp)
+                temp = crawling.yeongcheon()
+                result(crawling.crawled_data, temp)
+                
+            elif select == "1":
                 temp = crawling.deogyanggun()
                 result(crawling.crawled_data, temp)
             elif select == "2":
@@ -43,6 +78,27 @@ while True:
                 temp = crawling.donghaesi()
                 result(crawling.crawled_data, temp)
             elif select == "8":
+                temp = crawling.sokcho()
+                result(crawling.crawled_data, temp)
+            elif select == "9":
+                temp = crawling.inje()
+                result(crawling.crawled_data, temp)
+            elif select == "10":
+                temp = crawling.hongcheon()
+                result(crawling.crawled_data, temp)
+            elif select == "11":
+                temp = crawling.pocheonsi()
+                result(crawling.crawled_data, temp)
+            elif select == "12":
+                temp = crawling.changwon()
+                result(crawling.crawled_data, temp)
+            elif select == "13":
+                temp = crawling.nonsan()
+                result(crawling.crawled_data, temp)
+            elif select == "14":
+                temp = crawling.yeongcheon()
+                result(crawling.crawled_data, temp)
+            elif select == "99":
                 temp = crawling.MOUdata()
                 result(crawling.crawled_data, temp)
             
@@ -67,8 +123,8 @@ while True:
                         amount = db.crawled_amount()
                         print('저장된 데이터는 %d개 입니다' %amount)
                     elif select == "5":
-                        processing = data_processing.processing()
                         crawling.crawled_data = processing.return_address(crawling.crawled_data)
+                        crawling.crawled_data = processing.return_category(crawling.crawled_data)
                     elif select == "6":
                         db.MOU_crawt_db()
                     elif select == "7":
@@ -77,4 +133,3 @@ while True:
                     print('존재하지 않는 명령이거나 오류가 발생했습니다.')
             if select == 'back':
                 break
-

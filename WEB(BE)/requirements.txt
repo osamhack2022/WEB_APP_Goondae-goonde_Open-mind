@@ -84,3 +84,4 @@ requests==2.24.0
 requests-oauthlib==1.3.0
 urllib3==1.25.11
 PyKakao==0.0.1
+html-table-parser==0.1.0

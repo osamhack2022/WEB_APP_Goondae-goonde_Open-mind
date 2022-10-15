@@ -6,7 +6,7 @@ from PyKakao import KakaoLocal
 class processing:
     def __init__(self):
         # kakao rest api key
-        self.rest_key = '5e10a4eff5ea251beeb6a88624029c19'
+        self.rest_key = '*'
         self.local = KakaoLocal(self.rest_key)
         
         
@@ -31,4 +31,27 @@ class processing:
 
                 # 에러난 데이터는 제외
                 print('error', i, data['address'])
+        return result
+    
+    def return_category(self, crawled_data):
+        result = []
+        i = 0
+        for data in crawled_data:
+            name = data['name']
+            
+            try:    
+                search = self.local.search_keyword(name)
+                category = search['documents'][0]
+                if address['category_group_name'] == '':
+                    data.update({'category': address['category_name']})
+                    result.append(data)
+                else:
+                    data.update({'category': address['category_group_name']})
+                    result.append(data)
+            except:
+                i += 1
+                result.append(data)
+
+                # 에러난 데이터는 제외
+                print('error', i, data['category'])
         return result
