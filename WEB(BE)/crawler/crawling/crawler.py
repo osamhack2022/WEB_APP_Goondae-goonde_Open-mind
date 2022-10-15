@@ -2,6 +2,7 @@
 import requests
 from bs4 import BeautifulSoup
 import lxml
+from html_table_parser import parser_functions
 
 
 class HTMLrequest:
@@ -281,6 +282,229 @@ class crawling(HTMLrequest):
 
         return result
     
+    def sokcho(self):
+        result = []
+        #음식점
+        url = HTMLrequest('https://www.sokcho.go.kr/portal/openinfo/civic_stats_info/militarysupports/discount/eatery')
+        raw_data = url.get_html()
+        get_table = raw_data.find("tbody")
+        table = parser_functions.make2d(get_table)
+        for data in table:
+            into = {
+                'name' : data[0],
+                'category' : '음식점',
+                'address' : data[1],
+                'number' : data[2],
+                'benefit' : data[5],
+            }
+            result.append(into)
+            crawling.crawled_data.append(into)
+
+        #숙박업
+        url = HTMLrequest('https://www.sokcho.go.kr/portal/openinfo/civic_stats_info/militarysupports/discount/lodge')
+        raw_data = url.get_html()
+        get_table = raw_data.find("tbody")
+        table = parser_functions.make2d(get_table)
+        for data in table:
+            into = {
+                'name' : data[0],
+                'category' : '숙박업',
+                'address' : data[1],
+                'number' : data[2],
+                'benefit' : data[5],
+            }
+            result.append(into)
+            crawling.crawled_data.append(into)
+
+        #카페
+        url = HTMLrequest('https://www.sokcho.go.kr/portal/openinfo/civic_stats_info/militarysupports/discount/cafe-singingroom')
+        raw_data = url.get_html()
+        get_table = raw_data.find("tbody")
+        table = parser_functions.make2d(get_table)
+        for data in table:
+            into = {
+                'name' : data[0],
+                'category' : '카페',
+                'address' : data[1],
+                'number' : data[2],
+                'benefit' : data[5],
+            }
+            result.append(into)
+            crawling.crawled_data.append(into)
+
+        #노래방
+        data = raw_data.select_one("#A-Contents > table:nth-of-type(2) > tbody")
+        table = parser_functions.make2d(data)
+        for data in table:
+            into = {
+                'name' : data[0],
+                'category' : '노래방',
+                'address' : data[2],
+                'number' : data[3],
+                'benefit' : '기본 할인율은 10% 내외 ※ 업소별로 추가할인과 우대사항이 상이할 수 있으니, 확인 후 이용바랍니다.',
+            }
+            result.append(into)
+            crawling.crawled_data.append(into)
+            into = {
+                'name' : data[1],
+                'category' : '노래방',
+                'address' : data[4],
+                'number' : data[5],
+                'benefit' : '기본 할인율은 10% 내외 ※ 업소별로 추가할인과 우대사항이 상이할 수 있으니, 확인 후 이용바랍니다.',
+            }
+            result.append(into)
+            crawling.crawled_data.append(into)
+            
+        #영화관
+        url = HTMLrequest('https://www.sokcho.go.kr/portal/openinfo/civic_stats_info/militarysupports/discount/movie-books')
+        raw_data = url.get_html()
+        data = raw_data.select_one("#A-Contents > table:nth-of-type(1) > tbody")
+        table = parser_functions.make2d(data)
+        for data in table:
+            into = {
+                'name' : data[0],
+                'category' : '영화관',
+                'address' : data[1],
+                'number' : data[2],
+                'benefit' : data[5],
+            }
+            result.append(into)
+            crawling.crawled_data.append(into)
+
+        #서점
+        data = raw_data.select_one("#A-Contents > table:nth-of-type(2) > tbody")
+        table = parser_functions.make2d(data)
+        for data in table:
+            into = {
+                'name' : data[0],
+                'category' : '서점',
+                'address' : data[1],
+                'number' : data[2],
+                'benefit' : '기본 할인율은 10% 내외 ※ 업소별로 추가할인과 우대사항이 상이할 수 있으니, 확인 후 이용바랍니다.',
+            }
+            result.append(into)
+            crawling.crawled_data.append(into)
+
+        
+        #박물관/미술관
+        data = raw_data.select_one("#A-Contents > table:nth-of-type(3) > tbody")
+        table = parser_functions.make2d(data)
+        for data in table:
+            into = {
+                'name' : data[0],
+                'category' : '박물관/미술관',
+                'address' : data[1],
+                'number' : data[2],
+                'benefit' : data[5],
+            }
+            result.append(into)
+            crawling.crawled_data.append(into)
+
+        #체육시설
+        data = raw_data.select_one("#A-Contents > table:nth-of-type(4) > tbody")
+        table = parser_functions.make2d(data)
+        for data in table:
+            into = {
+                'name' : data[0],
+                'category' : '체육시설',
+                'address' : data[1],
+                'number' : data[2],
+                'benefit' : data[5],
+            }
+            result.append(into)
+            crawling.crawled_data.append(into)
+
+        #당구장
+        data = raw_data.select_one("#A-Contents > table:nth-of-type(5) > tbody")
+        table = parser_functions.make2d(data)
+        for data in table:
+            into = {
+                'name' : data[0],
+                'category' : '당구장',
+                'address' : data[1],
+                'number' : data[2],
+                'benefit' : data[5],
+            }
+            result.append(into)
+            crawling.crawled_data.append(into)
+
+        #기타
+        data = raw_data.select_one("#A-Contents > table:nth-of-type(6) > tbody")
+        table = parser_functions.make2d(data)
+        for data in table:
+            into = {
+                'name' : data[0],
+                'category' : '기타',
+                'address' : data[1],
+                'number' : data[2],
+                'benefit' : data[5],
+            }
+            result.append(into)
+            crawling.crawled_data.append(into)
+
+        return result
+    
+    def inje(self):
+        result = []
+        urls = ['https://www.inje.go.kr/portal/inje-news/soldier/givePreference/restaurant','https://www.inje.go.kr/portal/inje-news/soldier/givePreference/lodgingIndustry','https://www.inje.go.kr/portal/inje-news/soldier/givePreference/hair','https://www.inje.go.kr/portal/inje-news/soldier/givePreference/pcroom']
+        for url in urls:
+            url = HTMLrequest(url)
+            raw_data = url.get_html()
+            get_table = raw_data.find("tbody")
+            table = parser_functions.make2d(get_table)
+
+            for data in table:
+                into = {
+                    'name' : data[2],
+                    'category' : data[1],
+                    'address' : data[3],
+                    'number' : data[4],
+                    'benefit' : crawling.refund,
+                }
+                
+                result.append(into)
+                crawling.crawled_data.append(into)
+        return result
+    
+    def paju(self):
+        result = []
+        for i in range(1,5):
+            url = HTMLrequest('https://tour.paju.go.kr/tour/tourInfo/tourInfo03.jsp#tab-content1')
+            raw_data = url.get_html()
+            get_table = raw_data.select_one("#tab-content{} > div > div > table > tbody".format(i))
+            table = parser_functions.make2d(get_table)
+            print(table)
+            for data in table[1:]:
+                into = {
+                    'name' : data[2],
+                    'category' : data[1],
+                    'address' : data[3],
+                    'number' : data[4],
+                    'benefit' : '10%내외할인 또는 정액제',
+                }
+                result.append(into)
+                crawling.crawled_data.append(into)
+        return result
+    
+    def hongcheon(self):
+        result=[]
+        for i in range(1,9):
+            url = HTMLrequest('https://www.hongcheon.go.kr/tour/selectTourCntntsWebBbsList.do?pageUnit=10&searchCnd=all&key=1943&ctgry=22&searchShowAt=Y&pageIndex={}'.format(i))
+            raw_data = url.get_html()
+            get_table = raw_data.select_one("#contents > div > div.p-wrap.bbs.bbs__list > table > tbody")
+            table = parser_functions.make2d(get_table)
+            for data in table:
+                into = {
+                    'name' : data[1],
+                    'category' : '',
+                    'address' : data[3],
+                    'number' : data[4],
+                    'benefit' : '',
+                    }
+                result.append(into)
+                crawling.crawled_data.append(into)
+        return result
+    
     def pocheonsi(self):
         result = []
         headers = {
@@ -289,12 +513,12 @@ class crawling(HTMLrequest):
         }
         params = {
             'page': '1',
-            'perPage': '100',
+            'perPage': '999',
             'serviceKey': '*',
         }
 
         response = requests.get('https://api.odcloud.kr/api/15106202/v1/uddi:*', params=params, headers=headers)
-
+        
         raw_data = response.json()["data"]
 
         for data in  raw_data:
@@ -304,6 +528,93 @@ class crawling(HTMLrequest):
                 'address' : data['사업장 주소'],
                 'number' : data['전화번호'],
                 'benefit' : data['할인내용'],
+            }
+
+            result.append(into)
+            crawling.crawled_data.append(into)
+        return result
+    
+    def changwon(self):
+        result = []
+        headers = {
+            'accept': 'application/json',
+            'Authorization': '*',
+        }
+        params = {
+            'page': '1',
+            'perPage': '999',
+            'serviceKey': '*',
+        }
+
+        response = requests.get('https://api.odcloud.kr/api/15106202/v1/uddi:*', params=params, headers=headers)
+
+        raw_data = response.json()["data"]
+
+        for data in  raw_data:
+            into = {
+                'name' : data['업소명'],
+                'category' : '음식점',
+                'address' : data['소재지'],
+                'number' : data['전화번호'],
+                'benefit' : '창원시 관내 입영장병 가족할인업소(할인율 : 카드 5%, 현금 10%)',
+            }
+
+            result.append(into)
+            crawling.crawled_data.append(into)
+        return result
+    
+    def nonsan(self):
+        result = []
+        headers = {
+            'accept': 'application/json',
+            'Authorization': '*',
+        }
+        params = {
+            'page': '1',
+            'perPage': '999',
+            'serviceKey': '*',
+        }
+
+        response = requests.get('https://api.odcloud.kr/api/15106202/v1/uddi:*', params=params, headers=headers)
+
+        raw_data = response.json()["data"]
+
+        for data in  raw_data:
+            into = {
+                'name' : data['업소명'],
+                'category' : data['업소구분'],
+                'address' : data['주소'],
+                'number' : data['전화번호'],
+                'benefit' : str(data['입영및면회객할인율'])+'%',
+            }
+
+            result.append(into)
+            crawling.crawled_data.append(into)
+        return result
+    
+    def yeongcheon(self):
+        result = []
+        headers = {
+            'accept': 'application/json',
+            'Authorization': '*',
+        }
+        params = {
+            'page': '1',
+            'perPage': '999',
+            'serviceKey': '*',
+        }
+
+        response = requests.get('https://api.odcloud.kr/api/15106202/v1/uddi:*', params=params, headers=headers)
+
+        raw_data = response.json()["data"]
+
+        for data in  raw_data:
+            into = {
+                'name' : data['상호'],
+                'category' : '음식점',
+                'address' : data['주소'],
+                'number' : data['전화번호'],
+                'benefit' : '',
             }
 
             result.append(into)
