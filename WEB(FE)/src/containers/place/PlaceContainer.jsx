@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router';
+import BreadCrumb from '../../components/common/BreadCrumb';
 import Place from '../../components/place/Place';
 import ReviewModal from '../../components/review/ReviewModal';
 import { product, reviews } from '../../lib/fakeData/product';
@@ -27,6 +28,7 @@ const PlaceContainer = () => {
     <>
       {!loading && location && (
         <>
+          <BreadCrumb category={product.category} crumb={product.name} />
           <Place
             product={product}
             location={location}

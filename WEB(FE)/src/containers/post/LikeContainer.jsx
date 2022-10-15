@@ -1,3 +1,5 @@
+import { click } from '@testing-library/user-event/dist/click';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
@@ -10,26 +12,27 @@ const LikeWrapper = styled(Responsive)`
 `;
 
 const LikeContainer = () => {
+  const [clicked, setClicked] = useState(false);
   const { postId } = useParams();
   const dispatch = useDispatch();
   const { post, loading } = useSelector(({ post, loading }) => ({
     post: post.post,
     loading: loading['post/ADD_LIKE'],
   }));
-  console.log(loading, post);
+  const likes = post ? post.likes : undefined;
+  let likeCnt = likes ? likes[likes?.length - 1] : 0;
+  console.log('rerender');
   const onClick = () => {
-    console.log('click');
-    const likes = post.likes;
-    dispatch(addLike({ likes, postId }));
+    console.log('click', post, clicked);
+    setClicked(!clicked);
+    console.log(likeCnt);
+    dispatch(addLike({ postId }));
   };
+
   return (
-    <>
-      {!loading && post && (
-        <LikeWrapper>
-          <LikeBtn likeCnt={post.likes} onClick={onClick} />
-        </LikeWrapper>
-      )}
-    </>
+    <LikeWrapper>
+      <LikeBtn likeCnt={likeCnt} clicked={clicked} onClick={onClick} />
+    </LikeWrapper>
   );
 };
 

@@ -37,9 +37,8 @@ const post = handleActions(
       ...state,
       error,
     }),
-    [ADD_LIKE_SUCCESS]: (state, { payload: post }) => ({
+    [ADD_LIKE_SUCCESS]: (state) => ({
       ...state,
-      post,
     }),
     [ADD_LIKE_FAILURE]: (state, { payload: error }) => ({
       ...state,
