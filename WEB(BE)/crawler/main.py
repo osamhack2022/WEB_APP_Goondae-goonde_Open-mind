@@ -28,8 +28,8 @@ def result(crawled_data, temp):
 
 while True:
     print('''0. ALL\n1. deogyanggu\n2. goseonggun\n3. hwacheongun\n4. yanggugun\n5. cheolwongun\n\
-6. uijeongbusi\n7. donghaesi\n8. sokchosi\n9. injegun\n10. hongcheongun\n11. pocheonsi\n\
-12. changwonsi\n13. nonsansi\n14. yeongcheonsi\n###MOU###\n99. MOUdata''')
+6. uijeongbusi\n7. donghaesi\n8. sokchosi\n9. injegun\n10. pajusi\n11. hongcheongun\n12. pocheonsi\n\
+13. changwonsi\n14. nonsansi\n15. yeongcheonsi\n###MOU###\n99. MOUdata''')
     select = input("크롤링 할 웹페이지 선택(숫자), DB기능수행(db), 나가기(exit) : ")
     if select.isdigit():
         try:
@@ -50,6 +50,8 @@ while True:
                 temp = crawling.sokchosi()
                 result(crawling.crawled_data, temp)
                 temp = crawling.injegun()
+                result(crawling.crawled_data, temp)
+                temp = crawling.pajusi()
                 result(crawling.crawled_data, temp)
                 temp = crawling.hongcheongun()
                 result(crawling.crawled_data, temp)
@@ -90,18 +92,21 @@ while True:
                 temp = crawling.injegun()
                 result(crawling.crawled_data, temp)
             elif select == "10":
-                temp = crawling.hongcheongun()
+                temp = crawling.pajusi()
                 result(crawling.crawled_data, temp)
             elif select == "11":
-                temp = crawling.pocheonsi()
+                temp = crawling.hongcheongun()
                 result(crawling.crawled_data, temp)
             elif select == "12":
-                temp = crawling.changwonsi()
+                temp = crawling.pocheonsi()
                 result(crawling.crawled_data, temp)
             elif select == "13":
-                temp = crawling.nonsansi()
+                temp = crawling.changwonsi()
                 result(crawling.crawled_data, temp)
             elif select == "14":
+                temp = crawling.nonsansi()
+                result(crawling.crawled_data, temp)
+            elif select == "15":
                 temp = crawling.yeongcheonsi()
                 result(crawling.crawled_data, temp)
             elif select == "99":

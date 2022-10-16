@@ -466,14 +466,14 @@ class crawling(HTMLrequest):
                 crawling.crawled_data.append(into)
         return result
     
-    def paju(self):
+    def pajusi(self):
         result = []
         for i in range(1,5):
             url = HTMLrequest('https://tour.paju.go.kr/tour/tourInfo/tourInfo03.jsp#tab-content1')
             raw_data = url.get_html()
             get_table = raw_data.select_one("#tab-content{} > div > div > table > tbody".format(i))
             table = parser_functions.make2d(get_table)
-            print(table)
+            #print(table)
             for data in table[1:]:
                 into = {
                     'name' : data[2],
