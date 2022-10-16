@@ -11,6 +11,12 @@ import os
 from crawling import crawler, data_processing
 from crawling import saveDB
 
+''' collections.Callable 참조가 파이썬 3.10부터 collections.abc.Callable로 이동하여, 제거된 Attribute라서 발생하는 오류인
+[AttributeError: module 'collections' has no attribute 'Callable'] 에러 처리 '''
+import collections
+if not hasattr(collections, 'Callable'):
+    collections.Callable = collections.abc.Callable
+
 requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
 
 crawling = crawler.crawling()
