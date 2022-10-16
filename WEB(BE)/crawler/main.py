@@ -21,14 +21,14 @@ def result(crawled_data, temp):
 	return print("크롤링 완료(크롤링 한 데이터 %d개, 총 데이터 %d개)" %(len(temp), len(crawled_data)))
 
 while True:
-    print('''0. ALL\n1. deogyanggun\n2. goseonggun\n3. hwacheongun\n4. yanggugun\n5. cheolwongun\n\
-6. uijeongbusi\n7. donghaesi\n8. sokcho\n9. inje\n10. hongcheon\n11. pocheonsi\n\
-12. changwon\n13. nonsan\n14. yeongcheon\n###MOU###\n99. MOUdata''')
+    print('''0. ALL\n1. deogyanggu\n2. goseonggun\n3. hwacheongun\n4. yanggugun\n5. cheolwongun\n\
+6. uijeongbusi\n7. donghaesi\n8. sokchosi\n9. injegun\n10. hongcheongun\n11. pocheonsi\n\
+12. changwonsi\n13. nonsansi\n14. yeongcheonsi\n###MOU###\n99. MOUdata''')
     select = input("크롤링 할 웹페이지 선택(숫자), DB기능수행(db), 나가기(exit) : ")
     if select.isdigit():
         try:
             if select == "0":
-                temp = crawling.deogyanggun()
+                temp = crawling.deogyanggu()
                 result(crawling.crawled_data, temp)
                 temp = crawling.goseonggun()
                 result(crawling.crawled_data, temp)
@@ -41,23 +41,23 @@ while True:
                 result(crawling.crawled_data, temp)
                 temp = crawling.donghaesi()
                 result(crawling.crawled_data, temp)
-                temp = crawling.sokcho()
+                temp = crawling.sokchosi()
                 result(crawling.crawled_data, temp)
-                temp = crawling.inje()
+                temp = crawling.injegun()
                 result(crawling.crawled_data, temp)
-                temp = crawling.hongcheon()
+                temp = crawling.hongcheongun()
                 result(crawling.crawled_data, temp)
                 temp = crawling.pocheonsi()
                 result(crawling.crawled_data, temp)
-                temp = crawling.changwon()
+                temp = crawling.changwonsi()
                 result(crawling.crawled_data, temp)
-                temp = crawling.nonsan()
+                temp = crawling.nonsansi()
                 result(crawling.crawled_data, temp)
-                temp = crawling.yeongcheon()
+                temp = crawling.yeongcheonsi()
                 result(crawling.crawled_data, temp)
                 
             elif select == "1":
-                temp = crawling.deogyanggun()
+                temp = crawling.deogyanggu()
                 result(crawling.crawled_data, temp)
             elif select == "2":
                 temp = crawling.goseonggun()
@@ -78,25 +78,25 @@ while True:
                 temp = crawling.donghaesi()
                 result(crawling.crawled_data, temp)
             elif select == "8":
-                temp = crawling.sokcho()
+                temp = crawling.sokchosi()
                 result(crawling.crawled_data, temp)
             elif select == "9":
-                temp = crawling.inje()
+                temp = crawling.injegun()
                 result(crawling.crawled_data, temp)
             elif select == "10":
-                temp = crawling.hongcheon()
+                temp = crawling.hongcheongun()
                 result(crawling.crawled_data, temp)
             elif select == "11":
                 temp = crawling.pocheonsi()
                 result(crawling.crawled_data, temp)
             elif select == "12":
-                temp = crawling.changwon()
+                temp = crawling.changwonsi()
                 result(crawling.crawled_data, temp)
             elif select == "13":
-                temp = crawling.nonsan()
+                temp = crawling.nonsansi()
                 result(crawling.crawled_data, temp)
             elif select == "14":
-                temp = crawling.yeongcheon()
+                temp = crawling.yeongcheonsi()
                 result(crawling.crawled_data, temp)
             elif select == "99":
                 temp = crawling.MOUdata()
