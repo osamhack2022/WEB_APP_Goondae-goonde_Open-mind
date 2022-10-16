@@ -22,7 +22,7 @@ class crawling(HTMLrequest):
     def __init__(self):
         pass
     
-    def deogyanggun(self):
+    def deogyanggu(self):
         result=[]
         for i in range(1,17):
             url = HTMLrequest('http://www.goyang.go.kr/dygu/sldrPrfrBsns/BD_selectSldrPrfrBsnsList.do?q_searchKeyTy=&q_searchVal=&q_rowPerPage=4&q_currPage={}&q_sortName=&q_sortOrder=&'.format(i))
@@ -282,7 +282,7 @@ class crawling(HTMLrequest):
 
         return result
     
-    def sokcho(self):
+    def sokchosi(self):
         result = []
         #음식점
         url = HTMLrequest('https://www.sokcho.go.kr/portal/openinfo/civic_stats_info/militarysupports/discount/eatery')
@@ -444,7 +444,7 @@ class crawling(HTMLrequest):
 
         return result
     
-    def inje(self):
+    def injegun(self):
         result = []
         urls = ['https://www.inje.go.kr/portal/inje-news/soldier/givePreference/restaurant','https://www.inje.go.kr/portal/inje-news/soldier/givePreference/lodgingIndustry','https://www.inje.go.kr/portal/inje-news/soldier/givePreference/hair','https://www.inje.go.kr/portal/inje-news/soldier/givePreference/pcroom']
         for url in urls:
@@ -486,7 +486,7 @@ class crawling(HTMLrequest):
                 crawling.crawled_data.append(into)
         return result
     
-    def hongcheon(self):
+    def hongcheongun(self):
         result=[]
         for i in range(1,9):
             url = HTMLrequest('https://www.hongcheon.go.kr/tour/selectTourCntntsWebBbsList.do?pageUnit=10&searchCnd=all&key=1943&ctgry=22&searchShowAt=Y&pageIndex={}'.format(i))
@@ -534,7 +534,7 @@ class crawling(HTMLrequest):
             crawling.crawled_data.append(into)
         return result
     
-    def changwon(self):
+    def changwonsi(self):
         result = []
         headers = {
             'accept': 'application/json',
@@ -563,7 +563,7 @@ class crawling(HTMLrequest):
             crawling.crawled_data.append(into)
         return result
     
-    def nonsan(self):
+    def nonsansi(self):
         result = []
         headers = {
             'accept': 'application/json',
@@ -592,7 +592,7 @@ class crawling(HTMLrequest):
             crawling.crawled_data.append(into)
         return result
     
-    def yeongcheon(self):
+    def yeongcheonsi(self):
         result = []
         headers = {
             'accept': 'application/json',
