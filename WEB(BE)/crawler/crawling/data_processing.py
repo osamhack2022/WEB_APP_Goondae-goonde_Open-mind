@@ -43,15 +43,11 @@ class processing:
                 search = self.local.search_keyword(name)
                 category = search['documents'][0]
                 if address['category_group_name'] == '':
-                    data.update({'category': address['category_name']})
+                    data.update({'category': category['category_name']})
                     result.append(data)
                 else:
-                    data.update({'category': address['category_group_name']})
+                    data.update({'category': category['category_group_name']})
                     result.append(data)
             except:
-                i += 1
                 result.append(data)
-
-                # 에러난 데이터는 제외
-                print('error', i, data['category'])
         return result
