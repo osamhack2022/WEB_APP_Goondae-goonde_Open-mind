@@ -28,7 +28,7 @@ const PlaceContainer = () => {
     <>
       {!loading && location && (
         <>
-          <BreadCrumb category={product.category} crumb={product.name} />
+          {/* <BreadCrumb category={product.category} crumb={product.name} /> */}
           <Place
             product={product}
             location={location}

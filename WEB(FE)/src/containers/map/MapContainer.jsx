@@ -1,8 +1,11 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import useGeolocation from '../../lib/hooks/useGeolocation';
+
 const { kakao } = window;
+
 const MapContainer = ({ searchAddress, mine }) => {
   const myLocation = useGeolocation();
   const [state, setState] = useState({
@@ -11,8 +14,8 @@ const MapContainer = ({ searchAddress, mine }) => {
     // 지도 위치 변경시 panto를 이용할지(부드럽게 이동)
     isPanto: true,
   });
-
   const [positions, setPosition] = useState([]);
+
   useEffect(() => {
     myLocation.loaded &&
       setPosition([
@@ -22,6 +25,7 @@ const MapContainer = ({ searchAddress, mine }) => {
   }, [myLocation]);
 
   const geocoder = new kakao.maps.services.Geocoder();
+
   let callback = function (result, status) {
     if (status === kakao.maps.services.Status.OK) {
       const newSearch = result[0];
@@ -31,6 +35,7 @@ const MapContainer = ({ searchAddress, mine }) => {
       setPosition([...positions, { lat: newSearch.y, lng: newSearch.x }]);
     }
   };
+
   useEffect(() => geocoder.addressSearch(`${searchAddress}`, callback), []);
 
   return (
@@ -42,7 +47,7 @@ const MapContainer = ({ searchAddress, mine }) => {
     >
       {positions &&
         positions.map((position, index) => (
-          <MapMarker key={index} position={position} />
+          <MapMarker key={index} position={position} title='내위치' />
         ))}
     </Map>
   );

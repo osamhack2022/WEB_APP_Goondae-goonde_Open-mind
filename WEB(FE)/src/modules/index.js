@@ -7,6 +7,7 @@ import locations, { locationsSaga } from './locations';
 import write, { writeSaga } from './write';
 import post, { postSaga } from './post';
 import posts, { postsSaga } from './posts';
+import markers, { markersSaga } from './markers';
 
 import loading from './loading';
 
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   posts,
   loading,
   user,
+  markers,
 });
 
 export function* rootSaga() {
@@ -28,6 +30,7 @@ export function* rootSaga() {
     locationSaga(),
     locationsSaga(),
     writeSaga(),
+    markersSaga(),
     postSaga(),
     postsSaga(),
   ]);
