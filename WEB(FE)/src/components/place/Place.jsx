@@ -1,12 +1,12 @@
 import { StarIcon } from '@heroicons/react/20/solid';
+import React from 'react';
 import MapContainer from '../../containers/map/MapContainer';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-const Place = ({ product, location, reviews, setVisible }) => {
-  console.log(location);
+const Place = ({ product, location, reviews, fake, setVisible }) => {
   return (
     <div className='bg-white mt-[4rem]'>
       <div className='pt-6'>
@@ -118,7 +118,7 @@ const Place = ({ product, location, reviews, setVisible }) => {
                     <StarIcon
                       key={rating}
                       className={classNames(
-                        reviews.average > rating
+                        fake.average > rating
                           ? 'text-gray-900'
                           : 'text-gray-200',
                         'h-5 w-5 flex-shrink-0'
@@ -127,12 +127,12 @@ const Place = ({ product, location, reviews, setVisible }) => {
                     />
                   ))}
                 </div>
-                <p className='sr-only'>{reviews.average} out of 5 stars</p>
+                <p className='sr-only'>{fake.average} out of 5 stars</p>
                 <button
                   onClick={() => setVisible(true)}
                   className='ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500'
                 >
-                  {reviews.totalCount} reviews
+                  {reviews.count} reviews
                 </button>
               </div>
             </div>
@@ -162,4 +162,4 @@ const Place = ({ product, location, reviews, setVisible }) => {
     </div>
   );
 };
-export default Place;
+export default React.memo(Place);

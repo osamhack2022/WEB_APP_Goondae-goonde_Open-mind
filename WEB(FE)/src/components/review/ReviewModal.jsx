@@ -2,13 +2,21 @@ import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { StarIcon } from '@heroicons/react/20/solid';
+import ReviewItem from './ReviewItem';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-const ReviewModal = ({ location, product, visible, setVisible }) => {
-  console.log('review', location);
+const ReviewModal = ({
+  location,
+  reviews,
+  product,
+  visible,
+  setVisible,
+  onChange,
+  onSubmit,
+}) => {
   if (!visible) return null;
   return (
     <Transition.Root show={visible} as={Fragment}>
@@ -82,19 +90,32 @@ const ReviewModal = ({ location, product, visible, setVisible }) => {
                               {product.rating} out of 5 stars
                             </p>
                             <span className='ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500'>
-                              {product.reviewCount} reviews
+                              {reviews.count} reviews
                             </span>
                           </div>
                         </div>
                       </section>
                       <section className='mt-5'>
-                        <form action='submit'>
+                        <form action='submit' onSubmit={onSubmit}>
                           <input
                             type='text'
                             className='w-full bg-gray-300 px-3 py-3 rounded-3xl'
                             placeholder='입력하세요'
+                            onChange={onChange}
                           />
                         </form>
+                        {reviews.results &&
+                          reviews.results.map((review) => {
+                            return (
+                              <ReviewItem
+                                key={review.pk}
+                                image={review.profile.profile_image}
+                                createdAt={review.created_at}
+                                username={review.profile.username}
+                                content={review.content}
+                              />
+                            );
+                          })}
                       </section>
                     </div>
                   </div>
