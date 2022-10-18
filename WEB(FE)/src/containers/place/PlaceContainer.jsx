@@ -5,11 +5,17 @@ import Place from '../../components/place/Place';
 import ReviewModal from '../../components/review/ReviewModal';
 import { product, reviews as fake } from '../../lib/fakeData/product';
 import { readLocation } from '../../modules/location';
-import { changeField, createReview, list } from '../../modules/reviews';
+import {
+  changeField,
+  createReview,
+  initializeForm,
+  list,
+} from '../../modules/reviews';
 
 const PlaceContainer = () => {
   const [visible, setVisible] = useState(false);
   const { placeId } = useParams();
+
   const dispatch = useDispatch();
   const { location, error, user, loading, reviews, review } = useSelector(
     ({ location, loading, user, reviews }) => ({
@@ -36,6 +42,7 @@ const PlaceContainer = () => {
         location_id: location.id,
       })
     );
+    dispatch(initializeForm('review'));
   };
 
   useEffect(() => {
@@ -45,7 +52,7 @@ const PlaceContainer = () => {
 
   return (
     <>
-      {!loading && location && (
+      {!loading && location && reviews && (
         <>
           <Place
             product={product}
@@ -59,6 +66,7 @@ const PlaceContainer = () => {
             reviews={reviews}
             location={location}
             visible={visible}
+            review={review}
             setVisible={setVisible}
             onSubmit={onSubmit}
             onChange={onChange}

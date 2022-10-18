@@ -36,13 +36,14 @@ const MyLocatinMapContainer = () => {
   const displayCenterInfo = (result, status) => {
     if (status === kakao.maps.services.Status.OK) {
       const re = result[0];
+      console.log(re);
       const region1 = re.region_1depth_name
         .split('')
         .reverse()
         .slice(1)
         .reverse()
         .join('');
-      const region2 = `${re.region_2depth_name} ${re.region_3depth_name}`;
+      const region2 = `${re.region_2depth_name}`;
       dispatch(search({ region1, region2 }));
     }
   };

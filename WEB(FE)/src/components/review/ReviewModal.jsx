@@ -13,6 +13,7 @@ const ReviewModal = ({
   reviews,
   product,
   visible,
+  review,
   setVisible,
   onChange,
   onSubmit,
@@ -99,6 +100,7 @@ const ReviewModal = ({
                         <form action='submit' onSubmit={onSubmit}>
                           <input
                             type='text'
+                            value={review}
                             className='w-full bg-gray-300 px-3 py-3 rounded-3xl'
                             placeholder='입력하세요'
                             onChange={onChange}
