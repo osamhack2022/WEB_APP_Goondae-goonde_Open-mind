@@ -1,5 +1,6 @@
 import { StarIcon } from '@heroicons/react/20/solid';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import MapContainer from '../../containers/map/MapContainer';
 
 function classNames(...classes) {
@@ -17,12 +18,12 @@ const Place = ({ product, location, reviews, fake, setVisible }) => {
           >
             <li>
               <div className='flex items-center'>
-                <a
-                  href={product.href}
+                <Link
+                  to={`/index/?category=${location.category}`}
                   className='mr-2 text-sm font-medium text-gray-900'
                 >
                   {location.category}
-                </a>
+                </Link>
                 <svg
                   width={16}
                   height={20}

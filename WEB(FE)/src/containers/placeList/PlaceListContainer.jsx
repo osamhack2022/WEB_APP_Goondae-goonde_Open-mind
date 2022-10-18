@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import qs from 'qs';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import Pagination from '../../components/common/Pagination';
 import PlaceList from '../../components/places/PlaceList';
 import LoadingPlaceList from '../../components/loading/LoadingPlaceList';
@@ -19,14 +19,15 @@ const PlaceListContainer = () => {
     })
   );
   const page = parseInt(searchParams.get('page'), 10) || 1;
-  const buildLink = ({ username, page }) => {
-    const query = qs.stringify({ page });
+  const category = searchParams.get('category');
+  const buildLink = ({ username, page, category }) => {
+    const query = qs.stringify({ category, page });
     return username ? `@${username}?${query}` : `?${query}`;
   };
 
   useEffect(() => {
-    dispatch(list({ page }));
-  }, [dispatch, page]);
+    dispatch(list({ category, page }));
+  }, [dispatch, category, page]);
 
   return (
     <>

@@ -26,6 +26,7 @@ export const createReview = createAction(
     location_id,
   })
 );
+export const initializeForm = createAction(INITIALIZE_FORM, (form) => form);
 const listReviewsSaga = createRequestSaga(
   LIST,
   locationsAPI.getLocationReviews
@@ -53,7 +54,10 @@ const reviews = handleActions(
       produce(state, (draft) => {
         draft[form] = value;
       }),
-    [INITIALIZE_FORM]: (state) => initialState,
+    [INITIALIZE_FORM]: (state, { payload: form }) => ({
+      ...state,
+      [form]: initialState[form],
+    }),
     [CREATE_REVIEW_SUCCESS]: (state, { payload: review }) => ({
       ...state,
       review,

@@ -10,6 +10,7 @@ const IndexPage = () => {
         <title> OPEN MIND - 혜택보기 </title>
       </Helmet>
       <HeaderContainer />
+
       <PlaceListContainer />
       <FooterContainer />
     </>

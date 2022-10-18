@@ -1,10 +1,18 @@
 import client from './client';
 
-export const locationsList = ({ page }) => {
+export const locationsList = ({ category, page }) => {
   if (page) {
-    return client.get(`/locations/?page=${page}`);
+    if (category) {
+      return client.get(`/locations/?category=${category}&page=${page}`);
+    } else {
+      return client.get(`/locations/?page=${page}`);
+    }
   } else {
-    return client.get('/locations');
+    if (category) {
+      return client.get(`/locations/?category=${category}`);
+    } else {
+      return client.get('/locations');
+    }
   }
 };
 
@@ -21,16 +29,6 @@ export const createLocationReview = ({
   location_id,
 }) => {
   const user = JSON.parse(localStorage.getItem('user'));
-  console.log(
-    'author',
-    author,
-    'title',
-    title,
-    'content',
-    content,
-    'lo',
-    location_id
-  );
   client.post(
     '/locations/reviews/',
     { author, title, content, location_id },
