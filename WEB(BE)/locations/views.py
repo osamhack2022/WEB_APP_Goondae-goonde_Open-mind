@@ -11,6 +11,7 @@ from accounts.models import Profile
 
 from locations.models import Location, Review
 from locations.serializers import LocationSerializer, ReviewSerializer, ReviewCreateSerializer
+from locations.permissions import ReviewPermission
 
 
 class LocationViewSet(viewsets.ReadOnlyModelViewSet):
@@ -35,22 +36,21 @@ class ReviewViewSet(viewsets.ModelViewSet):
         return ReviewCreateSerializer
     
     def perform_create(self, serializer):
-        self.request.user = models.User.objects.get(id=1)
+        #self.request.user = models.User.objects.get(id=1) #디버깅용
         location = Location.objects.get(id=self.kwargs['location_id'])
         profile = Profile.objects.get(user=self.request.user)
-        serializer.save(location= location, author=self.request.user, profile=profile)
+        serializer.save(location=location, author=self.request.user, profile=profile)
     
-        
 
         
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def like_review(request, review_id):
-    review = get_object_or_404(Review, id=review_id)
-    if request.user in review.likes.all():
-        review.likes.remove(request.user)
-    else:
-        review.likes.add(request.user)
+# @api_view(['GET'])
+# @permission_classes([IsAuthenticated])
+# def like_location(request, review_id):
+#     review = get_object_or_404(Review, id=review_id)
+#     if request.user in review.likes.all():
+#         review.likes.remove(request.user)
+#     else:
+#         review.likes.add(request.user)
     
-    return Response(status=status.HTTP_200_OK)
+#     return Response(status=status.HTTP_200_OK)
         
