@@ -11,8 +11,6 @@ class LocationSerializer(serializers.ModelSerializer):
         model = Location
         fields = '__all__'
     
-    
-    
 class LocationUserStar(serializers.ModelSerializer):
     class Meta:
         model = LocationUserStar
