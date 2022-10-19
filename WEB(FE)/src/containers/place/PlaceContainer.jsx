@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router';
+import { useParams, useNavigate } from 'react-router';
 import Place from '../../components/place/Place';
 import ReviewModal from '../../components/review/ReviewModal';
+import { removeLocationRview } from '../../lib/api/locations';
 import { product, reviews as fake } from '../../lib/fakeData/product';
 import { readLocation } from '../../modules/location';
 import {
@@ -14,6 +15,8 @@ import {
 
 const PlaceContainer = () => {
   const [visible, setVisible] = useState(false);
+  const [reviewsArray, setReviewsArray] = useState([]);
+  const navigate = useNavigate();
   const { placeId } = useParams();
 
   const dispatch = useDispatch();
@@ -45,10 +48,31 @@ const PlaceContainer = () => {
     dispatch(initializeForm('review'));
   };
 
+  const handleClose = () => {
+    setVisible(false);
+    dispatch(initializeForm('review'));
+  };
+
+  const onEdit = () => {};
+  const onRemove = async (reviewId) => {
+    try {
+      await removeLocationRview({ placeId: location.id, reviewId });
+    } catch (e) {
+      console.error(e);
+    } finally {
+      navigate(0);
+    }
+  };
+
   useEffect(() => {
     dispatch(readLocation({ placeId }));
     dispatch(list({ placeId }));
+    return () => dispatch(initializeForm('review'));
   }, [dispatch, placeId]);
+
+  useEffect(() => {
+    reviews && setReviewsArray(reviews.results);
+  }, [reviews]);
 
   return (
     <>
@@ -70,6 +94,10 @@ const PlaceContainer = () => {
             setVisible={setVisible}
             onSubmit={onSubmit}
             onChange={onChange}
+            handleClose={handleClose}
+            user={user}
+            onEdit={onEdit}
+            onRemove={onRemove}
           />
         </>
       )}

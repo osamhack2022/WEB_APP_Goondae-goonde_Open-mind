@@ -29,9 +29,18 @@ export const createLocationReview = ({
   location_id,
 }) => {
   const user = JSON.parse(localStorage.getItem('user'));
-  client.post(
+  return client.post(
     '/locations/reviews/',
     { author, title, content, location_id },
     { headers: { Authorization: `jwt ${user.token}` } }
   );
+};
+
+export const removeLocationRview = ({ placeId, reviewId }) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  return client.delete(`/locations/reviews/${reviewId}`, {
+    headers: {
+      Authorization: `jwt ${user.token}`,
+    },
+  });
 };

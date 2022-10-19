@@ -3,6 +3,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { StarIcon } from '@heroicons/react/20/solid';
 import ReviewItem from './ReviewItem';
+import ReviewActionButtons from './ReviewActionButtons';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -17,6 +18,10 @@ const ReviewModal = ({
   setVisible,
   onChange,
   onSubmit,
+  handleClose,
+  user,
+  onEdit,
+  onRemove,
 }) => {
   if (!visible) return null;
   return (
@@ -50,7 +55,7 @@ const ReviewModal = ({
                   <button
                     type='button'
                     className='absolute top-4 right-4 text-gray-400 hover:text-gray-500 sm:top-8 sm:right-6 md:top-6 md:right-6 lg:top-8 lg:right-8'
-                    onClick={() => setVisible(false)}
+                    onClick={handleClose}
                   >
                     <span className='sr-only'>Close</span>
                     <XMarkIcon className='h-6 w-6' aria-hidden='true' />
@@ -108,6 +113,9 @@ const ReviewModal = ({
                         </form>
                         {reviews.results &&
                           reviews.results.map((review) => {
+                            const ownReview =
+                              (user && user.username) ===
+                              review.profile.username;
                             return (
                               <ReviewItem
                                 key={review.pk}
@@ -115,6 +123,14 @@ const ReviewModal = ({
                                 createdAt={review.created_at}
                                 username={review.profile.username}
                                 content={review.content}
+                                actionButtons={
+                                  ownReview && (
+                                    <ReviewActionButtons
+                                      onEdit={onEdit}
+                                      onRemove={() => onRemove(review.pk)}
+                                    />
+                                  )
+                                }
                               />
                             );
                           })}
