@@ -40,16 +40,6 @@ class ReviewViewSet(viewsets.ModelViewSet):
         profile = Profile.objects.get(user=self.request.user)
         serializer.save(location= location, author=self.request.user, profile=profile)
     
-    # def create(self, request, **kwargs):
-    #     serializer = ReviewCreateSerializer(data=request.data)
-    #     location = Location.objects.get(id=self.kwargs['location_id'])
-    #     self.request.user = models.User.objects.get(id=1)
-    #     profile = Profile.objects.get(user=self.request.user)
-    #     if serializer.is_valid():
-    #         serializer.save(author=self.request.user, profile=profile, location=location)
-    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    #     else:
-    #         return Response(status=status.HTTP_400_BAD_REQUEST)
         
 
         
