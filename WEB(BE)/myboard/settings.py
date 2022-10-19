@@ -223,7 +223,7 @@ REST_USE_JWT = True
 # Swagger API
 SWAGGER_SETTINGS = {
       'SECURITY_DEFINITIONS': {
-         'JSW Token': {
+         'JWT Token': {
                'type': 'apiKey',
                'name': 'Authorization',
                'in': 'header'
