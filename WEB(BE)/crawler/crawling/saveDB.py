@@ -10,7 +10,7 @@ class saveDB:
         self.curser = self.connect.cursor()
         
     def creat_db(self):
-        self.curser.execute("""CREATE TABLE crawled_data(
+        self.curser.execute("""CREATE TABLE locations_location(
                             id INTEGER PRIMARY KEY AUTOINCREMENT,
                             name TEXT, 
                             category TEXT, 
@@ -24,14 +24,14 @@ class saveDB:
                             benefit TEXT)""")
         
     def into_db(self, crawled_data):
-        self.curser.executemany("INSERT INTO crawled_data (name, category, address, region1, region2, region3, x, y, number, benefit) VALUES (:name, :category, :address, :region1, :region2, :region3, :x, :y, :number, :benefit)", crawled_data)
+        self.curser.executemany("INSERT INTO locations_location (name, category, address, region1, region2, region3, x, y, number, benefit) VALUES (:name, :category, :address, :region1, :region2, :region3, :x, :y, :number, :benefit)", crawled_data)
         self.connect.commit()
                             
     def close_db(self):
         self.connect.close()
                             
     def crawled_amount(self):
-        self.curser.execute("SELECT * FROM crawled_data")
+        self.curser.execute("SELECT * FROM locations_location")
         save_data = self.curser.fetchall()
         
         amount = 0
