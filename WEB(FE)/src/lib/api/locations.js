@@ -29,7 +29,7 @@ export const createLocationReview = ({
   location_id,
 }) => {
   const user = JSON.parse(localStorage.getItem('user'));
-  client.post(
+  return client.post(
     '/locations/reviews/',
     { author, title, content, location_id },
     { headers: { Authorization: `jwt ${user.token}` } }

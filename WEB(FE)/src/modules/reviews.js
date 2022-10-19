@@ -10,8 +10,10 @@ const INITIALIZE_FORM = 'reviews/INITIALIZE_FORM';
 
 const [LIST, LIST_SUCCESS, LIST_FAILURE] =
   createRequestActionTypes('reviews/LIST');
+
 const [CREATE_REVIEW, CREATE_REVIEW_SUCCESS, CREATE_REVIEW_FAILURE] =
   createRequestActionTypes('reviews/CREATE_REVIEW');
+
 export const list = createAction(LIST, (list) => list);
 export const changeField = createAction(CHANGE_FIELD, ({ form, value }) => ({
   form,
@@ -44,7 +46,7 @@ export function* reviewsSaga() {
 
 const initialState = {
   review: '',
-  reviews: null,
+  reviews: { count: 0, results: null },
   reviewsError: null,
 };
 
@@ -60,7 +62,14 @@ const reviews = handleActions(
     }),
     [CREATE_REVIEW_SUCCESS]: (state, { payload: review }) => ({
       ...state,
-      review,
+      review: '',
+      reviews: {
+        count: state.reviews.count + 1,
+        results: state.reviews.results
+          ? [review, ...state.reviews.results]
+          : [review],
+      },
+      reviewsError: null,
     }),
     [CREATE_REVIEW_FAILURE]: (state, { payload: error }) => ({
       ...state,
@@ -68,7 +77,10 @@ const reviews = handleActions(
     }),
     [LIST_SUCCESS]: (state, { payload: reviews }) => ({
       ...state,
-      reviews,
+      reviews: {
+        count: reviews.count,
+        results: reviews.results.length > 0 && reviews.results.reverse(),
+      },
       reviewsError: null,
     }),
     [LIST_FAILURE]: (state, { payload: error }) => ({
