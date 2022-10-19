@@ -35,3 +35,12 @@ export const createLocationReview = ({
     { headers: { Authorization: `jwt ${user.token}` } }
   );
 };
+
+export const removeLocationRview = ({ placeId, reviewId }) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  return client.delete(`/locations/reviews/${reviewId}`, {
+    headers: {
+      Authorization: `jwt ${user.token}`,
+    },
+  });
+};
