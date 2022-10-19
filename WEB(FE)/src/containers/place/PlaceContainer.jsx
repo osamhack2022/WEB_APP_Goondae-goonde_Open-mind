@@ -14,6 +14,7 @@ import {
 
 const PlaceContainer = () => {
   const [visible, setVisible] = useState(false);
+  const [reviewsArray, setReviewsArray] = useState([]);
   const { placeId } = useParams();
 
   const dispatch = useDispatch();
@@ -45,10 +46,23 @@ const PlaceContainer = () => {
     dispatch(initializeForm('review'));
   };
 
+  const handleClose = () => {
+    setVisible(false);
+    dispatch(initializeForm('review'));
+  };
+
+  const onEdit = () => {};
+  const onRemove = () => {};
+
   useEffect(() => {
     dispatch(readLocation({ placeId }));
     dispatch(list({ placeId }));
+    return () => dispatch(initializeForm('review'));
   }, [dispatch, placeId]);
+
+  useEffect(() => {
+    reviews && setReviewsArray(reviews.results);
+  }, [reviews]);
 
   return (
     <>
@@ -70,6 +84,10 @@ const PlaceContainer = () => {
             setVisible={setVisible}
             onSubmit={onSubmit}
             onChange={onChange}
+            handleClose={handleClose}
+            user={user}
+            onEdit={onEdit}
+            onRemove={onRemove}
           />
         </>
       )}
