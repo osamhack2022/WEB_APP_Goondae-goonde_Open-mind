@@ -1,5 +1,4 @@
 from django_filters.rest_framework import DjangoFilterBackend
-from django.db.models import Exists, OuterRef
 
 from rest_framework import viewsets, status
 from rest_framework.decorators import api_view, permission_classes
@@ -9,11 +8,11 @@ from rest_framework.response import Response
 
 from accounts.models import Profile
 
-from locations.models import Location, Review
-from locations.serializers import LocationDetailSerializer, LocationListSerializer, ReviewListSerializer, ReviewDetailSerializer, ReviewCreateSerializer
+from locations.models import Location, Review, LocationUserStar
+from locations.serializers import LocationDetailSerializer, LocationListSerializer, ReviewListSerializer, ReviewDetailSerializer, ReviewCreateSerializer, LocationUserStarSerializer
 from locations.permissions import ReviewPermission
 
-
+# Location view
 class LocationViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = []
     filter_backends = [DjangoFilterBackend]
@@ -36,7 +35,8 @@ class LocationViewSet(viewsets.ReadOnlyModelViewSet):
         
         serializer = self.get_serializer(page, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-    
+
+# Location like
 @api_view(['patch'])
 @permission_classes([IsAuthenticated])
 def like_location(request, location_id):
@@ -49,7 +49,28 @@ def like_location(request, location_id):
     serializer = LocationDetailSerializer(location)
     return Response({'total_likes': serializer.data['total_likes']}, status=status.HTTP_200_OK)
 
+# Location star
+@api_view(['patch'])
+@permission_classes([IsAuthenticated])
+def star_location(request, location_id):
+    serializer = LocationUserStarSerializer(data=request.data)
+    if serializer.is_valid():
+        location = get_object_or_404(Location, id=location_id)
+        user = request.user
 
+        model = LocationUserStar.objects.filter(location=location, user=user)
+        model.delete()
+
+        if serializer.validated_data['rate'] == 0: # 별점이 0이면 삭제
+            return Response(status=status.HTTP_200_OK)
+        else:
+            serializer.save(location=location, user=user)
+            return Response({'rate': serializer.validated_data['rate']}, status=status.HTTP_200_OK)
+    else:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+
+
+# Review view
 class ReviewViewSet(viewsets.ModelViewSet):
     permission_classes = [ReviewPermission]
     filter_backends = [DjangoFilterBackend]
@@ -70,7 +91,8 @@ class ReviewViewSet(viewsets.ModelViewSet):
         location = Location.objects.get(id=self.kwargs['location_id'])
         profile = Profile.objects.get(user=self.request.user)
         serializer.save(location=location, author=self.request.user, profile=profile)
-    
+
+# Review like
 @api_view(['patch'])
 @permission_classes([IsAuthenticated])
 def like_review(request, location_id, review_id):
@@ -82,16 +104,3 @@ def like_review(request, location_id, review_id):
 
     serializer = ReviewDetailSerializer(review)
     return Response({'total_likes': serializer.data['total_likes']}, status=status.HTTP_200_OK)
-
-# @api_view(['patch'])
-# @permission_classes([IsAuthenticated])
-# def star_location(request, location_id):
-#     location = get_object_or_404(Location, id=location_id)
-#     if request.user in location.likes.all():
-#         location.likes.remove(request.user)
-#     else:
-#         location.likes.add(request.user)
-
-#     serializer = LocationDetailSerializer(location)
-#     return Response({'total_likes': serializer.data['total_likes']}, status=status.HTTP_200_OK)
-        
