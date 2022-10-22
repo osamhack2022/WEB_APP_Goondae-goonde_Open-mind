@@ -27,8 +27,9 @@ class ReviewListSerializer(serializers.ModelSerializer):
     def get_user_liked_toggle(self, obj):
         request =  self.context.get('request', None)
         if request:
-            if request.user in obj.likes.all():
-                return True
+            if request.user.is_authenticated:
+                if request.user in obj.likes.all():
+                    return True
         return False
 
 # location
@@ -46,19 +47,18 @@ class LocationListSerializer(serializers.ModelSerializer):
     
     def get_user_liked_toggle(self, obj):
         request =  self.context.get('request', None)
-        if request.user.is_authenticated:
-            if request.user in obj.likes.all():
-                return True
+        if request:
+            if request.user.is_authenticated:
+                if request.user in obj.likes.all():
+                    return True
         return False
     
-    def get_user_star_rated_toggle(self, obj):
+    def get_user_star_rated_toggle(self, obj): # 평가가 없다면 false, 있다면 평가 점수를 
         request =  self.context.get('request', None)
-        if request.user.is_authenticated:
-            try:
-                if obj.star.get(user=request.user):
+        if request:
+            if request.user.is_authenticated:
+                if obj.star.filter(user=request.user):
                     return obj.star.get(user=request.user).rate
-            except:
-                return False
         return False
     
     def get_total_stars(self, obj):
@@ -84,20 +84,19 @@ class LocationDetailSerializer(serializers.ModelSerializer):
     
     def get_user_liked_toggle(self, obj):
         request =  self.context.get('request', None)
-        if request.user.is_authenticated:
-            if request.user in obj.likes.all():
-                return True
+        if request:
+            if request.user.is_authenticated:
+                if request.user in obj.likes.all():
+                    return True
         return False
     
  
     def get_user_star_rated_toggle(self, obj):
         request =  self.context.get('request', None)
-        if request.user.is_authenticated:
-            try:
-                if obj.star.get(user=request.user):
+        if request:
+            if request.user.is_authenticated:
+                if obj.star.filter(user=request.user):
                     return obj.star.get(user=request.user).rate
-            except:
-                return False
         return False
     
     def get_total_stars(self, obj):
@@ -122,8 +121,9 @@ class ReviewDetailSerializer(serializers.ModelSerializer):
     def get_user_liked_toggle(self, obj):
         request =  self.context.get('request', None)
         if request:
-            if request.user in obj.likes.all():
-                return True
+            if request.user.is_authenticated:
+                if request.user in obj.likes.all():
+                    return True
         return False
 
 class ReviewCreateSerializer(serializers.ModelSerializer):
