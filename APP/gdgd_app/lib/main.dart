@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'page/favorite_page.dart';
-import 'page/gdgdmarker_page.dart';
+import 'page/GDGDfavorite_page.dart';
+import 'page/map/GDGDmap_page.dart';
 import 'page/GDGDwebview_page.dart';
 
 void main() => runApp(MaterialApp(home: BottomNavBar()));
@@ -17,8 +17,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   final screens = [
     GDGDWebView(),
-    GDGDmarker(),
-    Favorite(),
+    GDGDMap(),
+    GDGDFavorite(),
   ];
 
   @override

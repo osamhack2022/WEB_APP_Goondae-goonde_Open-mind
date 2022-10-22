@@ -1,5 +1,5 @@
 {
   "git.ignoreLimitWarning": true,
   "python.linting.enabled": false,
-  "dart.previewFlutterUiGuides": true
+  "dart.previewFlutterUiGuides": true,
 }
