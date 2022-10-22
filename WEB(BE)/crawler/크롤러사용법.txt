@@ -1,0 +1,2 @@
+1. cd WEB\(BE\), python manage.py migrate
+2. cd crawler, python main.py → 지역 선택 크롤링 → db → 5. data_proccesing(카카오 REST API KEY 필수) → 2. db.into_db() → back → exit
