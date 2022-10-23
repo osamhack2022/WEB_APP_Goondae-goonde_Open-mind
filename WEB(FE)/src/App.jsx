@@ -12,6 +12,7 @@ import PostPage from './pages/PostPage';
 import WritePage from './pages/WritePage';
 import { useRef } from 'react';
 import DrawerContainer from './containers/common/DrawerContainer';
+import EmailConfirmPage from './pages/EmailConfirmPage';
 
 function App() {
   const $hamburger = useRef(null);
@@ -48,6 +49,7 @@ function App() {
           <Route path='/map' element={<MapPage />} />
           <Route path='/login' element={<LoginPage />} />
           <Route path='/register' element={<RegisterPage />} />
+          <Route path='/emailConfirm' element={<EmailConfirmPage />} />
           <Route path='/mypage' element={<MyPage />} />
         </Routes>
       </section>

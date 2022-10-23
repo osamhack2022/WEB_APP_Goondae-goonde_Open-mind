@@ -61,6 +61,7 @@ const RegisterForm = () => {
       setError('이메일을 확인하세요');
       dispatch(initializeForm('register'));
       dispatch(initializeForm('auth'));
+      navigate('/emailConfirm');
     }
   }, [auth, form, authError, dispatch]);
 
