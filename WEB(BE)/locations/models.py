@@ -52,3 +52,29 @@ class Review(models.Model):
         managed = True
         db_table = 'locations_review'
 
+# Mou model, pk = id
+class Mou(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.TextField(blank=True)
+    region = models.TextField(blank=True, null=True)
+    number = models.TextField(blank=True, null=True)
+    benefit = models.TextField(blank=True, null=True)
+
+    likes = models.ManyToManyField(User, related_name='like_Mou', blank=True, verbose_name="좋아요")
+
+    class Meta:
+        managed = True
+        db_table = 'MOU_data'
+
+
+# MouUserStar model pk = id
+class MouUserStar(models.Model):
+    mou = models.ForeignKey(Mou, on_delete=models.CASCADE, related_name='star', verbose_name='업소')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='star_Mou', verbose_name='평가자')
+    rate = models.IntegerField(validators = [MinValueValidator(0), MaxValueValidator(5)], blank=False, null=False, verbose_name='별점')
+
+    class Meta:
+        managed = True
+        db_table = 'Mou_user_star'
+
+
