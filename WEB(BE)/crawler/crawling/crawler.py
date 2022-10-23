@@ -18,6 +18,7 @@ class HTMLrequest:
     
 class crawling(HTMLrequest):
     crawled_data = []
+    crawled_mou_data = []
     refund =  '나라사랑카드를 사용할 경우 결제금액의 약 30% 상당의 금액을 지역상품권으로 환급(1회 한도 5만원)'
     def __init__(self):
         pass
@@ -646,6 +647,7 @@ class crawling(HTMLrequest):
             }
 
             result.append(into)
+            crawling.crawled_mou_data.append(into)
             
         return result
         

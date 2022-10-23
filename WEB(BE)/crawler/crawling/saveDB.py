@@ -46,6 +46,14 @@ class saveDB:
                             number TEXT, 
                             benefit TEXT)""")
         
-    def MOU_into_db(self, MOUdata):
-        self.curser.executemany("INSERT INTO MOU_data (name, region, number, benefit) VALUES (:name, :region, :number, :benefit)", MOUdata)
+    def MOU_into_db(self, crawled_mou_data):
+        self.curser.executemany("INSERT INTO MOU_data (name, region, number, benefit) VALUES (:name, :region, :number, :benefit)", crawled_mou_data)
         self.connect.commit()
+
+    def MOU_crawled_amout(self):
+        self.curser.execute("SELECT * FROM MOU_data")
+        save_data = self.curser.fetchall()
+        amount = 0
+        for data in save_data:
+            amount +=1
+        return amount
