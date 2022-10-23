@@ -8,5 +8,7 @@ router.register(r'(?P<location_id>[^/.]+)/reviews', views.ReviewViewSet, basenam
 
 urlpatterns = [
     path('<int:location_id>/like', views.like_location, name='location-like'),
+    path('<int:location_id>/star', views.star_location, name='location-star'),
+    path('<int:location_id>/reviews/<int:review_id>/like', views.like_review, name='review-like'),
 ]
 urlpatterns += router.urls
