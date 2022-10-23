@@ -8,8 +8,8 @@ from rest_framework.response import Response
 
 from accounts.models import Profile
 
-from locations.models import Location, Review, LocationUserStar, Mou, MouUserStar
-from locations.serializers import LocationDetailSerializer, LocationListSerializer, ReviewListSerializer, ReviewDetailSerializer, ReviewCreateSerializer, LocationUserStarSerializer, MouUserStarSerializer, MouListSerializer, MouDetailSerializer
+from locations.models import Location, LocationReview, LocationUserStar, Mou, MouUserStar
+from locations.serializers import LocationDetailSerializer, LocationListSerializer, LocationReviewListSerializer, LocationReviewDetailSerializer, LocationReviewCreateSerializer, LocationUserStarSerializer, MouUserStarSerializer, MouListSerializer, MouDetailSerializer
 from locations.permissions import ReviewPermission
 
 # Location view
@@ -77,15 +77,15 @@ class ReviewViewSet(viewsets.ModelViewSet):
     pagination_class = None
     
     def get_queryset(self):
-        query_set = Review.objects.filter(location=self.kwargs['location_id'])
+        query_set = LocationReview.objects.filter(location=self.kwargs['location_id'])
         return query_set.order_by('-created_at')
 
     def get_serializer_class(self):
         if self.action == 'list':
-            return ReviewListSerializer
+            return LocationReviewListSerializer
         if self.action == 'retrieve':
-            return ReviewDetailSerializer
-        return ReviewCreateSerializer
+            return LocationReviewDetailSerializer
+        return LocationReviewCreateSerializer
     
     def perform_create(self, serializer):
         location = Location.objects.get(id=self.kwargs['location_id'])
@@ -95,7 +95,7 @@ class ReviewViewSet(viewsets.ModelViewSet):
 # Review like
 @api_view(['patch'])
 @permission_classes([IsAuthenticated])
-def like_review(request, location_id, review_id):
+def like_location_review(request, location_id, review_id):
     review = get_object_or_404(Review, id=review_id)
     if request.user in review.likes.all():
         review.likes.remove(request.user)
