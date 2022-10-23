@@ -18,6 +18,48 @@
 	<a href="https://github.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/osamhack2022/WEB_APP_Goondae-goonde_Open-mind"></a>
 	<a href="https://github.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/blob/master/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/osamhack2022/WEB_APP_Goondae-goonde_Open-mind"></a>
 </p>
+<br><br><br>
+<hr>
+<h2>목차</h2>
+<ul>
+<li>
+<a><p>프로젝트 설명 영상</p></a>
+</li>
+<li>
+<a><p>팀 소개</p></a>
+</li>
+<li>
+<a><p>프로젝트 소개</p></a>
+</li>
+<li>
+<a><p>기능 설계</p></a>
+</li>
+<li>
+<a><p>기능 소개</p></a>
+</li>
+<li>
+<a><p>군데군대의 경쟁력</p></a>
+</li>
+<li>
+<a><p>군데군대의 경쟁력</p></a>
+</li>
+<li>
+<a><p>컴퓨터 구성 / 필수조건안내</p></a>
+</li>
+<li>
+<a><p>기술 스택</p></a>
+</li>
+<li>
+<a><p>협업 툴</p></a>
+</li>
+<li>
+<a><p>프로그램 사용법</p></a>
+</li>
+<li>
+<a><p>저작권 및 사용정보</p></a>
+</li>
+</ul>
+<hr>
 
 <br>
 <br>
@@ -48,7 +90,7 @@
 
 ## 팀 소개
 
-<!-- <p align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/TEAM_INFO.png"><img src="img/TEAM_INFO.png"></a></p> -->
+<p align="center"><a href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/TEAM_INFO.png"><img src="./img/TEAM_INFO.png"></a></p>
 
 <br><br>
 
@@ -403,8 +445,6 @@
 </table>
 <br><br>
 
-## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
-
 ## 협업 툴 이용
 
 ### git
@@ -441,7 +481,9 @@
 
 > 각자 팀원들의 전체적인 작업도를 확인하기 위해 활용
 
-## 설치 안내 (Installation Process)
+## 프로젝트 사용법 (Getting Started)
+
+### 설치 안내 (Installation Process)
 
 ```bash
 $ git clone git주소
@@ -454,19 +496,6 @@ $ pip install -r requirements.txt
 $ python manage.py runserver
 
 ```
-
-## 프로젝트 사용법 (Getting Started)
-
-## 팀 정보 (Team Information)
-
-[Open-mind]
-
-> "오픈소스를 열린마음으로 개발하자!"
-
-- Choi Sung Hyun (1233day@naver.com), Github Id: foggy-hyun - 팀장, 백엔드 개발
-- Lee Seung Won (tmddnjs9318@naver.com), Github Id: SolfE - 데이터 처리, 백엔드 개발
-- Park Sin Woo (passenger0209@naver.com), Github Id : KimPalZa - 크롤링, 앱개발
-- Kang In Woong (inwoong100@gmail.com), Github Id: in-woong - 프론트엔드 개발, 디자인
 
 ## 저작권 및 사용권 정보 (Copyleft / End User License)
 
