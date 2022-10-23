@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useSearchParams } from 'react-router-dom';
+import { searchImage } from '../../lib/api/images';
 import { listPosts } from '../../modules/posts';
 import PostList from '../posts/PostList';
 
