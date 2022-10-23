@@ -8,8 +8,8 @@ from rest_framework.response import Response
 
 from accounts.models import Profile
 
-from locations.models import Location, Review, LocationUserStar
-from locations.serializers import LocationDetailSerializer, LocationListSerializer, ReviewListSerializer, ReviewDetailSerializer, ReviewCreateSerializer, LocationUserStarSerializer
+from locations.models import Location, Review, LocationUserStar, Mou, MouUserStar
+from locations.serializers import LocationDetailSerializer, LocationListSerializer, ReviewListSerializer, ReviewDetailSerializer, ReviewCreateSerializer, LocationUserStarSerializer, MouUserStarSerializer, MouListSerializer, MouDetailSerializer
 from locations.permissions import ReviewPermission
 
 # Location view
@@ -104,3 +104,60 @@ def like_review(request, location_id, review_id):
 
     serializer = ReviewDetailSerializer(review)
     return Response({'total_likes': serializer.data['total_likes']}, status=status.HTTP_200_OK)
+
+# Mou view
+class MouViewSet(viewsets.ReadOnlyModelViewSet):
+    permission_classes = []
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['likes']
+    queryset = Mou.objects.all()
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return MouListSerializer
+        return MouDetailSerializer
+    
+    def list(self, request):
+        mou = Mou.objects.all()
+        mou = self.filter_queryset(mou)
+        
+        page = self.paginate_queryset(mou)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+        
+        serializer = self.get_serializer(page, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+# Mou like
+@api_view(['patch'])
+@permission_classes([IsAuthenticated])
+def like_mou(request, mou_id):
+    mou = get_object_or_404(Mou, id=mou_id)
+    if request.user in mou.likes.all():
+        mou.likes.remove(request.user)
+    else:
+        mou.likes.add(request.user)
+
+    serializer = MouDetailSerializer(mou)
+    return Response({'total_likes': serializer.data['total_likes']}, status=status.HTTP_200_OK)
+
+# Mou star
+@api_view(['patch'])
+@permission_classes([IsAuthenticated])
+def star_mou(request, mou_id):
+    serializer = MouUserStarSerializer(data=request.data)
+    if serializer.is_valid():
+        mou = get_object_or_404(Mou, id=mou_id)
+        user = request.user
+
+        model = MouUserStar.objects.filter(mou=mou, user=user)
+        model.delete()
+
+        if serializer.validated_data['rate'] == 0: # 별점이 0이면 삭제
+            return Response(status=status.HTTP_200_OK)
+        else:
+            serializer.save(mou=mou, user=user)
+            return Response({'rate': serializer.validated_data['rate']}, status=status.HTTP_200_OK)
+    else:
+        return Response(status=status.HTTP_400_BAD_REQUEST)

@@ -39,7 +39,7 @@ class saveDB:
         	amount += 1
         return amount
     
-    def MOU_crawt_db(self):
+    def MOU_create_db(self):
         self.curser.execute("""CREATE TABLE MOU_data(
                             id INTEGER PRIMARY KEY AUTOINCREMENT,
                             name TEXT, 
