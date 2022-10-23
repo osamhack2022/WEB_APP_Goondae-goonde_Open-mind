@@ -622,8 +622,17 @@ class crawling(HTMLrequest):
         return result
     
     def MOUdata(self):
+
+        requests.packages.urllib3.disable_warnings()
+        requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS += ':HIGH:!DH:!aNULL'
+        try:
+            requests.packages.urllib3.contrib.pyopenssl.util.ssl_.DEFAULT_CIPHERS += ':HIGH:!DH:!aNULL'
+        except AttributeError:
+            # no pyopenssl support used / needed / available
+            pass
+
         result = []
-        response = requests.get('https://openapi.mnd.go.kr/*/json/DS_MND_ENLSTMN_DCNT_BEF_INF/1/100')
+        response = requests.get('https://openapi.mnd.go.kr/3733313631313630353532323832313430/json/DS_MND_ENLSTMN_DCNT_BEF_INF/1/100')
 
         json = response.json()
         raw_data = json['DS_MND_ENLSTMN_DCNT_BEF_INF']['row']
