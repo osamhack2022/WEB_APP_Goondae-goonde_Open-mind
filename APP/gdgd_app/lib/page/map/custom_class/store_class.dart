@@ -82,4 +82,3 @@ class Cafe implements StoreType {
     required this.phoneNumber
   });
 }
-
