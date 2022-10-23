@@ -33,10 +33,9 @@ class saveDB:
     def crawled_amount(self):
         self.curser.execute("SELECT * FROM locations_location")
         save_data = self.curser.fetchall()
-        
         amount = 0
         for data in save_data:
-        	amount += 1
+            amount += 1
         return amount
     
     def MOU_create_db(self):
