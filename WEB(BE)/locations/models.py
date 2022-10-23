@@ -37,8 +37,8 @@ class LocationUserStar(models.Model):
         db_table = 'locations_user_star'
 
 
-# Review model, pk = id
-class Review(models.Model):
+# LocationReview model, pk = id
+class LocationReview(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='review', verbose_name="업소")
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='review', verbose_name="게시자")
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True, related_name='review', verbose_name="프로필")

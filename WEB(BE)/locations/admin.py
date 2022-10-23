@@ -1,5 +1,5 @@
 from django.contrib import admin
-from locations.models import Location, Review
+from locations.models import Location, LocationReview
 
 admin.site.register(Location)
-admin.site.register(Review)
+admin.site.register(LocationReview)

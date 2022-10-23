@@ -4,7 +4,7 @@ from rest_framework import serializers
 
 from accounts.serializers import ProfileSerializer
 
-from locations.models import Location, Review, LocationUserStar, Mou, MouUserStar
+from locations.models import Location, LocationReview, LocationUserStar, Mou, MouUserStar
 
 # location_star
 class LocationUserStarSerializer(serializers.ModelSerializer):
@@ -15,13 +15,13 @@ class LocationUserStarSerializer(serializers.ModelSerializer):
 
 
 # location_review
-class ReviewListSerializer(serializers.ModelSerializer):
+class LocationReviewListSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer(read_only=True)
     total_likes = serializers.IntegerField(source='likes.count', read_only=True)
     user_liked = serializers.SerializerMethodField('get_user_liked_toggle')
 
     class Meta:
-        model = Review
+        model = LocationReview
         fields = ["id", "location", "author", "profile", "content", "image", "created_at", "user_liked", "total_likes"]
     
     def get_user_liked_toggle(self, obj):
@@ -112,13 +112,13 @@ class LocationDetailSerializer(serializers.ModelSerializer):
 
 
 
-class ReviewDetailSerializer(serializers.ModelSerializer):
+class LocationReviewDetailSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer(read_only=True)
     total_likes = serializers.IntegerField(source='likes.count', read_only=True)
     user_liked = serializers.SerializerMethodField('get_user_liked_toggle')
 
     class Meta:
-        model = Review
+        model = LocationReview
         fields = '__all__'
     
     def get_user_liked_toggle(self, obj):
@@ -129,9 +129,9 @@ class ReviewDetailSerializer(serializers.ModelSerializer):
                     return True
         return False
 
-class ReviewCreateSerializer(serializers.ModelSerializer):
+class LocationReviewCreateSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Review
+        model = LocationReview
         fields = ["content", "image"]
 
 
