@@ -34,7 +34,7 @@ const Header = ({ visible, user, onLogOut, themeChange }) => {
         </Link>
       </div>
       {/* {visible && <Search />} */}
-      <div className='lg:navbar-end lg:visible invisible'>
+      <div className='lg:navbar-end min-w-fit lg:visible invisible'>
         <label className='swap swap-rotate mr-2 sm:mr-4'>
           <input type='checkbox' className='js-theme' onChange={themeChange} />
           <svg
@@ -89,7 +89,32 @@ const Header = ({ visible, user, onLogOut, themeChange }) => {
           {user ? (
             <>
               <li>
-                <Link to='/mypage'>{user.username}</Link>
+                <Link to='/mypage'>
+                  {user.username}
+                  <svg
+                    className='fill-current'
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='20'
+                    height='20'
+                    viewBox='0 0 24 24'
+                  >
+                    <path d='M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z' />
+                  </svg>
+                </Link>
+                <ul className='p-2 bg-base-100'>
+                  <li>
+                    <Link to='/index'>좋아요 게시물</Link>
+                  </li>
+                  <li>
+                    <Link to='/TMOIndex'>장소 위시리스트</Link>
+                  </li>
+                  <li>
+                    <Link to='/MOUIndex'>TMO 위시리스트</Link>
+                  </li>
+                  <li>
+                    <Link to='/MOUIndex'>MOU 위시리스트</Link>
+                  </li>
+                </ul>
               </li>
               <li>
                 <button onClick={onLogOut} className='font-bold'>
