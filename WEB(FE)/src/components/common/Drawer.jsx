@@ -42,7 +42,7 @@ const Drawer = ({ closeOverlay, user }) => {
             to='/map'
             onClick={closeOverlay}
           >
-            지도
+            내 위치
           </Link>
         </li>
         <li className='mt-2'>
@@ -52,6 +52,33 @@ const Drawer = ({ closeOverlay, user }) => {
             onClick={closeOverlay}
           >
             게시판
+          </Link>
+        </li>
+        <li className='mt-2'>
+          <Link
+            className='bg-gray-300 hover:bg-gray-500 text-gray-700 active:text-white dark:text-white'
+            to='/index'
+            onClick={closeOverlay}
+          >
+            혜택 보기
+          </Link>
+        </li>
+        <li className='mt-2'>
+          <Link
+            className='bg-gray-300 hover:bg-gray-500 text-gray-700 active:text-white dark:text-white'
+            to='/TMOIndex'
+            onClick={closeOverlay}
+          >
+            TMO 위치
+          </Link>
+        </li>
+        <li className='mt-2'>
+          <Link
+            className='bg-gray-300 hover:bg-gray-500 text-gray-700 active:text-white dark:text-white'
+            to='/MOUIndex'
+            onClick={closeOverlay}
+          >
+            MOU 현황
           </Link>
         </li>
       </ul>
