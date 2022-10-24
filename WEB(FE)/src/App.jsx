@@ -41,6 +41,14 @@ function App() {
             <Route index element={<IndexPage />} />
             <Route path=':placeId' element={<PlacePage />} />
           </Route>
+          <Route path='/MOUIndex'>
+            <Route index element={<MOUIndexPage />} />
+            <Route path=':placeId' element={<PlacePage />} />
+          </Route>
+          <Route path='/TMOIndex'>
+            <Route index element={<TMOIndexPage />} />
+            <Route path=':placeId' element={<PlacePage />} />
+          </Route>
           <Route path='/posts'>
             <Route index element={<PostListPage />} />
             <Route path='write' element={<WritePage />} />
@@ -54,8 +62,6 @@ function App() {
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/emailConfirm' element={<EmailConfirmPage />} />
           <Route path='/mypage' element={<MyPage />} />
-          <Route path='/MOUIndex' element={<MOUIndexPage />} />
-          <Route path='/TMOIndex' element={<TMOIndexPage />} />
           <Route path='/*' element={<NotFoundPage />} />
         </Routes>
       </section>
