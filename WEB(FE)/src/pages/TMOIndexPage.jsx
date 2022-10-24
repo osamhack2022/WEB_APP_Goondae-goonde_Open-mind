@@ -1,19 +1,19 @@
 import { Helmet } from 'react-helmet-async';
-import MyPageContainer from '../containers/auth/MyPageContainer';
 import FooterContainer from '../containers/common/FooterContainer';
 import HeaderContainer from '../containers/common/HeaderContainer';
+import PlaceListContainer from '../containers/placeList/PlaceListContainer';
 
-const MyPage = () => {
+const TMOIndexPage = () => {
   return (
     <>
       <Helmet>
-        <title>군대군데 - 내 정보 수정</title>
+        <title>군대군데 - TMO 위치</title>
       </Helmet>
-      <HeaderContainer visible={false} />
-      <MyPageContainer />
+      <HeaderContainer />
+      <PlaceListContainer />
       <FooterContainer />
     </>
   );
 };
 
-export default MyPage;
+export default TMOIndexPage;

@@ -8,7 +8,7 @@ const IntroOne = ({ img, title, des }) => {
         <div>
           <h1 className='text-5xl font-bold'>{title}</h1>
           <p className='py-6  max-w-2xl'>{des}</p>
-          <Link to='/index' className='btn btn-primary'>
+          <Link to='/TMOIndex' className='btn btn-primary'>
             지금 확인하기
           </Link>
         </div>

@@ -8,7 +8,7 @@ const Pagination = ({ page, lastPage, username, buildLink }) => {
   const [searchParams] = useSearchParams();
   const category = searchParams.get('category');
   return (
-    <div className='w-[320px] mx-auto flex justify-between mb-[3rem]'>
+    <div className='w-[320px] mx-auto flex justify-between pb-[3rem] '>
       <Button
         disabled={page === 1}
         to={page === 1 ? undefined : buildLink({ username, page: page - 1 })}

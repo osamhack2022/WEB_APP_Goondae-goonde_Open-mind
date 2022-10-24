@@ -13,6 +13,9 @@ import WritePage from './pages/WritePage';
 import { useRef } from 'react';
 import DrawerContainer from './containers/common/DrawerContainer';
 import EmailConfirmPage from './pages/EmailConfirmPage';
+import NotFoundPage from './pages/NotFoundPage';
+import MOUIndexPage from './pages/MOUIndexPage';
+import TMOIndexPage from './pages/TMOIndexPage';
 
 function App() {
   const $hamburger = useRef(null);
@@ -38,6 +41,14 @@ function App() {
             <Route index element={<IndexPage />} />
             <Route path=':placeId' element={<PlacePage />} />
           </Route>
+          <Route path='/MOUIndex'>
+            <Route index element={<MOUIndexPage />} />
+            <Route path=':placeId' element={<PlacePage />} />
+          </Route>
+          <Route path='/TMOIndex'>
+            <Route index element={<TMOIndexPage />} />
+            <Route path=':placeId' element={<PlacePage />} />
+          </Route>
           <Route path='/posts'>
             <Route index element={<PostListPage />} />
             <Route path='write' element={<WritePage />} />
@@ -51,6 +62,7 @@ function App() {
           <Route path='/register' element={<RegisterPage />} />
           <Route path='/emailConfirm' element={<EmailConfirmPage />} />
           <Route path='/mypage' element={<MyPage />} />
+          <Route path='/*' element={<NotFoundPage />} />
         </Routes>
       </section>
       <DrawerContainer closeOverlay={closeOverlay} />
