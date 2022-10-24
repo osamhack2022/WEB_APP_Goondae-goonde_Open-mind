@@ -4,7 +4,7 @@ from rest_framework import serializers
 
 from accounts.serializers import ProfileSerializer
 
-from locations.models import Location, LocationReview, LocationUserStar, MouReview, Mou, MouUserStar
+from locations.models import Location, LocationReview, LocationUserStar, MouReview, Mou, MouUserStar, Tmo
 
 # location_star
 class LocationUserStarSerializer(serializers.ModelSerializer):
@@ -248,3 +248,10 @@ class MouReviewCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = MouReview
         fields = ["content", "image"]
+
+# tmo
+class TmoListSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Tmo
+        fields = ["id", "name", "number", "pstnexpln", "wkday_strtm", "wkday_endtm", "wkend_strtm", "wkend_endtm", "etc"]

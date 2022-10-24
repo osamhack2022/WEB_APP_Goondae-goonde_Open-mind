@@ -70,7 +70,7 @@ class saveDB:
                             wkend_endtm TEXT,
                             etc TEXT)""")
         
-    def TMO_into_db(self, crawled_mou_data):
+    def TMO_into_db(self, crawled_tmo_data):
         self.curser.executemany("INSERT INTO TMO_data (name, number, pstnexpln, wkday_strtm, wkday_endtm, wkend_strtm, wkend_endtm, etc) VALUES (:name, :number, :pstnexpln, :wkday_strtm, :wkday_endtm, :wkend_strtm, :wkend_endtm, :etc)", crawled_tmo_data)
         self.connect.commit()
 

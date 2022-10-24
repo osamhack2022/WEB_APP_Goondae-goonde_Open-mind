@@ -144,7 +144,7 @@ while True:
                 elif select == "9":
                     db.TMO_create_db()
                 elif select == "10":
-                    db.MOU_into_db(crawling.crawled_mou_data)
+                    db.TMO_into_db(crawling.crawled_tmo_data)
                 elif select == "11":
                     amount = db.TMO_crawled_amount()
                     print('저장된 데이터는 %d개 입니다' %amount)
