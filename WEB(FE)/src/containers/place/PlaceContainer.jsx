@@ -1,11 +1,16 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useNavigate } from 'react-router';
+import LoadingPlace from '../../components/loading/LoadingPlace';
 import Place from '../../components/place/Place';
 import ReviewModal from '../../components/review/ReviewModal';
 import { removeLocationRview } from '../../lib/api/locations';
 import { product, reviews as fake } from '../../lib/fakeData/product';
-import { readImage, readLocation } from '../../modules/location';
+import {
+  initializeImage,
+  readImage,
+  readLocation,
+} from '../../modules/location';
 import {
   changeField,
   createReview,
@@ -40,8 +45,6 @@ const PlaceContainer = () => {
     e.preventDefault();
     dispatch(
       createReview({
-        author: 1,
-        title: '1',
         content: review,
         location_id: location.id,
       })
@@ -75,6 +78,7 @@ const PlaceContainer = () => {
   useEffect(() => {
     if (!location) return;
     dispatch(readImage(location.name));
+    return () => dispatch(initializeImage('image'));
   }, [location]);
 
   useEffect(() => {
@@ -83,7 +87,7 @@ const PlaceContainer = () => {
 
   return (
     <>
-      {!loading && location && image && reviews && (
+      {!loading && location && image && reviews ? (
         <>
           <Place
             product={product}
@@ -107,6 +111,10 @@ const PlaceContainer = () => {
             onEdit={onEdit}
             onRemove={onRemove}
           />
+        </>
+      ) : (
+        <>
+          <LoadingPlace />
         </>
       )}
     </>

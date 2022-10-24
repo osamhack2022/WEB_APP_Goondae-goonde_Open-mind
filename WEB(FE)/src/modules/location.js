@@ -13,10 +13,12 @@ const [READ_IMAGE, READ_IMAGE_SUCCESS, READ_IMAGE_FAILURE] =
   createRequestActionTypes('location/READ_IMAGE');
 
 const UNLOAD_LOCATION = 'location/UNLOAD_LOCATION';
+const INITIALIZE_IMAGE = 'location/INITIALIZE_IMAGE';
 
 export const readLocation = createAction(READ_LOCATION, (placeId) => placeId);
 export const readImage = createAction(READ_IMAGE, (title) => title);
 export const unloadLocation = createAction(UNLOAD_LOCATION);
+export const initializeImage = createAction(INITIALIZE_IMAGE, (form) => form);
 
 const readLocationSaga = createRequestSaga(
   READ_LOCATION,
@@ -38,6 +40,10 @@ const initialState = {
 
 const location = handleActions(
   {
+    [INITIALIZE_IMAGE]: (state, { payload: form }) => ({
+      ...state,
+      [form]: initialState[form],
+    }),
     [READ_LOCATION_SUCCESS]: (state, { payload: location }) => ({
       ...state,
       location,

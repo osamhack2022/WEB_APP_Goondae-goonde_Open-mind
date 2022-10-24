@@ -13,7 +13,6 @@ const PlacePage = () => {
       <HeaderContainer />
       <PlaceContainer />
       <FooterContainer />
-      <ReviewModal />
     </>
   );
 };
