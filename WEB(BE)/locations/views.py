@@ -8,8 +8,8 @@ from rest_framework.response import Response
 
 from accounts.models import Profile
 
-from locations.models import Location, LocationReview, LocationUserStar, Mou, MouUserStar
-from locations.serializers import LocationDetailSerializer, LocationListSerializer, LocationReviewListSerializer, LocationReviewDetailSerializer, LocationReviewCreateSerializer, LocationUserStarSerializer, MouUserStarSerializer, MouListSerializer, MouDetailSerializer
+from locations.models import Location, LocationReview, LocationUserStar, Mou, MouReview, MouUserStar
+from locations.serializers import LocationDetailSerializer, LocationListSerializer, LocationReviewListSerializer, LocationReviewDetailSerializer, LocationReviewCreateSerializer,  LocationUserStarSerializer, MouListSerializer, MouDetailSerializer, MouUserStarSerializer, MouReviewListSerializer, MouReviewDetailSerializer, MouReviewCreateSerializer
 from locations.permissions import ReviewPermission
 
 # Location view
@@ -70,8 +70,8 @@ def star_location(request, location_id):
         return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
-# Review view
-class ReviewViewSet(viewsets.ModelViewSet):
+# LocationReview view
+class LocationReviewViewSet(viewsets.ModelViewSet):
     permission_classes = [ReviewPermission]
     filter_backends = [DjangoFilterBackend]
     pagination_class = None
@@ -92,24 +92,24 @@ class ReviewViewSet(viewsets.ModelViewSet):
         profile = Profile.objects.get(user=self.request.user)
         serializer.save(location=location, author=self.request.user, profile=profile)
 
-# Review like
+# LocationReview like
 @api_view(['patch'])
 @permission_classes([IsAuthenticated])
 def like_location_review(request, location_id, review_id):
-    review = get_object_or_404(Review, id=review_id)
+    review = get_object_or_404(LocationReview, id=review_id)
     if request.user in review.likes.all():
         review.likes.remove(request.user)
     else:
         review.likes.add(request.user)
 
-    serializer = ReviewDetailSerializer(review)
+    serializer = LocationReviewDetailSerializer(review)
     return Response({'total_likes': serializer.data['total_likes']}, status=status.HTTP_200_OK)
 
 # Mou view
 class MouViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = []
     filter_backends = [DjangoFilterBackend]
-    filterset_fields = ['likes']
+    filterset_fields = ['region','likes']
     queryset = Mou.objects.all()
 
     def get_serializer_class(self):
@@ -161,3 +161,38 @@ def star_mou(request, mou_id):
             return Response({'rate': serializer.validated_data['rate']}, status=status.HTTP_200_OK)
     else:
         return Response(status=status.HTTP_400_BAD_REQUEST)
+
+# MouReview view
+class MouReviewViewSet(viewsets.ModelViewSet):
+    permission_classes = [ReviewPermission]
+    filter_backends = [DjangoFilterBackend]
+    pagination_class = None
+    
+    def get_queryset(self):
+        query_set = MouReview.objects.filter(mou=self.kwargs['mou_id'])
+        return query_set.order_by('-created_at')
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return MouReviewListSerializer
+        if self.action == 'retrieve':
+            return MouReviewDetailSerializer
+        return MouReviewCreateSerializer
+    
+    def perform_create(self, serializer):
+        mou = Mou.objects.get(id=self.kwargs['mou_id'])
+        profile = Profile.objects.get(user=self.request.user)
+        serializer.save(mou=mou, author=self.request.user, profile=profile)
+
+# MouReview like
+@api_view(['patch'])
+@permission_classes([IsAuthenticated])
+def like_mou_review(request, mou_id, review_id):
+    review = get_object_or_404(MouReview, id=review_id)
+    if request.user in review.likes.all():
+        review.likes.remove(request.user)
+    else:
+        review.likes.add(request.user)
+
+    serializer = MouReviewDetailSerializer(review)
+    return Response({'total_likes': serializer.data['total_likes']}, status=status.HTTP_200_OK)

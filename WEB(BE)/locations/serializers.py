@@ -4,7 +4,7 @@ from rest_framework import serializers
 
 from accounts.serializers import ProfileSerializer
 
-from locations.models import Location, LocationReview, LocationUserStar, Mou, MouUserStar
+from locations.models import Location, LocationReview, LocationUserStar, MouReview, Mou, MouUserStar
 
 # location_star
 class LocationUserStarSerializer(serializers.ModelSerializer):
@@ -77,10 +77,6 @@ class LocationDetailSerializer(serializers.ModelSerializer):
     star = LocationUserStarSerializer(many=True, read_only=True)
     user_star_rated = serializers.SerializerMethodField('get_user_star_rated_toggle')
 
-
-    
- 
-    
     class Meta:
         model = Location
         fields = ["id", "name", "category", "address", "region1", "region2", "region3", "x", "y", "number", "benefit", "total_reviews", "review", "user_liked", "total_likes", "likes", "user_star_rated", "total_stars", "count_stars", "star"]
@@ -108,8 +104,6 @@ class LocationDetailSerializer(serializers.ModelSerializer):
     
     def get_count_stars(self, obj):
         return obj.star.count()
-
-
 
 
 class LocationReviewDetailSerializer(serializers.ModelSerializer):
@@ -142,8 +136,27 @@ class MouUserStarSerializer(serializers.ModelSerializer):
         fields = ['rate', 'user']
         read_only_fields = ['user']
 
+# Mou_review
+class MouReviewListSerializer(serializers.ModelSerializer):
+    profile = ProfileSerializer(read_only=True)
+    total_likes = serializers.IntegerField(source='likes.count', read_only=True)
+    user_liked = serializers.SerializerMethodField('get_user_liked_toggle')
+
+    class Meta:
+        model = MouReview
+        fields = ["id", "mou", "author", "profile", "content", "image", "created_at", "user_liked", "total_likes"]
+    
+    def get_user_liked_toggle(self, obj):
+        request =  self.context.get('request', None)
+        if request:
+            if request.user.is_authenticated:
+                if request.user in obj.likes.all():
+                    return True
+        return False
+
 # Mou
 class MouListSerializer(serializers.ModelSerializer):
+    total_reviews = serializers.IntegerField(source='review.count', read_only=True)
     total_likes = serializers.IntegerField(source='likes.count', read_only=True)
     user_liked = serializers.SerializerMethodField('get_user_liked_toggle')
 
@@ -152,7 +165,7 @@ class MouListSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Mou
-        fields = ["id", "name", "region", "number", "benefit", "user_liked", "total_likes", "user_star_rated", "total_stars"]
+        fields = ["id", "name", "region", "number", "benefit", "total_reviews", "user_liked", "total_likes", "user_star_rated", "total_stars"]
     
     def get_user_liked_toggle(self, obj):
         request =  self.context.get('request', None)
@@ -175,6 +188,8 @@ class MouListSerializer(serializers.ModelSerializer):
         return star_avg if star_avg != None else 0 # 평가가 없으면 0을 표시
 
 class MouDetailSerializer(serializers.ModelSerializer):
+    total_reviews = serializers.IntegerField(source='review.count', read_only=True)
+    review = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
     total_likes = serializers.IntegerField(source='likes.count', read_only=True)
     user_liked = serializers.SerializerMethodField('get_user_liked_toggle')
 
@@ -186,7 +201,7 @@ class MouDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Mou
-        fields = ["id", "name", "region", "number", "benefit", "user_liked", "total_likes", "likes", "user_star_rated", "total_stars", "count_stars", "star"]
+        fields = ["id", "name", "region", "number", "benefit", "total_reviews", "review", "user_liked", "total_likes", "likes", "user_star_rated", "total_stars", "count_stars", "star"]
     
     def get_user_liked_toggle(self, obj):
         request =  self.context.get('request', None)
@@ -211,3 +226,25 @@ class MouDetailSerializer(serializers.ModelSerializer):
     
     def get_count_stars(self, obj):
         return obj.star.count()
+
+class MouReviewDetailSerializer(serializers.ModelSerializer):
+    profile = ProfileSerializer(read_only=True)
+    total_likes = serializers.IntegerField(source='likes.count', read_only=True)
+    user_liked = serializers.SerializerMethodField('get_user_liked_toggle')
+
+    class Meta:
+        model = MouReview
+        fields = '__all__'
+    
+    def get_user_liked_toggle(self, obj):
+        request =  self.context.get('request', None)
+        if request:
+            if request.user.is_authenticated:
+                if request.user in obj.likes.all():
+                    return True
+        return False
+
+class MouReviewCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MouReview
+        fields = ["content", "image"]
