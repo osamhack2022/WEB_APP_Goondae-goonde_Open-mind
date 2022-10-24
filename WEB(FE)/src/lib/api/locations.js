@@ -17,28 +17,23 @@ export const locationsList = ({ category, page }) => {
 };
 
 export const readLocation = ({ placeId }) =>
-  client.get(`/locations/${placeId}`);
+  client.get(`/locations/${placeId}/`);
 
 export const getLocationReviews = ({ placeId }) =>
-  client.get(`/locations/reviews/?location=${placeId}`);
+  client.get(`/locations/${placeId}/reviews/`);
 
-export const createLocationReview = ({
-  author,
-  title,
-  content,
-  location_id,
-}) => {
+export const createLocationReview = ({ content, location_id }) => {
   const user = JSON.parse(localStorage.getItem('user'));
   return client.post(
-    '/locations/reviews/',
-    { author, title, content, location_id },
+    `/locations/${location_id}/reviews/`,
+    { content },
     { headers: { Authorization: `jwt ${user.token}` } }
   );
 };
 
 export const removeLocationRview = ({ placeId, reviewId }) => {
   const user = JSON.parse(localStorage.getItem('user'));
-  return client.delete(`/locations/reviews/${reviewId}`, {
+  return client.delete(`/locations/${placeId}/reviews/${reviewId}/`, {
     headers: {
       Authorization: `jwt ${user.token}`,
     },
