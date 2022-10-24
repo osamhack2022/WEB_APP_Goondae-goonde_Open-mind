@@ -7,7 +7,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-const Place = ({ product, location, reviews, fake, setVisible }) => {
+const Place = ({ product, location, reviews, fake, setVisible, image }) => {
   return (
     <div className='bg-white mt-[4rem]'>
       <div className='pt-6'>
@@ -54,7 +54,7 @@ const Place = ({ product, location, reviews, fake, setVisible }) => {
         <div className='mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8'>
           <div className='aspect-w-3 aspect-h-4 hidden overflow-hidden rounded-lg lg:block'>
             <img
-              src={product.images[0].src}
+              src={image[0].image_url || product.images[0].src}
               alt={product.images[0].alt}
               className='h-full w-full object-cover object-center'
             />
@@ -62,14 +62,14 @@ const Place = ({ product, location, reviews, fake, setVisible }) => {
           <div className='hidden lg:grid lg:grid-cols-1 lg:gap-y-8'>
             <div className='aspect-w-3 aspect-h-2 overflow-hidden rounded-lg'>
               <img
-                src={product.images[1].src}
+                src={image[1].image_url || product.images[1].src}
                 alt={product.images[1].alt}
                 className='h-full w-full object-cover object-center'
               />
             </div>
             <div className='aspect-w-3 aspect-h-2 overflow-hidden rounded-lg'>
               <img
-                src={product.images[2].src}
+                src={image[2].image_url || product.images[2].src}
                 alt={product.images[2].alt}
                 className='h-full w-full object-cover object-center'
               />

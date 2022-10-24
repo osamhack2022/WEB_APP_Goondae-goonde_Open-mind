@@ -5,15 +5,16 @@ import { useSearchParams } from 'react-router-dom';
 import Pagination from '../../components/common/Pagination';
 import PlaceList from '../../components/places/PlaceList';
 import LoadingPlaceList from '../../components/loading/LoadingPlaceList';
-import { list } from '../../modules/locations';
+import { imagesList, list } from '../../modules/locations';
 
 const PlaceListContainer = () => {
   const [searchParams] = useSearchParams();
 
   const dispatch = useDispatch();
-  const { locations, loading, lastPage } = useSelector(
+  const { locations, images, loading, lastPage } = useSelector(
     ({ locations, loading }) => ({
       locations: locations.locations,
+      images: locations.images,
       lastPage: locations.lastPage,
       loading: loading['locations/LIST'],
     })
@@ -29,6 +30,12 @@ const PlaceListContainer = () => {
     dispatch(list({ category, page }));
   }, [dispatch, category, page]);
 
+  useEffect(() => {
+    if (!locations) return;
+    const locationTitles = locations.map((location) => location.name);
+    dispatch(imagesList(locationTitles));
+  }, [locations]);
+
   return (
     <>
       {loading ? (
@@ -37,9 +44,10 @@ const PlaceListContainer = () => {
           <Pagination page={1} lastPage={1} />
         </>
       ) : (
-        locations && (
+        locations &&
+        images && (
           <>
-            <PlaceList locations={locations} />
+            <PlaceList locations={locations} images={images} />
             <Pagination page={page} lastPage={lastPage} buildLink={buildLink} />
           </>
         )

@@ -5,7 +5,7 @@ import Place from '../../components/place/Place';
 import ReviewModal from '../../components/review/ReviewModal';
 import { removeLocationRview } from '../../lib/api/locations';
 import { product, reviews as fake } from '../../lib/fakeData/product';
-import { readLocation } from '../../modules/location';
+import { readImage, readLocation } from '../../modules/location';
 import {
   changeField,
   createReview,
@@ -20,16 +20,17 @@ const PlaceContainer = () => {
   const { placeId } = useParams();
 
   const dispatch = useDispatch();
-  const { location, error, user, loading, reviews, review } = useSelector(
-    ({ location, loading, user, reviews }) => ({
+  const { location, error, image, user, loading, reviews, review } =
+    useSelector(({ location, loading, user, reviews }) => ({
       location: location.location,
+      image: location.image,
       error: location.error,
       user: user.user,
       reviews: reviews.reviews,
       review: reviews.review,
       loading: loading['location/READ_LOCATION'],
-    })
-  );
+    }));
+
   const onChange = (e) => {
     const { value } = e.target;
     dispatch(changeField({ form: 'review', value }));
@@ -54,6 +55,7 @@ const PlaceContainer = () => {
   };
 
   const onEdit = () => {};
+
   const onRemove = async (reviewId) => {
     try {
       await removeLocationRview({ placeId: location.id, reviewId });
@@ -71,16 +73,22 @@ const PlaceContainer = () => {
   }, [dispatch, placeId]);
 
   useEffect(() => {
+    if (!location) return;
+    dispatch(readImage(location.name));
+  }, [location]);
+
+  useEffect(() => {
     reviews && setReviewsArray(reviews.results);
   }, [reviews]);
 
   return (
     <>
-      {!loading && location && reviews && (
+      {!loading && location && image && reviews && (
         <>
           <Place
             product={product}
             location={location}
+            image={image}
             reviews={reviews}
             fake={fake}
             setVisible={setVisible}
