@@ -39,13 +39,13 @@ class LocationUserStar(models.Model):
 
 # LocationReview model, pk = id
 class LocationReview(models.Model):
-    location = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='review', verbose_name="업소")
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='review', verbose_name="게시자")
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True, related_name='review', verbose_name="프로필")
-    likes = models.ManyToManyField(User, related_name='like_review', blank=True, verbose_name="좋아요")
+    location = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='location_review', verbose_name="업소")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='location_review', verbose_name="게시자")
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True, related_name='location_review', verbose_name="프로필")
+    likes = models.ManyToManyField(User, related_name='like_location_review', blank=True, verbose_name="좋아요")
     
     content = models.TextField(verbose_name="내용")
-    image = models.ImageField(upload_to='reviews/', blank = True, verbose_name="이미지")
+    image = models.ImageField(upload_to='location_reviews/', blank = True, verbose_name="이미지")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="등록시간")
     
     class Meta:
@@ -78,3 +78,17 @@ class MouUserStar(models.Model):
         db_table = 'Mou_user_star'
 
 
+# MouReview model, pk = id
+class MouReview(models.Model):
+    mou = models.ForeignKey(Mou, on_delete=models.CASCADE, related_name='review', verbose_name="업소")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='review', verbose_name="게시자")
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True, related_name='review', verbose_name="프로필")
+    likes = models.ManyToManyField(User, related_name='like_mou_review', blank=True, verbose_name="좋아요")
+    
+    content = models.TextField(verbose_name="내용")
+    image = models.ImageField(upload_to='mou_reviews/', blank = True, verbose_name="이미지")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="등록시간")
+    
+    class Meta:
+        managed = True
+        db_table = 'Mou_review'
