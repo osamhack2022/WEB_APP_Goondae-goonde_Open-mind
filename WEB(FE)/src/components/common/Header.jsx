@@ -30,7 +30,7 @@ const Header = ({ visible, user, onLogOut, themeChange }) => {
           </svg>
         </label>
         <Link to='/' className='btn btn-ghost normal-case text-xl'>
-          OPEN MIND
+          HOME
         </Link>
       </div>
       {/* {visible && <Search />} */}

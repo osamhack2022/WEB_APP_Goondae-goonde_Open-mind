@@ -8,7 +8,7 @@ const PostListPage = () => {
   return (
     <>
       <Helmet>
-        <title>OPEN MIND - 장소 목록</title>
+        <title>군대군데 - 장소 목록</title>
       </Helmet>
       <HeaderContainer />
       <PostListContainer />

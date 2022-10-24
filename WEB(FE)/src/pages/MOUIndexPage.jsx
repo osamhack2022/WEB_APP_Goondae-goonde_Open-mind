@@ -1,5 +1,13 @@
+import { Helmet } from 'react-helmet-async';
+
 const MOUIndexPage = () => {
-  return <h1>MOUIndexPage</h1>;
+  return (
+    <>
+      <Helmet>
+        <title>군대군데</title>
+      </Helmet>
+    </>
+  );
 };
 
 export default MOUIndexPage;

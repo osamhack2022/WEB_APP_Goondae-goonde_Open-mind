@@ -5,7 +5,7 @@ const RegisterPage = () => {
   return (
     <>
       <Helmet>
-        <title>OPEN MIND - 회원가입</title>
+        <title>군대군데 - 회원가입</title>
       </Helmet>
       <RegisterForm />
     </>

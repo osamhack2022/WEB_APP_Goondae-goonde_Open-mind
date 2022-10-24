@@ -7,7 +7,7 @@ const IndexPage = () => {
   return (
     <>
       <Helmet>
-        <title> OPEN MIND - 혜택보기 </title>
+        <title>군대군데 - 혜택보기</title>
       </Helmet>
       <HeaderContainer />
 

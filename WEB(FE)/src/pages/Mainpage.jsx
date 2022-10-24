@@ -7,7 +7,7 @@ const Mainpage = () => {
   return (
     <>
       <Helmet>
-        <title>OPEN MIND</title>
+        <title>군대군데</title>
       </Helmet>
       <HeaderContainer />
       <ItemsContainer />
