@@ -3,10 +3,14 @@ from rest_framework import routers
 from locations import views
 
 router = routers.SimpleRouter()
+
 router.register('location', views.LocationViewSet, basename='location') 
 router.register(r'location/(?P<location_id>[^/.]+)/reviews', views.LocationReviewViewSet, basename='location_review')
+
 router.register('mou', views.MouViewSet, basename='mou') 
 router.register(r'mou/(?P<mou_id>[^/.]+)/reviews', views.MouReviewViewSet, basename='mou_review')
+
+router.register('tmo', views.TmoViewSet, basename='tmo')
 
 urlpatterns = [
     path('location/<int:location_id>/like', views.like_location, name='location-like'),

@@ -92,3 +92,19 @@ class MouReview(models.Model):
     class Meta:
         managed = True
         db_table = 'Mou_review'
+
+#Tmo model, pk = id
+class Tmo(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.TextField(blank=True)
+    number = models.TextField(blank=True, null=True)
+    pstnexpln = models.TextField(blank=True, null=True)
+    wkday_strtm = models.TextField(blank=True, null=True)
+    wkday_endtm = models.TextField(blank=True, null=True)
+    wkend_strtm = models.TextField(blank=True, null=True)
+    wkend_endtm = models.TextField(blank=True, null=True)
+    etc = models.TextField(blank=True, null=True)
+
+    class Meta:
+        managed = True
+        db_table = 'TMO_data'

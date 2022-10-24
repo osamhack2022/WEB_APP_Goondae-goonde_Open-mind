@@ -8,8 +8,8 @@ from rest_framework.response import Response
 
 from accounts.models import Profile
 
-from locations.models import Location, LocationReview, LocationUserStar, Mou, MouReview, MouUserStar
-from locations.serializers import LocationDetailSerializer, LocationListSerializer, LocationReviewListSerializer, LocationReviewDetailSerializer, LocationReviewCreateSerializer,  LocationUserStarSerializer, MouListSerializer, MouDetailSerializer, MouUserStarSerializer, MouReviewListSerializer, MouReviewDetailSerializer, MouReviewCreateSerializer
+from locations.models import Location, LocationReview, LocationUserStar, Mou, MouReview, MouUserStar, Tmo
+from locations.serializers import LocationDetailSerializer, LocationListSerializer, LocationReviewListSerializer, LocationReviewDetailSerializer, LocationReviewCreateSerializer,  LocationUserStarSerializer, MouListSerializer, MouDetailSerializer, MouUserStarSerializer, MouReviewListSerializer, MouReviewDetailSerializer, MouReviewCreateSerializer, TmoListSerializer
 from locations.permissions import ReviewPermission
 
 # Location view
@@ -196,3 +196,25 @@ def like_mou_review(request, mou_id, review_id):
 
     serializer = MouReviewDetailSerializer(review)
     return Response({'total_likes': serializer.data['total_likes']}, status=status.HTTP_200_OK)
+
+# Tmo view
+class TmoViewSet(viewsets.ReadOnlyModelViewSet):
+    permission_classes = []
+    queryset = Tmo.objects.all()
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return TmoListSerializer
+        #return TmoDetailSerializer
+    
+    def list(self, request):
+        tmo = Tmo.objects.all()
+        tmo = self.filter_queryset(tmo)
+        
+        page = self.paginate_queryset(tmo)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+        
+        serializer = self.get_serializer(page, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
