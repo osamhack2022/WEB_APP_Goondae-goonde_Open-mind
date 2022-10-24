@@ -17,8 +17,9 @@ class HTMLrequest:
         return soup
     
 class crawling(HTMLrequest):
-    crawled_data = []
+    crawled_location_data = []
     crawled_mou_data = []
+    crawled_tmo_data = []
     refund =  '나라사랑카드를 사용할 경우 결제금액의 약 30% 상당의 금액을 지역상품권으로 환급(1회 한도 5만원)'
     def __init__(self):
         pass
@@ -43,7 +44,7 @@ class crawling(HTMLrequest):
                     }
 
                 result.append(into)
-                crawling.crawled_data.append(into)
+                crawling.crawled_location_data.append(into)
                 n += 5
         return result
     
@@ -66,7 +67,7 @@ class crawling(HTMLrequest):
             }
             
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
             n += 6
 
         url = HTMLrequest('https://www.gwgs.go.kr/kor/sub06_110202.do')
@@ -89,7 +90,7 @@ class crawling(HTMLrequest):
             }
             
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
             n += 5
 
         return result
@@ -115,7 +116,7 @@ class crawling(HTMLrequest):
             }
             
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
             n += 5
         return result
 
@@ -141,7 +142,7 @@ class crawling(HTMLrequest):
             }
             
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
             n += 3
             k += 1
         return result
@@ -165,7 +166,7 @@ class crawling(HTMLrequest):
             }
             
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
             n += 8
 
         url = HTMLrequest('https://www.cwg.go.kr/www/contents.do?key=355')
@@ -185,7 +186,7 @@ class crawling(HTMLrequest):
             }
             
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
             n += 5
 
         url = HTMLrequest('https://www.cwg.go.kr/www/contents.do?key=1500')
@@ -205,7 +206,7 @@ class crawling(HTMLrequest):
             }
             
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
             n += 8
 
         return result
@@ -231,7 +232,7 @@ class crawling(HTMLrequest):
                 }
                 
                 result.append(into)
-                crawling.crawled_data.append(into)
+                crawling.crawled_location_data.append(into)
                 n += 6
         return result
 
@@ -256,7 +257,7 @@ class crawling(HTMLrequest):
                 }
                 
                 result.append(into)
-                crawling.crawled_data.append(into)
+                crawling.crawled_location_data.append(into)
                 n += 5
 
         urls = ['https://www.dh.go.kr/pages/sub.htm?nav_code=dh1474954039','https://www.dh.go.kr/pages/sub.htm?nav_code=dh1474954067','https://www.dh.go.kr/pages/sub.htm?nav_code=dh1474954073','https://www.dh.go.kr/pages/sub.htm?nav_code=dh1474954077','https://www.dh.go.kr/pages/sub.htm?nav_code=dh1474954096','https://www.dh.go.kr/pages/sub.htm?nav_code=dh1478163042','https://www.dh.go.kr/pages/sub.htm?nav_code=dh1556084336']
@@ -278,7 +279,7 @@ class crawling(HTMLrequest):
                 }
                 
                 result.append(into)
-                crawling.crawled_data.append(into)
+                crawling.crawled_location_data.append(into)
                 n += 4
 
         return result
@@ -299,7 +300,7 @@ class crawling(HTMLrequest):
                 'benefit' : data[5],
             }
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
 
         #숙박업
         url = HTMLrequest('https://www.sokcho.go.kr/portal/openinfo/civic_stats_info/militarysupports/discount/lodge')
@@ -315,7 +316,7 @@ class crawling(HTMLrequest):
                 'benefit' : data[5],
             }
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
 
         #카페
         url = HTMLrequest('https://www.sokcho.go.kr/portal/openinfo/civic_stats_info/militarysupports/discount/cafe-singingroom')
@@ -331,7 +332,7 @@ class crawling(HTMLrequest):
                 'benefit' : data[5],
             }
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
 
         #노래방
         data = raw_data.select_one("#A-Contents > table:nth-of-type(2) > tbody")
@@ -345,7 +346,7 @@ class crawling(HTMLrequest):
                 'benefit' : '기본 할인율은 10% 내외 ※ 업소별로 추가할인과 우대사항이 상이할 수 있으니, 확인 후 이용바랍니다.',
             }
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
             into = {
                 'name' : data[1],
                 'category' : '노래방',
@@ -354,7 +355,7 @@ class crawling(HTMLrequest):
                 'benefit' : '기본 할인율은 10% 내외 ※ 업소별로 추가할인과 우대사항이 상이할 수 있으니, 확인 후 이용바랍니다.',
             }
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
             
         #영화관
         url = HTMLrequest('https://www.sokcho.go.kr/portal/openinfo/civic_stats_info/militarysupports/discount/movie-books')
@@ -370,7 +371,7 @@ class crawling(HTMLrequest):
                 'benefit' : data[5],
             }
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
 
         #서점
         data = raw_data.select_one("#A-Contents > table:nth-of-type(2) > tbody")
@@ -384,7 +385,7 @@ class crawling(HTMLrequest):
                 'benefit' : '기본 할인율은 10% 내외 ※ 업소별로 추가할인과 우대사항이 상이할 수 있으니, 확인 후 이용바랍니다.',
             }
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
 
         
         #박물관/미술관
@@ -399,7 +400,7 @@ class crawling(HTMLrequest):
                 'benefit' : data[5],
             }
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
 
         #체육시설
         data = raw_data.select_one("#A-Contents > table:nth-of-type(4) > tbody")
@@ -413,7 +414,7 @@ class crawling(HTMLrequest):
                 'benefit' : data[5],
             }
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
 
         #당구장
         data = raw_data.select_one("#A-Contents > table:nth-of-type(5) > tbody")
@@ -427,7 +428,7 @@ class crawling(HTMLrequest):
                 'benefit' : data[5],
             }
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
 
         #기타
         data = raw_data.select_one("#A-Contents > table:nth-of-type(6) > tbody")
@@ -441,7 +442,7 @@ class crawling(HTMLrequest):
                 'benefit' : data[5],
             }
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
 
         return result
     
@@ -464,7 +465,7 @@ class crawling(HTMLrequest):
                 }
                 
                 result.append(into)
-                crawling.crawled_data.append(into)
+                crawling.crawled_location_data.append(into)
         return result
     
     def pajusi(self):
@@ -484,7 +485,7 @@ class crawling(HTMLrequest):
                     'benefit' : '10%내외할인 또는 정액제',
                 }
                 result.append(into)
-                crawling.crawled_data.append(into)
+                crawling.crawled_location_data.append(into)
         return result
     
     def hongcheongun(self):
@@ -503,7 +504,7 @@ class crawling(HTMLrequest):
                     'benefit' : '',
                     }
                 result.append(into)
-                crawling.crawled_data.append(into)
+                crawling.crawled_location_data.append(into)
         return result
     
     def pocheonsi(self):
@@ -532,7 +533,7 @@ class crawling(HTMLrequest):
             }
 
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
         return result
     
     def changwonsi(self):
@@ -561,7 +562,7 @@ class crawling(HTMLrequest):
             }
 
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
         return result
     
     def nonsansi(self):
@@ -590,7 +591,7 @@ class crawling(HTMLrequest):
             }
 
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
         return result
     
     def yeongcheonsi(self):
@@ -619,11 +620,11 @@ class crawling(HTMLrequest):
             }
 
             result.append(into)
-            crawling.crawled_data.append(into)
+            crawling.crawled_location_data.append(into)
         return result
     
     def MOUdata(self):
-
+        #SSL: DH_KEY_TOO_SMALL error 방지
         requests.packages.urllib3.disable_warnings()
         requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS += ':HIGH:!DH:!aNULL'
         try:
@@ -648,6 +649,39 @@ class crawling(HTMLrequest):
 
             result.append(into)
             crawling.crawled_mou_data.append(into)
+            
+        return result
+
+    def TMOdata(self):
+        #SSL: DH_KEY_TOO_SMALL error 방지
+        requests.packages.urllib3.disable_warnings()
+        requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS += ':HIGH:!DH:!aNULL'
+        try:
+            requests.packages.urllib3.contrib.pyopenssl.util.ssl_.DEFAULT_CIPHERS += ':HIGH:!DH:!aNULL'
+        except AttributeError:
+            # no pyopenssl support used / needed / available
+            pass
+
+
+        result=[]
+        response = requests.get('https://openapi.mnd.go.kr/3733313631313630353532323832313430/json/DS_TB_MND_TMO_INFO/1/100')
+
+        json = response.json()
+        raw_data = json['DS_TB_MND_TMO_INFO']['row']
+
+        for data in  raw_data:
+            into = {
+                'name' : data['tmo_nm'],
+                'number' : data['gnrltelno'],
+                'pstnexpln' : data['pstnexpln'],
+                'wkday_strtm' : data['wkday_strtm'],
+                'wkday_endtm' : data['wkday_endtm'],
+                'wkend_strtm' : data['wkend_strtm'],
+                'wkend_endtm' : data['wkend_endtm'],
+                'etc' : data['etc'],
+            }
+            result.append(into)
+            crawling.crawled_tmo_data.append(into)
             
         return result
         

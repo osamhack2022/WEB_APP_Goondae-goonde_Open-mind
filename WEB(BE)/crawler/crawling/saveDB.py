@@ -50,10 +50,34 @@ class saveDB:
         self.curser.executemany("INSERT INTO MOU_data (name, region, number, benefit) VALUES (:name, :region, :number, :benefit)", crawled_mou_data)
         self.connect.commit()
 
-    def MOU_crawled_amout(self):
+    def MOU_crawled_amount(self):
         self.curser.execute("SELECT * FROM MOU_data")
         save_data = self.curser.fetchall()
         amount = 0
         for data in save_data:
             amount +=1
         return amount
+
+    def TMO_create_db(self):
+        self.curser.execute("""CREATE TABLE TMO_data(
+                            id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            name TEXT, 
+                            number TEXT,
+                            pstnexpln TEXT, 
+                            wkday_strtm TEXT,
+                            wkday_endtm TEXT,
+                            wkend_strtm TEXT,
+                            wkend_endtm TEXT,
+                            etc TEXT)""")
+        
+    def TMO_into_db(self, crawled_mou_data):
+        self.curser.executemany("INSERT INTO TMO_data (name, number, pstnexpln, wkday_strtm, wkday_endtm, wkend_strtm, wkend_endtm, etc) VALUES (:name, :number, :pstnexpln, :wkday_strtm, :wkday_endtm, :wkend_strtm, :wkend_endtm, :etc)", crawled_tmo_data)
+        self.connect.commit()
+
+    def TMO_crawled_amount(self):
+        self.curser.execute("SELECT * FROM TMO_data")
+        save_data = self.curser.fetchall()
+        amount = 0
+        for data in save_data:
+            amount +=1
+        return amount    
