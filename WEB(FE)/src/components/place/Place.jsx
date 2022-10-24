@@ -20,7 +20,7 @@ const Place = ({ product, location, reviews, fake, setVisible, image }) => {
               <div className='flex items-center'>
                 <Link
                   to={`/index/?category=${location.category}`}
-                  className='mr-2 text-sm font-medium text-gray-900'
+                  className=' mr-2 text-sm font-medium text-gray-900'
                 >
                   {location.category}
                 </Link>

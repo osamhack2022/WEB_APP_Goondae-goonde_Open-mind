@@ -7,7 +7,7 @@ const MyPage = () => {
   return (
     <>
       <Helmet>
-        <title>OPEN MIND - 내 정보 수정</title>
+        <title>군대군데 - 내 정보 수정</title>
       </Helmet>
       <HeaderContainer visible={false} />
       <MyPageContainer />

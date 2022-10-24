@@ -5,7 +5,7 @@ const LoginPage = () => {
   return (
     <>
       <Helmet>
-        <title>OPEN MIND - 로그인</title>
+        <title>군대군데 - 로그인</title>
       </Helmet>
       <LoginForm />
     </>

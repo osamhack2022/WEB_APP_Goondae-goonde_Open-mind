@@ -15,13 +15,13 @@ const PlaceItem = ({ location, image }) => {
             className='h-full w-full object-cover object-center group-hover:opacity-75'
           />
         </div>
-        <h3 className='mt-4 text-lg text-gray-900 group-hover:text-gray-400'>
+        <h3 className='mt-4 text-lg text-gray-900  group-hover:text-gray-400'>
           {location.name}
-          <span className='ml-2 text-sm text-gray-600 group-hover:text-gray-300'>
+          <span className='ml-2 text-sm text-gray-600  group-hover:text-gray-300'>
             {location.category}
           </span>
         </h3>
-        <p className='mt-1 text-sm font-normal text-gray-900  group-hover:text-gray-400'>
+        <p className='mt-1 text-sm font-normal text-gray-900   group-hover:text-gray-400'>
           <span>{location.address}</span>
         </p>
         <p className='mt-1 text-sm font-normal text-gray-900  group-hover:text-gray-400'>
