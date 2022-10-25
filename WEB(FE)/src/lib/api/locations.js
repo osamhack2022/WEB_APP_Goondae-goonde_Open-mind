@@ -21,7 +21,7 @@ export const locationsList = ({ category, page }) => {
 export const readLocation = ({ placeId }) =>
   client.get(`/locations/location/${placeId}/`);
 
-export const getLocationReviews = ({ placeId }) =>
+export const getLocationReviews = async ({ placeId }) =>
   client.get(`/locations/location/${placeId}/reviews/`);
 
 export const createLocationReview = ({ content, location_id }) => {
@@ -34,6 +34,7 @@ export const createLocationReview = ({ content, location_id }) => {
 };
 
 export const removeLocationRview = ({ placeId, reviewId }) => {
+  console.log('delete');
   const user = JSON.parse(localStorage.getItem('user'));
   return client.delete(`/locations/location/${placeId}/reviews/${reviewId}/`, {
     headers: {

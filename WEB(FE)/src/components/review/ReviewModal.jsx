@@ -127,7 +127,7 @@ const ReviewModal = ({
                                   ownReview && (
                                     <ReviewActionButtons
                                       onEdit={onEdit}
-                                      onRemove={() => onRemove(review.pk)}
+                                      onRemove={() => onRemove(review.id)}
                                     />
                                   )
                                 }

@@ -72,7 +72,10 @@ const PlaceContainer = () => {
   useEffect(() => {
     dispatch(readLocation({ placeId }));
     dispatch(list({ placeId }));
-    return () => dispatch(initializeForm('review'));
+    return () => {
+      dispatch(initializeForm('review'));
+      dispatch(initializeForm('reviews'));
+    };
   }, [dispatch, placeId]);
 
   useEffect(() => {
@@ -83,7 +86,7 @@ const PlaceContainer = () => {
 
   useEffect(() => {
     reviews && setReviewsArray(reviews.results);
-  }, [reviews]);
+  }, [dispatch, reviews]);
 
   return (
     <>
