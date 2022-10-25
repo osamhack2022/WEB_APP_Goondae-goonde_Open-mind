@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import React, { useRef } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { CustomOverlayMap, Map, MapMarker } from 'react-kakao-maps-sdk';
@@ -20,6 +20,7 @@ const MyLocatinMapContainer = () => {
   const { markers } = useSelector(({ markers }) => ({
     markers: markers.markers,
   }));
+  console.log('markers', markers);
   const handleCenterChanged = (map) =>
     setInfo({
       center: {
@@ -82,12 +83,12 @@ const MyLocatinMapContainer = () => {
         </div>
       </CustomOverlayMap>
       <MapMarker position={myLocation.coordinates} />
-
       {markers &&
         markers.map((marker) => {
           const position = { lat: marker.y, lng: marker.x };
+          console.log(position);
           return (
-            <>
+            <div key={marker.id}>
               <CustomOverlayMap
                 key={marker.id}
                 position={position}
@@ -104,10 +105,10 @@ const MyLocatinMapContainer = () => {
                 clickable={true}
                 onClick={() => navigate(`/index/${marker.id}`)}
               />
-            </>
+            </div>
           );
         })}
     </Map>
   );
 };
-export default MyLocatinMapContainer;
+export default React.memo(MyLocatinMapContainer);

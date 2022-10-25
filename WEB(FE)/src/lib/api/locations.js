@@ -34,11 +34,23 @@ export const createLocationReview = ({ content, location_id }) => {
 };
 
 export const removeLocationRview = ({ placeId, reviewId }) => {
-  console.log('delete');
   const user = JSON.parse(localStorage.getItem('user'));
   return client.delete(`/locations/location/${placeId}/reviews/${reviewId}/`, {
     headers: {
       Authorization: `jwt ${user.token}`,
     },
   });
+};
+export const addLikeLocationReview = async ({ placeId, reviewId }) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  const response = await client.patch(
+    `/locations/location/${placeId}/reviews/${reviewId}/like`,
+    {},
+    {
+      headers: {
+        Authorization: `jwt ${user.token}`,
+      },
+    }
+  );
+  return { data: { reviewId, ...response.data } };
 };
