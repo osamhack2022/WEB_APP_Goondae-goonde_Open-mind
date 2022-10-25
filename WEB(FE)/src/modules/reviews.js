@@ -78,8 +78,8 @@ const reviews = handleActions(
     [LIST_SUCCESS]: (state, { payload: reviews }) => ({
       ...state,
       reviews: {
-        count: reviews.count,
-        results: reviews.results.length > 0 && reviews.results.reverse(),
+        count: reviews.length,
+        results: reviews,
       },
       reviewsError: null,
     }),
