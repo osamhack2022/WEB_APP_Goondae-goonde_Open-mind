@@ -127,8 +127,8 @@ class LocationReviewCreateSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer(read_only=True)
     class Meta:
         model = LocationReview
-        fields = ["author", "profile", "content", "image"]
-        read_only_fields = ['author']
+        fields = ["id", "author", "profile", "content", "image", "created_at"]
+        read_only_fields = ["id", "author", "profile", "created_at"]
 
 
 # Mou_star
