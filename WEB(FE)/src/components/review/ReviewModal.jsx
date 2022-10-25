@@ -22,6 +22,7 @@ const ReviewModal = ({
   user,
   onEdit,
   onRemove,
+  onClick,
 }) => {
   if (!visible) return null;
   return (
@@ -118,11 +119,12 @@ const ReviewModal = ({
                               review.profile.username;
                             return (
                               <ReviewItem
-                                key={review.pk}
+                                key={review.id}
                                 image={review.profile.profile_image}
                                 createdAt={review.created_at}
                                 username={review.profile.username}
                                 content={review.content}
+                                cnt={review.total_likes}
                                 actionButtons={
                                   ownReview && (
                                     <ReviewActionButtons
@@ -131,6 +133,7 @@ const ReviewModal = ({
                                     />
                                   )
                                 }
+                                onClick={() => onClick(review.id)}
                               />
                             );
                           })}
