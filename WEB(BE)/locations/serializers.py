@@ -43,7 +43,7 @@ class LocationListSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Location
-        fields = ["id", "name", "category", "address", "number", "benefit", "total_reviews", "user_liked", "total_likes", "user_star_rated", "total_stars"]
+        fields = ["id", "name", "category", "address", "x", "y", "number", "benefit", "total_reviews", "user_liked", "total_likes", "user_star_rated", "total_stars"]
     
     def get_user_liked_toggle(self, obj):
         request =  self.context.get('request', None)
