@@ -43,7 +43,7 @@ class LocationListSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Location
-        fields = ["id", "name", "category", "address", "number", "benefit", "total_reviews", "user_liked", "total_likes", "user_star_rated", "total_stars"]
+        fields = ["id", "name", "category", "address", "x", "y", "number", "benefit", "total_reviews", "user_liked", "total_likes", "user_star_rated", "total_stars"]
     
     def get_user_liked_toggle(self, obj):
         request =  self.context.get('request', None)
@@ -127,8 +127,8 @@ class LocationReviewCreateSerializer(serializers.ModelSerializer):
     profile = ProfileSerializer(read_only=True)
     class Meta:
         model = LocationReview
-        fields = ["author", "profile", "content", "image"]
-        read_only_fields = ['author']
+        fields = ["id", "author", "profile", "content", "image", "created_at"]
+        read_only_fields = ["id", "author", "profile", "created_at"]
 
 
 # Mou_star

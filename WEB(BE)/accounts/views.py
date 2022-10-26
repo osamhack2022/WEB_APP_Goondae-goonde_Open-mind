@@ -79,7 +79,7 @@ class ConfirmEmailView(APIView):
         self.object = confirmation = self.get_object()
         confirmation.confirm(self.request)
         # A React Router Route will handle the failure scenario
-        return HttpResponseRedirect('/login/success/')
+        return HttpResponseRedirect('http://ec2-52-79-185-182.ap-northeast-2.compute.amazonaws.com:3000/')
 
     def get_object(self, queryset=None):
         key = self.kwargs['key']
@@ -91,7 +91,7 @@ class ConfirmEmailView(APIView):
                 email_confirmation = queryset.get(key=key.lower())
             except EmailConfirmation.DoesNotExist:
                 # A React Router Route will handle the failure scenario
-                return HttpResponseRedirect('/login/failure/')
+                return HttpResponseRedirect('http://ec2-52-79-185-182.ap-northeast-2.compute.amazonaws.com:3000/')
         return email_confirmation
 
     def get_queryset(self):
