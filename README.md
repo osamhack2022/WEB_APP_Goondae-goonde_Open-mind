@@ -355,9 +355,9 @@
    <div align="center"><a href="https://git-scm.com/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a><br>Git</div>
   </td>
   <td>
-   <div align="center"><a href="https://www.docker.com/" target="_blank"> 
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" width="40" height="40"/>
-           </a><br>docker</div>
+   <div align="center"><a href="https://aws.amazon.com/" target="_blank"> 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="aws" width="40" height="40"/>
+           </a><br>AWS</div>
   </td>
  </tr>
  </tbody></table>
@@ -368,39 +368,19 @@
 <table><tbody>
  <tr>
   <td width="60">
-   <div align="center"><a href="https://nodejs.org" target="_blank"> 
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"width="40" height="40" />
-    </a><br>Node.js</div>
-
+   <div align="center"><a href="https://www.python.org/" target="_blank"> 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"width="40" height="40" />
+    </a><br>Python</div>
   </td>
   <td width="60">
-   <div align="center"><a href="https://expressjs.com" target="_blank">  
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" width="40" height="40"/>
-    </a><br>Express</div>
+   <div align="center"><a href="https://www.djangoproject.com/" target="_blank">  
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" width="40" height="40"/>
+    </a><br>Django</div>
   </td>
   <td width="60">
-   <div align="center"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank"> 
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/>
-           </a><br>Javascript</div>
-  </td>
-  <td width="60">
-   <div align="center"><a href="https://strapi.io/" target="_blank"> <img src="https://strapi.io/assets/strapi-logo-dark.svg" alt="strapi" width="40" height="40"/> </a><br>Strapi</div>
-  </td>
-  <td width="60">
-   <div align="center"><a href="https://www.linux.org/" target="_blank"> 
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" width="40" height="40"/>
-           </a><br>Linux</div>
-  </td>
-  <td width="60">
-   <div align="center"><a href="https://www.nginx.com" target="_blank"> 
-   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" alt="nginx" width="40" height="40"/> </a><br>Nginx</div>
-  </td>
-  <td width="60">
-   <div align="center"><a href="https://jwt.io" target="_blank"> <img src="https://jwt.io/img/pic_logo.svg" alt="jwt" width="40" height="40"/> </a><br>JWT</div>
-  </td>
-  </td>
-  <td width="60">
-   <div align="center"><a href="https://letsencrypt.org/" target="_blank"> <img src="https://letsencrypt.org/images/le-logo-standard.svg" alt="letsencrypt" width="40" height="40"/> </a><br>SSL</div>
+   <div align="center"><a href="https://swagger.io/" target="_blank"> 
+            <img src="https://static1.smartbear.co/swagger/media/assets/images/swagger_logo.svg" alt="swagger" width="40" height="40"/>
+           </a><br>Swagger</div>
   </td>
  </tr>
  </tbody></table>
@@ -445,9 +425,9 @@
  <table><tbody>
  <tr>
   <td>
-   <div align="center"><a href="https://www.mongodb.com/" target="_blank"> 
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
-           alt="mongodb" width="40" height="40"/> </a><br>MongoDB</div>
+   <div align="center"><a href="https://www.sqlite.org/index.html" target="_blank"> 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg"
+           alt="sqlite" width="40" height="40"/> </a><br>SQLite</div>
   </td></tr>
  </tbody></table>
  <br>
