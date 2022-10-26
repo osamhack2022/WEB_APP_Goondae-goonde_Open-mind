@@ -15,6 +15,7 @@ import {
   changeField,
   createReview,
   initializeForm,
+  likeReview,
   list,
 } from '../../modules/reviews';
 
@@ -58,6 +59,10 @@ const PlaceContainer = () => {
   };
 
   const onEdit = () => {};
+  const onClick = (reviewId) => {
+    console.log('like');
+    dispatch(likeReview({ placeId, reviewId }));
+  };
 
   const onRemove = async (reviewId) => {
     try {
@@ -72,7 +77,10 @@ const PlaceContainer = () => {
   useEffect(() => {
     dispatch(readLocation({ placeId }));
     dispatch(list({ placeId }));
-    return () => dispatch(initializeForm('review'));
+    return () => {
+      dispatch(initializeForm('review'));
+      dispatch(initializeForm('reviews'));
+    };
   }, [dispatch, placeId]);
 
   useEffect(() => {
@@ -83,7 +91,7 @@ const PlaceContainer = () => {
 
   useEffect(() => {
     reviews && setReviewsArray(reviews.results);
-  }, [reviews]);
+  }, [dispatch, reviews]);
 
   return (
     <>
@@ -110,6 +118,7 @@ const PlaceContainer = () => {
             user={user}
             onEdit={onEdit}
             onRemove={onRemove}
+            onClick={onClick}
           />
         </>
       ) : (

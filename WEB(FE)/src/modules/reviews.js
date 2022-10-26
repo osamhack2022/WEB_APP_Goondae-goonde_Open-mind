@@ -13,6 +13,8 @@ const [LIST, LIST_SUCCESS, LIST_FAILURE] =
 
 const [CREATE_REVIEW, CREATE_REVIEW_SUCCESS, CREATE_REVIEW_FAILURE] =
   createRequestActionTypes('reviews/CREATE_REVIEW');
+const [LIKE_REVIEW, LIKE_REVIEW_SUCCESS, LIKE_REVIEW_FAILURE] =
+  createRequestActionTypes('reviews/LIKE_REVIEW');
 
 export const list = createAction(LIST, (list) => list);
 export const changeField = createAction(CHANGE_FIELD, ({ form, value }) => ({
@@ -28,12 +30,19 @@ export const createReview = createAction(
     location_id,
   })
 );
+export const likeReview = createAction(
+  LIKE_REVIEW,
+  ({ placeId, reviewId }) => ({ placeId, reviewId })
+);
 export const initializeForm = createAction(INITIALIZE_FORM, (form) => form);
 const listReviewsSaga = createRequestSaga(
   LIST,
   locationsAPI.getLocationReviews
 );
-
+const likeReviewSaga = createRequestSaga(
+  LIKE_REVIEW,
+  locationsAPI.addLikeLocationReview
+);
 const createReviewSaga = createRequestSaga(
   CREATE_REVIEW,
   locationsAPI.createLocationReview
@@ -42,6 +51,7 @@ const createReviewSaga = createRequestSaga(
 export function* reviewsSaga() {
   yield takeLatest(LIST, listReviewsSaga);
   yield takeLatest(CREATE_REVIEW, createReviewSaga);
+  yield takeLatest(LIKE_REVIEW, likeReviewSaga);
 }
 
 const initialState = {
@@ -60,14 +70,30 @@ const reviews = handleActions(
       ...state,
       [form]: initialState[form],
     }),
+    [LIKE_REVIEW_SUCCESS]: (state, { payload: { reviewId, total_likes } }) => {
+      const changedReviews = state.reviews.results.map((review) => {
+        if (review.id === reviewId) {
+          review.total_likes = total_likes;
+        }
+        return review;
+      });
+      return {
+        ...state,
+        reviews: { count: state.reviews.count, results: [...changedReviews] },
+      };
+    },
+    [LIKE_REVIEW_FAILURE]: (state, { payload: error }) => ({
+      ...state,
+      reviewsError: error,
+    }),
     [CREATE_REVIEW_SUCCESS]: (state, { payload: review }) => ({
       ...state,
       review: '',
       reviews: {
         count: state.reviews.count + 1,
         results: state.reviews.results
-          ? [review, ...state.reviews.results]
-          : [review],
+          ? [{ ...review, total_likes: 0 }, ...state.reviews.results]
+          : [{ ...review, total_likes: 0 }],
       },
       reviewsError: null,
     }),
@@ -78,8 +104,8 @@ const reviews = handleActions(
     [LIST_SUCCESS]: (state, { payload: reviews }) => ({
       ...state,
       reviews: {
-        count: reviews.count,
-        results: reviews.results.length > 0 && reviews.results.reverse(),
+        count: reviews.length,
+        results: reviews,
       },
       reviewsError: null,
     }),

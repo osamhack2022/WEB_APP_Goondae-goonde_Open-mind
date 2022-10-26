@@ -20,13 +20,14 @@ const LikeContainer = () => {
     loading: loading['post/ADD_LIKE'],
   }));
   const likes = post ? post.likes : undefined;
-  let likeCnt = likes ? likes[likes?.length - 1] : 0;
+  let likeCnt = 0;
   console.log('rerender');
   const onClick = () => {
     console.log('click', post, clicked);
     setClicked(!clicked);
-    console.log(likeCnt);
     dispatch(addLike({ postId }));
+    if (clicked) likeCnt++;
+    else likeCnt--;
   };
 
   return (
