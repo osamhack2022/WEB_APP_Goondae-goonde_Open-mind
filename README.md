@@ -494,9 +494,28 @@
 
 ### Figma
 
+[👉🏻 OPENMIND Figma 페이지 이동 ]("https://www.figma.com/file/ydqRIxIeWw0D2HRzHx6SRm/%EA%B5%B0%EB%8C%80%EA%B5%B0%EB%8D%B0?node-id=0%3A1")
 <br>
 
-> 구현되기 전의 디자인의 전체적인 모습을 팀원들과 공유하기 위해 활용
+> 기획단계에서의 결과물을 도출 및 의견 공유를 위해 사용
+>
+> 1. IA를 구성하여 기능 구현
+> 2. 와이어프레임을 팀원들과 공유
+
+<br>
+
+<h4>Information Architecture</h4>
+
+<div align="center">
+<image src="img/IA_IMAGE.png"/>
+</div>
+ 
+<br>
+<h4>Wire Frame</h4>
+
+<div align="center">
+<image src="img/WIREFRAME_IMAGE.png"/>
+</div>
 
 <br>
 
