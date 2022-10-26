@@ -1,10 +1,14 @@
 # Goondae-goonde_Open mind
 
+<div align="center">
+  <img src="img/LOGO.gif">
+</div>
+<p>&nbsp;</p>
 <p align="center">
 	<a href="https://friends.kookbang.kr/">
 		<img src="img/DEMO_BUTTON.png" />
 	</a>
-	<a href="https://kjeonghoon065.gitbook.io/kookbangfriends/">
+	<a href="http://ec2-52-79-185-182.ap-northeast-2.compute.amazonaws.com:8000/swagger">
 		<img src="img/DOCUMNET_BUTTON.png" />
 	</a>
 	<a href="https://github.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/issues?q=is%3Aissue+is%3Aclosed">
@@ -21,50 +25,55 @@
 <br><br><br>
 <hr>
 <h2>목차</h2>
+<ol>
+<li>
+<a href="#project-introduce-video"><p>프로젝트 설명 영상</p></a>
+</li>
+<li>
+<a href="#team-introduce"><p>팀 소개</p></a>
+</li>
+<li>
+<a href="#project-intro"><p>프로젝트 소개</p></a>
 <ul>
-<li>
-<a><p>프로젝트 설명 영상</p></a>
-</li>
-<li>
-<a><p>팀 소개</p></a>
-</li>
-<li>
-<a><p>프로젝트 소개</p></a>
-</li>
-<li>
-<a><p>기능 설계</p></a>
-</li>
-<li>
-<a><p>기능 소개</p></a>
-</li>
-<li>
-<a><p>군데군대의 경쟁력</p></a>
-</li>
-<li>
-<a><p>군데군대의 경쟁력</p></a>
-</li>
-<li>
-<a><p>컴퓨터 구성 / 필수조건안내</p></a>
-</li>
-<li>
-<a><p>기술 스택</p></a>
-</li>
-<li>
-<a><p>협업 툴</p></a>
-</li>
-<li>
-<a><p>프로그램 사용법</p></a>
-</li>
-<li>
-<a><p>저작권 및 사용정보</p></a>
-</li>
+<li><a href="#painpoint"><p>pain point</p></a></li>
+<li><a href="#solution"><p>solution</p></a></li>
 </ul>
-<hr>
+</li>
+<li>
+<a href="#todo-introduce"><p>기능 소개</p></a>
+</li>
+<li>
+<a href="#todo-architechture"><p>기능 설계</p></a>
+</li>
+
+<li>
+<a href="#effect"><p>군대군데 기대효과</p></a>
+</li>
+<li>
+<a href="#benefit"><p>군대군데 경쟁력</p></a>
+</li>
+<li>
+<a href="#must-computer"><p>컴퓨터 구성 / 필수조건안내</p></a>
+</li>
+<li>
+<a href="#tech-stach"><p>기술 스택</p></a>
+</li>
+<li>
+<a href="#wego-together"><p>협업 툴</p></a>
+</li>
+<li>
+<a href="#how-to-do"><p>프로그램 사용법</p></a>
+</li>
+<li>
+<a href="#usage"><p>저작권 및 사용정보</p></a>
+</li>
+</ol>
 
 <br>
 <br>
 <br>
-<h2 align="center">프로젝트 설명 영상</h2>
+<h2 id="project-introduce-video" align="center">프로젝트 설명 영상</h2>
+<hr><br>
 
 <table>
 	<tr>
@@ -88,21 +97,25 @@
 <h4 align="center">이미지 클릭 시 youtube 영상으로 이동합니다.</h4><br><br><br>
 <br>
 
-## 팀 소개
-
-<p align="center"><a href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/TEAM_INFO.png"><img src="./img/TEAM_INFO.png"></a></p>
+<h2 id="team-introduce" align="center">팀 소개</h2>
+<hr><br>
+<p align="center">
+<a href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/TEAM_INFO.png"><img src="./img/TEAM_INFO.png"></a></p>
 
 <br><br>
 
-## 프로젝트 소개
+<h2 id="project-intro" align="center">프로젝트 소개</h2>
+<hr>
+<br>
+<p align="center">장병들의 윤택한 외출, 외박을 위한 플레이스 추천 플랫폼 [군대군데]</p>
 
-외박,외출,휴가 장병을 위한 플레이스 추천 플랫폼 [군대군데]
-
-<!-- <p align="center"><img src="/image/TOP_LOGO.png"></p> -->
+<div align="center">
+  <img src="img/LOGO.gif">
+</div>
 
 <img src="./img/download.jpeg" width="1080px"/>
 
-<p><b>군대군데</b>는 위드코로나, 사회적거리두기 완화따라 외출/외박이 풀리기 시작했습니다. 위 사진과 같이 험준하고, 불편한 군대 안에서 20대를 보내고 있을 청춘들에게 2022년에 외출 외박을 나와서 1990년초, 2000년 초와 같은 불편함, 불의를 겪지 않게 하기 위한 프로젝트 입니다.</p>
+ <p>위드코로나, 사회적거리두기 완화따라 외출,외박이 다시 가능한 시대가 돌아 왔습니다. 위 사진과 같은 험준하고, 낯선 군대 안에서 20대의 청춘을 보내고 있을 우리 장병들에게 2022년에도 외출 외박을 나와서 1990년초, 2000년 초에 겪었던 불편함과 차별을 당하지 않도록 하기 위한 프로젝트가 <b>군대군데</b>입니다.</p>
 
 <img src="./img/news2.png" width="1080px"/>
 <img src="./img/news4.png" width="1080px"/>
@@ -113,17 +126,45 @@
 
 <br><br>
 
-<p align="center"><img src="/image/Introduce.jpg"></p>
+<h3 id="painpoint">🩼 Pain Point</h3>
+
+1. 군 주변 지역 특성 상 군인들에게 바가지 요금, 낮은 품질의 서비스를 제공한다.
+
+2. 정보의 부족으로, 군 혜택을 제대로 누리지 못하고 있다.
+
+<br>
+
+<h3 id="solution">⭐️ Solution </h3>
+
+1. 부대 주변의 장소들에 대한 별점, 리뷰를 작성하는 커뮤니티를 제공한다.
+
+2. 군인들만을 위한 커뮤니티를 제공한다.
+
+3. 군인에게 혜택을 제공하는 장소, MOU 업체, TMO에 대한 정보를 통합하여 제공한다.
+   <br><br>
+
+<p align="center"><img src="img/Introduce.jpg"></p>
    <table><tbody><tr>
    <td width="50%"><h4 align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/0_HOME.jpg"><img src="img/0_HOME.png" width="72.3307%" height="72.3307%"></a><br><br>군데군대 메인화면</h4></td>
    <td width="50%"><h4 align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/0_HOME_MOB.jpg"><img src="/image/0_HOME_MOB.jpg" width="75%" height="75%"></a><br><br>모바일 버전</h4></td>
     </tr></tbody></table>
     <br><br>
 
-## 기능 설계
+<h2 id="todo-introduce" align="center">기능 소개</h2>
+<hr><br>
 
-※ 클릭시 확대된 원본 이미지를 확인할 수 있습니다. <br><br>
+- 지방 도시에서의 숙박업소, 음식점을 여러 사이트에서 정보를 수집해 보여줍니다.
 
+- 지도에 나와있지 않은 위수지역 내 숙박시설 및 음식점을 장병들이 추가할 수 있습니다.
+
+- 각 숙박업소 및 음식점은 장병들의 리뷰 및 별점을 통해 정보를 확인할 수 있습니다.
+
+<br><br>
+
+<h2 id="todo-architechture" align="center">기능 설계</h2>
+<hr>
+※ 클릭시 확대된 원본 이미지를 확인할 수 있습니다.
+<br>
 <table>
         <tbody>
 		<tr>
@@ -228,15 +269,10 @@
 
 **지역 내 수만명의 장병들의 힘을 모아, 위수 지역 내 정보를 공유하는 Plat Form "군데군대" 입니다.**
 
-## 기능 설명
+<br><br><br>
 
-- 지방 도시에서의 숙박업소, 음식점을 여러 사이트에서 정보를 수집해 보여줍니다.
-
-- 지도에 나와있지 않은 위수지역 내 숙박시설 및 음식점을 장병들이 추가할 수 있습니다.
-
-- 각 숙박업소 및 음식점은 장병들의 리뷰 및 별점을 통해 정보를 확인할 수 있습니다.
-
-## 군데군대 기대효과
+<h2 id="effect" align="center">군데군대 기대효과</h2>
+<hr><br>
 
 ### 🗺 지역 내 군인 할인 점 확인
 
@@ -244,10 +280,14 @@
 - 지역 내 군인 할인 제공 지점 제공
 - 지역 내 맛집 정보 제공
 
+<br>
+
 ### 🌐 외출 장소에 관한 소통의 장으로 활용
 
 - 지역 내 장소들에 대한 서비스 품질 확인 가능
 - 군인에 대한 차별 등의 요소 공유
+
+<br>
 
 ### 🖥 SNS Community 형성
 
@@ -256,8 +296,8 @@
 
   <br><br>
 
-## 군대군데가 가진 경쟁력
-
+<h2 id="benefit" align="center"> 군대군데가 가진 경쟁력</h2>
+<hr>
 <br>
 
 ### 📘 개발문서의 구체성
@@ -293,15 +333,18 @@
 - 즉시 서비스를 시행할 수 있도록 완성도 있게 제작
 - 모든 기능들은 사용자별 권한 설정이 완료 되고 원활하게 구현되어짐
 - 관리자 페이지를 제공하여 보다 체계적인 관리가 가능
+  <br><br><br>
 
-## 컴퓨터 구성 / 필수 조건 안내 (Prerequisites)
+<h2 id="must-computer" align="center">컴퓨터 구성 / 필수 조건 안내 (Prerequisites)</h2>
+<hr>
 
 <!-- <p><img src="/image/prerequisites.png"></p> -->
 
 <br><br>
 
-## 기술 스택 (Technique Used)
-
+<h2 id="tech-stach" align="center">기술 스택 (Technique Used)</h2>
+<hr>
+<br>
 <!-- <h3 align="center"><img src="/image/skill.jpg"></h3> -->
 
 ### Infra
@@ -318,8 +361,10 @@
   </td>
  </tr>
  </tbody></table>
- 
+ <br>
+
 ### Back-end
+
 <table><tbody>
  <tr>
   <td width="60">
@@ -359,8 +404,10 @@
   </td>
  </tr>
  </tbody></table>
-  
+  <br>
+
 ### Front-end
+
 <table><tbody>
  <tr>
   <td>
@@ -391,8 +438,10 @@
 
  </tr>
  </tbody></table>
- 
- ### Database
+ <br>
+
+### Database
+
  <table><tbody>
  <tr>
   <td>
@@ -401,8 +450,10 @@
            alt="mongodb" width="40" height="40"/> </a><br>MongoDB</div>
   </td></tr>
  </tbody></table>
- 
- ### Web Skills
+ <br>
+
+### Web Skills
+
 <table>
 	<tbody>
 		<tr>
@@ -418,36 +469,22 @@
 				웹 표준<br>
 				(Web Standards)
 	  		</td>
-			<td width="200" align="center">
-				SEO 검색엔진최적화<br>
-				(Search Engine Optimization)
-	  		</td>
-		</tr>
-	 </tbody>
-</table>
-<table>
-	<tbody>
-		<tr>
-			<td width="200" align="center">
-				SSR<br>
-				(Server Side Rendering)
-	  		</td>
-			<td width="200" align="center">
+            <td width="200" align="center">
 				CSR<br>
 				(Client Side Rendering)
 	  		</td>
-			<td width="200" align="center">
-				PWA<br>
-				(Progressive Web Apps)
-	  		</td>
 		</tr>
 	 </tbody>
 </table>
-<br><br>
 
-## 협업 툴 이용
+<br><br><br>
+
+<h2 id="wego-together" align="center">협업 툴 이용</h2>
+<hr><br>
 
 ### git
+
+<br>
 
 #### git flow 전략
 
@@ -473,17 +510,30 @@
 
 > Pull Request를 다른 프론트엔드 혹은 백엔드 팀원이 확인 및 피드백을 통해, 팀원들의 진행 상황과 전체적인 프로젝트의 흐름을 확인
 
+<br>
+
 ### Figma
+
+<br>
 
 > 구현되기 전의 디자인의 전체적인 모습을 팀원들과 공유하기 위해 활용
 
+<br>
+
 ### Trello
+
+<br>
 
 > 각자 팀원들의 전체적인 작업도를 확인하기 위해 활용
 
-## 프로젝트 사용법 (Getting Started)
+<br><br><br>
+
+<h2 id="how-to-do" align="center">프로젝트 사용법 (Getting Started)</h2>
+<hr><br>
 
 ### 설치 안내 (Installation Process)
+
+<br>
 
 ```bash
 $ git clone git주소
@@ -497,7 +547,12 @@ $ python manage.py runserver
 
 ```
 
-## 저작권 및 사용권 정보 (Copyleft / End User License)
+<br><br><br>
+
+<h2 id="usage" align="center">저작권 및 사용권 정보 (Copyleft / End User License)</h2>
+<hr>
+
+<br>
 
 - [MIT](https://github.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/blob/main/LICENSE)
 
