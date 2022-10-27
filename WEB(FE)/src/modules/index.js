@@ -9,6 +9,7 @@ import post, { postSaga } from './post';
 import posts, { postsSaga } from './posts';
 import markers, { markersSaga } from './markers';
 import reviews, { reviewsSaga } from './reviews';
+import tmos, { tmosSaga } from './tmos';
 
 import loading from './loading';
 
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   user,
   markers,
   reviews,
+  tmos,
 });
 
 export function* rootSaga() {
@@ -36,6 +38,7 @@ export function* rootSaga() {
     postSaga(),
     postsSaga(),
     reviewsSaga(),
+    tmosSaga(),
   ]);
 }
 
