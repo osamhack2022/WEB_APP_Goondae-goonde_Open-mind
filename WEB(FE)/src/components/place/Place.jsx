@@ -8,7 +8,6 @@ function classNames(...classes) {
 }
 
 const Place = ({ product, location, reviews, fake, setVisible, image }) => {
-  console.log(location);
   return (
     <div className='bg-white mt-[4rem]'>
       <div className='pt-6'>

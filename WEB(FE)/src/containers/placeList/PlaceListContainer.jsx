@@ -6,6 +6,7 @@ import Pagination from '../../components/common/Pagination';
 import PlaceList from '../../components/places/PlaceList';
 import LoadingPlaceList from '../../components/loading/LoadingPlaceList';
 import { imagesList, list } from '../../modules/locations';
+import search from '../../lib/api/search';
 
 const PlaceListContainer = () => {
   const [searchParams] = useSearchParams();
@@ -27,7 +28,8 @@ const PlaceListContainer = () => {
   };
 
   useEffect(() => {
-    dispatch(list({ category, page }));
+    const likePK = searchParams.get('like');
+    dispatch(list({ category, page, likePK }));
   }, [dispatch, category, page]);
 
   useEffect(() => {

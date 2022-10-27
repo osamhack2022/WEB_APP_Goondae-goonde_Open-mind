@@ -1,10 +1,15 @@
 import client from './client';
 
-export const tmoList = ({ page }) => {
-  if (page) {
-    return client.get(`/locations/tmo/?page=${page}`);
+export const tmoList = ({ page, likePK }) => {
+  console.log(likePK);
+  if (likePK) {
+    return client.get(`/locations/tmo/?likes=${likePK}`);
   } else {
-    return client.get('/locations/tmo/');
+    if (page) {
+      return client.get(`/locations/tmo/?page=${page}`);
+    } else {
+      return client.get('/locations/tmo/');
+    }
   }
 };
 

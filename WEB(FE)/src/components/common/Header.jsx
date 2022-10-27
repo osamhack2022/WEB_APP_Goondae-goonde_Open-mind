@@ -7,6 +7,7 @@ navbar bg-base-100 drop-shadow-md fixed top-0 left-0 z-30
 `;
 
 const Header = ({ visible, user, onLogOut, themeChange }) => {
+  const userStorage = JSON.parse(localStorage.getItem('user'));
   return (
     <HeaderBlock>
       <div className='lg:navbar-start'>
@@ -103,16 +104,21 @@ const Header = ({ visible, user, onLogOut, themeChange }) => {
                 </Link>
                 <ul className='p-2 bg-base-100'>
                   <li>
-                    <Link to='/index'>좋아요 게시물</Link>
+                    <Link
+                      to={`/posts/@${userStorage.username}?like=${userStorage.id}`}
+                    >
+                      좋아요 게시물
+                    </Link>
                   </li>
                   <li>
-                    <Link to='/TMOIndex'>장소 위시리스트</Link>
+                    <Link to={`/index?like=${userStorage.id}`}>
+                      장소 위시리스트
+                    </Link>
                   </li>
                   <li>
-                    <Link to='/MOUIndex'>TMO 위시리스트</Link>
-                  </li>
-                  <li>
-                    <Link to='/MOUIndex'>MOU 위시리스트</Link>
+                    <Link to={`/MOUIndex?like=${userStorage.id}`}>
+                      MOU 위시리스트
+                    </Link>
                   </li>
                 </ul>
               </li>
