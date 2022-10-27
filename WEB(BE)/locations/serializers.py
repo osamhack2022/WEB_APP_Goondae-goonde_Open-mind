@@ -257,3 +257,9 @@ class TmoListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tmo
         fields = ["id", "name", "number", "pstnexpln", "wkday_strtm", "wkday_endtm", "wkend_strtm", "wkend_endtm", "etc"]
+
+class TmoDetailSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Tmo
+        fields = ["id", "name", "number", "pstnexpln", "wkday_strtm", "wkday_endtm", "wkend_strtm", "wkend_endtm", "etc"]
