@@ -1,19 +1,23 @@
 import client from './client';
 
-export const locationsList = ({ category, page }) => {
-  if (page) {
-    if (category) {
-      return client.get(
-        `/locations/location/?category=${category}&page=${page}`
-      );
-    } else {
-      return client.get(`/locations/location/?page=${page}`);
-    }
+export const locationsList = ({ category, page, likePK }) => {
+  if (likePK) {
+    return client.get(`/locations/location/?likes=${likePK}`);
   } else {
-    if (category) {
-      return client.get(`/locations/location/?category=${category}`);
+    if (page) {
+      if (category) {
+        return client.get(
+          `/locations/location/?category=${category}&page=${page}`
+        );
+      } else {
+        return client.get(`/locations/location/?page=${page}`);
+      }
     } else {
-      return client.get('/locations/location/');
+      if (category) {
+        return client.get(`/locations/location/?category=${category}`);
+      } else {
+        return client.get('/locations/location/');
+      }
     }
   }
 };
@@ -53,4 +57,17 @@ export const addLikeLocationReview = async ({ placeId, reviewId }) => {
     }
   );
   return { data: { reviewId, ...response.data } };
+};
+
+export const likeLocation = (placeId) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  return client.patch(
+    `/locations/location/${placeId}/like`,
+    {},
+    {
+      headers: {
+        Authorization: `jwt ${user.token}`,
+      },
+    }
+  );
 };

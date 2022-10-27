@@ -7,7 +7,16 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-const Place = ({ product, location, reviews, fake, setVisible, image }) => {
+const Place = ({
+  product,
+  location,
+  reviews,
+  fake,
+  setVisible,
+  image,
+  onClick,
+  clicked,
+}) => {
   return (
     <div className='bg-white mt-[4rem]'>
       <div className='pt-6'>
@@ -22,7 +31,7 @@ const Place = ({ product, location, reviews, fake, setVisible, image }) => {
                   to={`/index/?category=${location.category}`}
                   className=' mr-2 text-sm font-medium text-gray-900'
                 >
-                  {location.category}
+                  {location.category || 'MOU'}
                 </Link>
                 <svg
                   width={16}
@@ -54,7 +63,7 @@ const Place = ({ product, location, reviews, fake, setVisible, image }) => {
         <div className='mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8'>
           <div className='aspect-w-3 aspect-h-4 hidden overflow-hidden rounded-lg lg:block'>
             <img
-              src={image[0].image_url || product.images[0].src}
+              src={image[0]?.image_url || product.images[0].src}
               alt={product.images[0].alt}
               className='h-full w-full object-cover object-center'
             />
@@ -62,14 +71,14 @@ const Place = ({ product, location, reviews, fake, setVisible, image }) => {
           <div className='hidden lg:grid lg:grid-cols-1 lg:gap-y-8'>
             <div className='aspect-w-3 aspect-h-2 overflow-hidden rounded-lg'>
               <img
-                src={image[1].image_url || product.images[1].src}
+                src={image[1]?.image_url || product.images[1].src}
                 alt={product.images[1].alt}
                 className='h-full w-full object-cover object-center'
               />
             </div>
             <div className='aspect-w-3 aspect-h-2 overflow-hidden rounded-lg'>
               <img
-                src={image[2].image_url || product.images[2].src}
+                src={image[2]?.image_url || product.images[2].src}
                 alt={product.images[2].alt}
                 className='h-full w-full object-cover object-center'
               />
@@ -129,11 +138,40 @@ const Place = ({ product, location, reviews, fake, setVisible, image }) => {
                   ))}
                 </div>
                 <p className='sr-only'>{fake.average} out of 5 stars</p>
+                {reviews && (
+                  <button
+                    onClick={() => setVisible(true)}
+                    className='ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500'
+                  >
+                    {reviews.count} reviews
+                  </button>
+                )}
+              </div>
+              <div className='flex mt-4'>
+                <button className='btn btn-outline btn-ghost mr-3'>
+                  공유하기
+                </button>
                 <button
-                  onClick={() => setVisible(true)}
-                  className='ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500'
+                  className={`btn  flex items-center ${
+                    clicked ? 'btn-active' : 'btn-outline btn-ghost'
+                  }`}
+                  onClick={onClick}
                 >
-                  {reviews.count} reviews
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    strokeWidth='1.5'
+                    stroke='currentColor'
+                    className='w-8 h-8  rounded-full p-1'
+                  >
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      d='M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z'
+                    />
+                  </svg>
+                  저장하기
                 </button>
               </div>
             </div>

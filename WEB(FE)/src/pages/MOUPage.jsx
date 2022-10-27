@@ -1,19 +1,19 @@
 import { Helmet } from 'react-helmet-async';
 import FooterContainer from '../containers/common/FooterContainer';
 import HeaderContainer from '../containers/common/HeaderContainer';
-import PlaceContainer from '../containers/place/PlaceContainer';
+import MOUContainer from '../containers/mou/MOUContainer';
 
-const PlacePage = () => {
+const MOUPage = () => {
   return (
     <>
       <Helmet>
-        <title>군대군데 - 혜택 상세보기</title>
+        <title>군대군데 - MOU 상세보기</title>
       </Helmet>
       <HeaderContainer />
-      <PlaceContainer />
+      <MOUContainer />
       <FooterContainer />
     </>
   );
 };
 
-export default PlacePage;
+export default MOUPage;

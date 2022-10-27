@@ -38,14 +38,14 @@ const user = handleActions(
       state,
       {
         payload: {
-          auth: { token },
-          form: { username, email },
+          auth: { token, user },
+          form: { username },
         },
       }
     ) => {
       return {
         ...state,
-        user: { username, token, email },
+        user: { username, token, id: user.pk },
       };
     },
     // [CHECK_SUCCESS]: (state, { payload: user }) => ({

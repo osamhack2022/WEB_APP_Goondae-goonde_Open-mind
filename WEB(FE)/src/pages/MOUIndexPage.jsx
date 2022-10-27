@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import FooterContainer from '../containers/common/FooterContainer';
 import HeaderContainer from '../containers/common/HeaderContainer';
-import PlaceListContainer from '../containers/placeList/PlaceListContainer';
+import MOUIndexContainer from '../containers/mou/MOUIndexContainer';
 
 const MOUIndexPage = () => {
   return (
@@ -10,7 +10,7 @@ const MOUIndexPage = () => {
         <title>군대군데 - MOU 현황</title>
       </Helmet>
       <HeaderContainer />
-      <PlaceListContainer />
+      <MOUIndexContainer />
       <FooterContainer />
     </>
   );
