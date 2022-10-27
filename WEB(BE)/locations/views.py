@@ -9,7 +9,7 @@ from rest_framework.response import Response
 from accounts.models import Profile
 
 from locations.models import Location, LocationReview, LocationUserStar, Mou, MouReview, MouUserStar, Tmo
-from locations.serializers import LocationDetailSerializer, LocationListSerializer, LocationReviewListSerializer, LocationReviewDetailSerializer, LocationReviewCreateSerializer,  LocationUserStarSerializer, MouListSerializer, MouDetailSerializer, MouUserStarSerializer, MouReviewListSerializer, MouReviewDetailSerializer, MouReviewCreateSerializer, TmoListSerializer
+from locations.serializers import LocationDetailSerializer, LocationListSerializer, LocationReviewListSerializer, LocationReviewDetailSerializer, LocationReviewCreateSerializer,  LocationUserStarSerializer, MouListSerializer, MouDetailSerializer, MouUserStarSerializer, MouReviewListSerializer, MouReviewDetailSerializer, MouReviewCreateSerializer, TmoListSerializer, TmoDetailSerializer
 from locations.permissions import ReviewPermission
 
 # Location view
@@ -205,7 +205,7 @@ class TmoViewSet(viewsets.ReadOnlyModelViewSet):
     def get_serializer_class(self):
         if self.action == 'list':
             return TmoListSerializer
-        #return TmoDetailSerializer
+        return TmoDetailSerializer
     
     def list(self, request):
         tmo = Tmo.objects.all()
