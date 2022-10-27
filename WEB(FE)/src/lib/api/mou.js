@@ -18,6 +18,15 @@ export const readMOU = ({ placeId }) =>
 export const getMOUReviews = async ({ placeId }) =>
   client.get(`/locations/mou/${placeId}/reviews/`);
 
+export const likeMOU = (placeId) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  return client.patch(
+    `/locations/mou/${placeId}/like`,
+    {},
+    { headers: { Authorization: `jwt ${user.token}` } }
+  );
+};
+
 export const createMOUReview = ({ content, location_id }) => {
   const user = JSON.parse(localStorage.getItem('user'));
   return client.post(

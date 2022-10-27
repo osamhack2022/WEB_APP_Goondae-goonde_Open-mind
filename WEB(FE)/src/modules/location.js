@@ -11,11 +11,14 @@ const [READ_LOCATION, READ_LOCATION_SUCCESS, READ_LOCATION_FAILURE] =
 
 const [READ_IMAGE, READ_IMAGE_SUCCESS, READ_IMAGE_FAILURE] =
   createRequestActionTypes('location/READ_IMAGE');
+const [LIKE_LOCATION, LIKE_LOCATION_SUCCESS, LIKE_LOCATION_FAILURE] =
+  createRequestActionTypes('location/LIKE_LOCATION');
 
 const UNLOAD_LOCATION = 'location/UNLOAD_LOCATION';
 const INITIALIZE_IMAGE = 'location/INITIALIZE_IMAGE';
 
 export const readLocation = createAction(READ_LOCATION, (placeId) => placeId);
+export const likeLocation = createAction(LIKE_LOCATION, (placeId) => placeId);
 export const readImage = createAction(READ_IMAGE, (title) => title);
 export const unloadLocation = createAction(UNLOAD_LOCATION);
 export const initializeImage = createAction(INITIALIZE_IMAGE, (form) => form);
@@ -24,11 +27,15 @@ const readLocationSaga = createRequestSaga(
   READ_LOCATION,
   locationsAPI.readLocation
 );
-
+const likeLocationSaga = createRequestSaga(
+  LIKE_LOCATION,
+  locationsAPI.likeLocation
+);
 const readImageSaga = createRequestSaga(READ_IMAGE, imagesAPI.readImage);
 
 export function* locationSaga() {
   yield takeLatest(READ_LOCATION, readLocationSaga);
+  yield takeLatest(LIKE_LOCATION, likeLocationSaga);
   yield takeLatest(READ_IMAGE, readImageSaga);
 }
 
@@ -49,6 +56,21 @@ const location = handleActions(
       location,
     }),
     [READ_LOCATION_FAILURE]: (state, { payload: error }) => ({
+      ...state,
+      error,
+    }),
+    [LIKE_LOCATION_SUCCESS]: (state) => {
+      const bool = state.location.user_liked;
+      const location = state.location;
+      if (bool) {
+        location.total_likes++;
+      } else {
+        location.total_likes--;
+      }
+
+      return { ...state, location };
+    },
+    [LIKE_LOCATION_FAILURE]: (state, { payload: error }) => ({
       ...state,
       error,
     }),

@@ -7,10 +7,11 @@ import PlaceList from '../../components/places/PlaceList';
 import LoadingPlaceList from '../../components/loading/LoadingPlaceList';
 import { imagesList, list } from '../../modules/locations';
 import search from '../../lib/api/search';
+import { useState } from 'react';
 
 const PlaceListContainer = () => {
   const [searchParams] = useSearchParams();
-
+  const [isLikePK, setIsLikePK] = useState(false);
   const dispatch = useDispatch();
   const { locations, images, loading, lastPage } = useSelector(
     ({ locations, loading }) => ({
@@ -29,6 +30,9 @@ const PlaceListContainer = () => {
 
   useEffect(() => {
     const likePK = searchParams.get('like');
+    if (likePK) setIsLikePK(true);
+    else setIsLikePK(false);
+
     dispatch(list({ category, page, likePK }));
   }, [dispatch, category, page]);
 
@@ -49,7 +53,11 @@ const PlaceListContainer = () => {
         locations &&
         images && (
           <>
-            <PlaceList name='location' locations={locations} images={images} />
+            <PlaceList
+              name={isLikePK ? 'LikeLocation' : 'location'}
+              locations={locations}
+              images={images}
+            />
             <Pagination page={page} lastPage={lastPage} buildLink={buildLink} />
           </>
         )

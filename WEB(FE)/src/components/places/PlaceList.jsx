@@ -1,8 +1,12 @@
 import PlaceItem from './PlaceItem';
+const userStorage = JSON.parse(localStorage.getItem('user'));
+
 const h2 = {
   location: '군 혜택',
   mou: 'MOU 혜택',
+  LikeMOU: `${userStorage.username}의 MOU 혜택`,
   tmo: 'TMO',
+  LikeLocation: `${userStorage.username}의 군 혜택 `,
 };
 const PlaceList = ({ name, locations, images }) => {
   return (
