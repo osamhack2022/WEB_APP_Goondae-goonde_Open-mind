@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import qs from 'qs';
 import { useSearchParams } from 'react-router-dom';
@@ -9,6 +9,7 @@ import { imagesList, list } from '../../modules/mous';
 
 const MOUIndexContainer = () => {
   const [searchParams] = useSearchParams();
+  const [isLikePK, setIsLikePK] = useState(false);
 
   const dispatch = useDispatch();
   const { mous, images, loading, lastPage } = useSelector(
@@ -28,6 +29,11 @@ const MOUIndexContainer = () => {
 
   useEffect(() => {
     const likePK = searchParams.get('like');
+    if (likePK) {
+      setIsLikePK(true);
+    } else {
+      setIsLikePK(false);
+    }
     dispatch(list({ category, page, likePK }));
   }, [dispatch, category, page]);
 
@@ -48,7 +54,11 @@ const MOUIndexContainer = () => {
         mous &&
         images && (
           <>
-            <PlaceList name='mou' locations={mous} images={images} />
+            <PlaceList
+              name={isLikePK ? 'LikeMOU' : 'mou'}
+              locations={mous}
+              images={images}
+            />
             <Pagination page={page} lastPage={lastPage} buildLink={buildLink} />
           </>
         )

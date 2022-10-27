@@ -8,6 +8,7 @@ import { removeLocationRview } from '../../lib/api/locations';
 import { product, reviews as fake } from '../../lib/fakeData/product';
 import {
   initializeImage,
+  likeLocation,
   readImage,
   readLocation,
 } from '../../modules/location';
@@ -22,6 +23,7 @@ import {
 const PlaceContainer = () => {
   const [visible, setVisible] = useState(false);
   const [reviewsArray, setReviewsArray] = useState([]);
+  const [clicked, setClicked] = useState(false);
   const navigate = useNavigate();
   const { placeId } = useParams();
 
@@ -73,9 +75,18 @@ const PlaceContainer = () => {
     }
   };
 
+  const addLike = () => {
+    setClicked(!clicked);
+    dispatch(likeLocation(placeId));
+  };
+
   useEffect(() => {
     dispatch(readLocation({ placeId }));
     dispatch(list({ placeId }));
+    if (location) {
+      setClicked(location.user_liked);
+    }
+
     return () => {
       dispatch(initializeForm('review'));
       dispatch(initializeForm('reviews'));
@@ -103,6 +114,8 @@ const PlaceContainer = () => {
             reviews={reviews}
             fake={fake}
             setVisible={setVisible}
+            onClick={addLike}
+            clicked={clicked}
           />
           <ReviewModal
             product={product}

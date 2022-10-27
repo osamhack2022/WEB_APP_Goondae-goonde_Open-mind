@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import Responsive from '../common/Responsive';
 
 const MyPageForm = ({ user, setVisible }) => {
+  const userStorage = JSON.parse(localStorage.getItem('user'));
   const handleClick = (e) => {
     e.preventDefault();
     setVisible(true);
@@ -27,7 +28,7 @@ const MyPageForm = ({ user, setVisible }) => {
             </li>
             <li>
               <Link
-                to={'/'}
+                to={`/posts/@${userStorage.username}?like=${userStorage.id}`}
                 className='block px-2 py-3 hover:text-gray-400 transition-colors ease-in-out'
               >
                 좋아요 게시물
@@ -36,7 +37,7 @@ const MyPageForm = ({ user, setVisible }) => {
 
             <li>
               <Link
-                to={'/'}
+                to={`/index?like=${userStorage.id}`}
                 className='block px-2 py-3 hover:text-gray-400 transition-colors ease-in-out'
               >
                 장소 위시리스트
@@ -45,16 +46,7 @@ const MyPageForm = ({ user, setVisible }) => {
 
             <li>
               <Link
-                to={'/'}
-                className='block px-2 py-3 hover:text-gray-400 transition-colors ease-in-out'
-              >
-                TMO 위시리스트
-              </Link>
-            </li>
-
-            <li>
-              <Link
-                to={'/'}
+                to={`/MOUIndex?like=${userStorage.id}`}
                 className='block px-2 py-3 hover:text-gray-400 transition-colors ease-in-out'
               >
                 MOU 위시리스트

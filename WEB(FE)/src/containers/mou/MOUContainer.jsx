@@ -6,7 +6,12 @@ import Place from '../../components/place/Place';
 import ReviewModal from '../../components/review/ReviewModal';
 import { removeMOUReview } from '../../lib/api/mou';
 import { product, reviews as fake } from '../../lib/fakeData/product';
-import { initializeImage, readImage, readMOU } from '../../modules/mou';
+import {
+  initializeImage,
+  likeMOU,
+  readImage,
+  readMOU,
+} from '../../modules/mou';
 import {
   changeField,
   createReview,
@@ -18,6 +23,7 @@ import {
 const PlaceContainer = () => {
   const [visible, setVisible] = useState(false);
   const [reviewsArray, setReviewsArray] = useState([]);
+  const [clicked, setClicked] = useState(false);
   const navigate = useNavigate();
   const { placeId } = useParams();
 
@@ -70,9 +76,17 @@ const PlaceContainer = () => {
     }
   };
 
+  const addLike = () => {
+    setClicked(!clicked);
+    dispatch(likeMOU(placeId));
+  };
+
   useEffect(() => {
     dispatch(readMOU({ placeId }));
     dispatch(list({ placeId }));
+    if (mou) {
+      setClicked(mou.user_liked);
+    }
     return () => {
       dispatch(initializeForm('review'));
       dispatch(initializeForm('reviews'));
@@ -100,6 +114,8 @@ const PlaceContainer = () => {
             reviews={reviews}
             fake={fake}
             setVisible={setVisible}
+            onClick={addLike}
+            clicked={clicked}
           />
           <ReviewModal
             product={product}
