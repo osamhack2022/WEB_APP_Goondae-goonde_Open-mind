@@ -1,16 +1,16 @@
 import { Helmet } from 'react-helmet-async';
 import FooterContainer from '../containers/common/FooterContainer';
 import HeaderContainer from '../containers/common/HeaderContainer';
-import PlaceContainer from '../containers/place/PlaceContainer';
+import TMOIndexContainer from '../containers/tmo/TMOIndexContainer';
 
 const PlacePage = () => {
   return (
     <>
       <Helmet>
-        <title>군대군데 - 장소 상세보기</title>
+        <title>군대군데 - TMO 상세보기</title>
       </Helmet>
       <HeaderContainer />
-      <PlaceContainer />
+      <TMOIndexContainer />
       <FooterContainer />
     </>
   );

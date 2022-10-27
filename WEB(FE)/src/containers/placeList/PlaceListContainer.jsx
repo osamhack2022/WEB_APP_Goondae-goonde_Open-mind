@@ -47,7 +47,7 @@ const PlaceListContainer = () => {
         locations &&
         images && (
           <>
-            <PlaceList locations={locations} images={images} />
+            <PlaceList name='location' locations={locations} images={images} />
             <Pagination page={page} lastPage={lastPage} buildLink={buildLink} />
           </>
         )
