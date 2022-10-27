@@ -8,6 +8,7 @@ function classNames(...classes) {
 }
 
 const Place = ({ product, location, reviews, fake, setVisible, image }) => {
+  console.log(location);
   return (
     <div className='bg-white mt-[4rem]'>
       <div className='pt-6'>
@@ -22,7 +23,7 @@ const Place = ({ product, location, reviews, fake, setVisible, image }) => {
                   to={`/index/?category=${location.category}`}
                   className=' mr-2 text-sm font-medium text-gray-900'
                 >
-                  {location.category}
+                  {location.category || 'MOU'}
                 </Link>
                 <svg
                   width={16}
@@ -54,7 +55,7 @@ const Place = ({ product, location, reviews, fake, setVisible, image }) => {
         <div className='mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8'>
           <div className='aspect-w-3 aspect-h-4 hidden overflow-hidden rounded-lg lg:block'>
             <img
-              src={image[0].image_url || product.images[0].src}
+              src={image[0]?.image_url || product.images[0].src}
               alt={product.images[0].alt}
               className='h-full w-full object-cover object-center'
             />
@@ -62,14 +63,14 @@ const Place = ({ product, location, reviews, fake, setVisible, image }) => {
           <div className='hidden lg:grid lg:grid-cols-1 lg:gap-y-8'>
             <div className='aspect-w-3 aspect-h-2 overflow-hidden rounded-lg'>
               <img
-                src={image[1].image_url || product.images[1].src}
+                src={image[1]?.image_url || product.images[1].src}
                 alt={product.images[1].alt}
                 className='h-full w-full object-cover object-center'
               />
             </div>
             <div className='aspect-w-3 aspect-h-2 overflow-hidden rounded-lg'>
               <img
-                src={image[2].image_url || product.images[2].src}
+                src={image[2]?.image_url || product.images[2].src}
                 alt={product.images[2].alt}
                 className='h-full w-full object-cover object-center'
               />
@@ -129,12 +130,14 @@ const Place = ({ product, location, reviews, fake, setVisible, image }) => {
                   ))}
                 </div>
                 <p className='sr-only'>{fake.average} out of 5 stars</p>
-                <button
-                  onClick={() => setVisible(true)}
-                  className='ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500'
-                >
-                  {reviews.count} reviews
-                </button>
+                {reviews && (
+                  <button
+                    onClick={() => setVisible(true)}
+                    className='ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500'
+                  >
+                    {reviews.count} reviews
+                  </button>
+                )}
               </div>
             </div>
 

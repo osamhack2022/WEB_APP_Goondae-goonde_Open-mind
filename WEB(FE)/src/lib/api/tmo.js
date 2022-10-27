@@ -8,4 +8,7 @@ export const tmoList = ({ page }) => {
   }
 };
 
-export const readTmo = ({ tmoId }) => client.get(`/locations/tmo/${tmoId}/`);
+export const readTmo = (tmoId) => {
+  console.log('readTMO', tmoId);
+  return client.get(`/locations/tmo/${tmoId}/`);
+};

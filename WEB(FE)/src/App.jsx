@@ -16,6 +16,8 @@ import EmailConfirmPage from './pages/EmailConfirmPage';
 import NotFoundPage from './pages/NotFoundPage';
 import MOUIndexPage from './pages/MOUIndexPage';
 import TMOIndexPage from './pages/TMOIndexPage';
+import TMOPage from './pages/TMOPage';
+import MOUPage from './pages/MOUPage';
 
 function App() {
   const $hamburger = useRef(null);
@@ -43,11 +45,11 @@ function App() {
           </Route>
           <Route path='/MOUIndex'>
             <Route index element={<MOUIndexPage />} />
-            <Route path=':placeId' element={<PlacePage />} />
+            <Route path=':placeId' element={<MOUPage />} />
           </Route>
           <Route path='/TMOIndex'>
             <Route index element={<TMOIndexPage />} />
-            <Route path=':placeId' element={<PlacePage />} />
+            <Route path=':placeId' element={<TMOPage />} />
           </Route>
           <Route path='/posts'>
             <Route index element={<PostListPage />} />

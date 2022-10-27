@@ -10,6 +10,9 @@ import posts, { postsSaga } from './posts';
 import markers, { markersSaga } from './markers';
 import reviews, { reviewsSaga } from './reviews';
 import tmos, { tmosSaga } from './tmos';
+import tmo, { tmoSaga } from './tmo';
+import mous, { mousSaga } from './mous';
+import mou, { mouSaga } from './mou';
 
 import loading from './loading';
 
@@ -25,6 +28,9 @@ const rootReducer = combineReducers({
   markers,
   reviews,
   tmos,
+  tmo,
+  mous,
+  mou,
 });
 
 export function* rootSaga() {
@@ -39,6 +45,9 @@ export function* rootSaga() {
     postsSaga(),
     reviewsSaga(),
     tmosSaga(),
+    tmoSaga(),
+    mousSaga(),
+    mouSaga(),
   ]);
 }
 
