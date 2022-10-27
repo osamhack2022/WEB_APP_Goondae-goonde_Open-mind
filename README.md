@@ -271,7 +271,7 @@
 
 <br><br><br>
 
-<h2 id="effect" align="center">군데군대 기대효과</h2>
+<h2 id="effect" align="center">군대군데 기대효과</h2>
 <hr><br>
 
 ### 🗺 지역 내 군인 할인 점 확인
@@ -494,7 +494,7 @@
 
 ### Figma
 
-[👉🏻 OPENMIND Figma 페이지 이동 ]("https://www.figma.com/file/ydqRIxIeWw0D2HRzHx6SRm/%EA%B5%B0%EB%8C%80%EA%B5%B0%EB%8D%B0?node-id=0%3A1")
+[👉🏻 OPENMIND Figma 페이지 이동 ](https://www.figma.com/file/ydqRIxIeWw0D2HRzHx6SRm/%EA%B5%B0%EB%8C%80%EA%B5%B0%EB%8D%B0?node-id=0%3A1)
 <br>
 
 > 기획단계에서의 결과물을 도출 및 의견 공유를 위해 사용
