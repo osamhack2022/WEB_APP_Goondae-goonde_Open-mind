@@ -27,7 +27,8 @@ const MOUIndexContainer = () => {
   };
 
   useEffect(() => {
-    dispatch(list({ category, page }));
+    const likePK = searchParams.get('like');
+    dispatch(list({ category, page, likePK }));
   }, [dispatch, category, page]);
 
   useEffect(() => {

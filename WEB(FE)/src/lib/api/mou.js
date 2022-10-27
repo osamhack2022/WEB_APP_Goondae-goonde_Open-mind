@@ -1,10 +1,14 @@
 import client from './client';
 
-export const mouList = ({ page }) => {
-  if (page) {
-    return client.get(`/locations/mou/?page=${page}`);
+export const mouList = ({ page, likePK }) => {
+  if (likePK) {
+    return client.get(`/locations/mou/?likes=${likePK}`);
   } else {
-    return client.get('/locations/mou/');
+    if (page) {
+      return client.get(`/locations/mou/?page=${page}`);
+    } else {
+      return client.get('/locations/mou/');
+    }
   }
 };
 

@@ -6,6 +6,7 @@ import Pagination from '../../components/common/Pagination';
 import PlaceList from '../../components/places/PlaceList';
 import LoadingPlaceList from '../../components/loading/LoadingPlaceList';
 import { imagesList, list } from '../../modules/tmos';
+import search from '../../lib/api/search';
 
 const TMOIndexContainer = () => {
   const [searchParams] = useSearchParams();
@@ -26,13 +27,13 @@ const TMOIndexContainer = () => {
   };
 
   useEffect(() => {
-    dispatch(list({ page }));
+    const likePK = searchParams.get('like');
+    dispatch(list({ page, likePK }));
   }, [dispatch, page]);
 
   useEffect(() => {
     if (!tmos) return;
     const locationTitles = tmos.map((location) => `${location.name}역`);
-    console.log(locationTitles);
     dispatch(imagesList(locationTitles));
   }, [tmos]);
 

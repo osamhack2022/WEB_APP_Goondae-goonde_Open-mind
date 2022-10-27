@@ -20,7 +20,8 @@ const PostListContainer = () => {
 
   useEffect(() => {
     const page = parseInt(searchParams.get('page'), 10) || 1;
-    dispatch(listPosts({ username, page }));
+    const likePK = searchParams.get('like');
+    dispatch(listPosts({ username, page, likePK }));
   }, [dispatch, searchParams, username]);
 
   return (
