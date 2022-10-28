@@ -5,7 +5,8 @@
    <application
         android:label="군대군데"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -33,7 +34,7 @@
             android:name="flutterEmbedding"
             android:value="2" />
         <meta-data 
-            android:name="com.naver.maps.map.vukugsht3m"
-            android:value="uv7yq56uQc3wkCX5H98ZZNJpJapE2gGyhgzUPFKP"/>
+            android:name="com.naver.maps.map.CLIENT_ID"
+            android:value="vukugsht3m"/>
     </application>
 </manifest>

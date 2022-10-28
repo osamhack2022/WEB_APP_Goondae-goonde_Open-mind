@@ -15,8 +15,8 @@ class CustomMarker extends Marker {
   // }) : super(markerId: markerId, position: position, width: 30, height: 55, captionText: text, );
 
   /// for SDK 2.17 and up - the new way
-  CustomMarker({required this.store, required super.position, super.width = 30, super.height = 45})
-    : super(markerId: store.uid, captionText: store.storeName);
+  CustomMarker({required this.store, required super.position, super.width = 20, super.height = 30})
+    : super(markerId: store.uid, captionText: store.name);
 
   factory CustomMarker.fromMyStores(StoreType store) => CustomMarker(store: store, position: store.location);
 
