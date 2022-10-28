@@ -47,10 +47,14 @@ export const removePost = (id) => {
   });
 };
 
-export const listPosts = ({ page }) => {
-  if (page) {
-    return client.get(`/posts/?page=${page}`);
+export const listPosts = ({ page, likePK }) => {
+  if (likePK) {
+    return client.get(`/posts/?likes=${likePK}`);
   } else {
-    return client.get('/posts');
+    if (page) {
+      return client.get(`/posts/?page=${page}`);
+    } else {
+      return client.get('/posts');
+    }
   }
 };

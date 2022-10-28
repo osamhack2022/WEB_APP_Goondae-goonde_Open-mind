@@ -1,32 +1,46 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import qs from 'qs';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import Pagination from '../../components/common/Pagination';
 import PlaceList from '../../components/places/PlaceList';
 import LoadingPlaceList from '../../components/loading/LoadingPlaceList';
-import { list } from '../../modules/locations';
+import { imagesList, list } from '../../modules/locations';
+import search from '../../lib/api/search';
+import { useState } from 'react';
 
 const PlaceListContainer = () => {
   const [searchParams] = useSearchParams();
-
+  const [isLikePK, setIsLikePK] = useState(false);
   const dispatch = useDispatch();
-  const { locations, loading, lastPage } = useSelector(
+  const { locations, images, loading, lastPage } = useSelector(
     ({ locations, loading }) => ({
       locations: locations.locations,
+      images: locations.images,
       lastPage: locations.lastPage,
       loading: loading['locations/LIST'],
     })
   );
   const page = parseInt(searchParams.get('page'), 10) || 1;
-  const buildLink = ({ username, page }) => {
-    const query = qs.stringify({ page });
+  const category = searchParams.get('category');
+  const buildLink = ({ username, page, category }) => {
+    const query = qs.stringify({ category, page });
     return username ? `@${username}?${query}` : `?${query}`;
   };
 
   useEffect(() => {
-    dispatch(list({ page }));
-  }, [dispatch, page]);
+    const likePK = searchParams.get('like');
+    if (likePK) setIsLikePK(true);
+    else setIsLikePK(false);
+
+    dispatch(list({ category, page, likePK }));
+  }, [dispatch, category, page]);
+
+  useEffect(() => {
+    if (!locations) return;
+    const locationTitles = locations.map((location) => location.name);
+    dispatch(imagesList(locationTitles));
+  }, [locations]);
 
   return (
     <>
@@ -36,9 +50,14 @@ const PlaceListContainer = () => {
           <Pagination page={1} lastPage={1} />
         </>
       ) : (
-        locations && (
+        locations &&
+        images && (
           <>
-            <PlaceList locations={locations} />
+            <PlaceList
+              name={isLikePK ? 'LikeLocation' : 'location'}
+              locations={locations}
+              images={images}
+            />
             <Pagination page={page} lastPage={lastPage} buildLink={buildLink} />
           </>
         )

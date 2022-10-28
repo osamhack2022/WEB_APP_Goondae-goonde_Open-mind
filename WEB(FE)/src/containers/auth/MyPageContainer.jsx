@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import MyPageForm from '../../components/auth/MyPageForm';
 import PasswordModal from '../../components/auth/PasswordModal';
+import Responsive from '../../components/common/Responsive';
 import { passwordChange } from '../../lib/api/auth';
 
 const MyPageContainer = () => {
@@ -19,15 +20,17 @@ const MyPageContainer = () => {
     }
   };
   return (
-    <div className='h-5/6'>
-      <MyPageForm user={user} setVisible={setVisible} />
-      <PasswordModal
-        visible={visible}
-        setVisible={setVisible}
-        handleClick={onClick}
-        error={error}
-      />
-    </div>
+    <Responsive>
+      <div className='mt-[6rem] mb-[5rem] h-[70vh]'>
+        <MyPageForm user={user} setVisible={setVisible} />
+        <PasswordModal
+          visible={visible}
+          setVisible={setVisible}
+          handleClick={onClick}
+          error={error}
+        />
+      </div>
+    </Responsive>
   );
 };
 

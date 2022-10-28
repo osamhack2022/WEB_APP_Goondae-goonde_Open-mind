@@ -7,7 +7,7 @@ const MapPage = () => {
   return (
     <>
       <Helmet>
-        <title>OPEN MIND - 지도</title>
+        <title>군대군데 - 지도</title>
       </Helmet>
       <HeaderContainer />
       <MyLocationMapContainer />

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useSearchParams } from 'react-router-dom';
+import { searchImage } from '../../lib/api/images';
 import { listPosts } from '../../modules/posts';
 import PostList from '../posts/PostList';
 
@@ -19,7 +20,8 @@ const PostListContainer = () => {
 
   useEffect(() => {
     const page = parseInt(searchParams.get('page'), 10) || 1;
-    dispatch(listPosts({ username, page }));
+    const likePK = searchParams.get('like');
+    dispatch(listPosts({ username, page, likePK }));
   }, [dispatch, searchParams, username]);
 
   return (

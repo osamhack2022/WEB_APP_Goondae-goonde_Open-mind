@@ -2,13 +2,28 @@ import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { StarIcon } from '@heroicons/react/20/solid';
+import ReviewItem from './ReviewItem';
+import ReviewActionButtons from './ReviewActionButtons';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-const ReviewModal = ({ location, product, visible, setVisible }) => {
-  console.log('review', location);
+const ReviewModal = ({
+  location,
+  reviews,
+  product,
+  visible,
+  review,
+  setVisible,
+  onChange,
+  onSubmit,
+  handleClose,
+  user,
+  onEdit,
+  onRemove,
+  onClick,
+}) => {
   if (!visible) return null;
   return (
     <Transition.Root show={visible} as={Fragment}>
@@ -41,7 +56,7 @@ const ReviewModal = ({ location, product, visible, setVisible }) => {
                   <button
                     type='button'
                     className='absolute top-4 right-4 text-gray-400 hover:text-gray-500 sm:top-8 sm:right-6 md:top-6 md:right-6 lg:top-8 lg:right-8'
-                    onClick={() => setVisible(false)}
+                    onClick={handleClose}
                   >
                     <span className='sr-only'>Close</span>
                     <XMarkIcon className='h-6 w-6' aria-hidden='true' />
@@ -82,19 +97,46 @@ const ReviewModal = ({ location, product, visible, setVisible }) => {
                               {product.rating} out of 5 stars
                             </p>
                             <span className='ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500'>
-                              {product.reviewCount} reviews
+                              {reviews.count} reviews
                             </span>
                           </div>
                         </div>
                       </section>
                       <section className='mt-5'>
-                        <form action='submit'>
+                        <form action='submit' onSubmit={onSubmit}>
                           <input
                             type='text'
+                            value={review}
                             className='w-full bg-gray-300 px-3 py-3 rounded-3xl'
                             placeholder='입력하세요'
+                            onChange={onChange}
                           />
                         </form>
+                        {reviews.results &&
+                          reviews.results.map((review) => {
+                            const ownReview =
+                              (user && user.username) ===
+                              review.profile.username;
+                            return (
+                              <ReviewItem
+                                key={review.id}
+                                image={review.profile.profile_image}
+                                createdAt={review.created_at}
+                                username={review.profile.username}
+                                content={review.content}
+                                cnt={review.total_likes}
+                                actionButtons={
+                                  ownReview && (
+                                    <ReviewActionButtons
+                                      onEdit={onEdit}
+                                      onRemove={() => onRemove(review.id)}
+                                    />
+                                  )
+                                }
+                                onClick={() => onClick(review.id)}
+                              />
+                            );
+                          })}
                       </section>
                     </div>
                   </div>
