@@ -42,7 +42,7 @@ class processing:
             try:    
                 search = self.local.search_keyword(name)
                 category = search['documents'][0]
-                if address['category_group_name'] == '':
+                if category['category_group_name'] == '':
                     data.update({'category': category['category_name']})
                     result.append(data)
                 else:
