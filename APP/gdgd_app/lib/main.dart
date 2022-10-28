@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'page/favorite_page.dart';
-import 'page/gdgdmarker_page.dart';
+import 'page/map/GDGDmap_page.dart';
 import 'page/GDGDwebview_page.dart';
 
 void main() => runApp(MaterialApp(home: BottomNavBar()));
@@ -12,13 +11,12 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  int index = 1;
+  int index = 0;
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
   final screens = [
     GDGDWebView(),
-    GDGDmarker(),
-    Favorite(),
+    GDGDMap(),
   ];
 
   @override
@@ -32,7 +30,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
         items: <Widget>[
           Icon(Icons.language, size: 30),
           Icon(Icons.room, size: 30),
-          Icon(Icons.favorite, size: 30),
         ],
         color: Colors.white,
         buttonBackgroundColor: Colors.white,
