@@ -28,7 +28,7 @@ class StoreInfoWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Text("가계이름: ${this.store?.name}"),
+            Text("가게이름: ${this.store?.name}"),
             Text("주소: ${this.store?.address}"),
             Text("전화번호: ${this.store?.number}"),
             Text("우대혜택: ${this.store?.benefit}"),
