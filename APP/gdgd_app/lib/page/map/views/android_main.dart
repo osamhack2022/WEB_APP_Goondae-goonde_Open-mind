@@ -44,7 +44,7 @@ class _AndroidMainState extends State<AndroidMain> {
 
             zoomGestureEnable: true,
             initLocationTrackingMode: this.widget.mapProvider.trackingMode,
-            initialCameraPosition: naver.CameraPosition(target: this.widget.mapProvider.initLocation),
+            initialCameraPosition: naver.CameraPosition(target: this.widget.mapProvider.initLocation,zoom:20),
             locationButtonEnable: true,
             onMapTap: (naver.LatLng ln) {
               this.setState(() {

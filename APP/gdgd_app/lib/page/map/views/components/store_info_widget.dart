@@ -10,7 +10,7 @@ class StoreInfoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       left: 0.0,
-      bottom: 0.0,
+      bottom: 80.0,
       child: Container(
         decoration: BoxDecoration(
           boxShadow: [
@@ -21,17 +21,17 @@ class StoreInfoWidget extends StatelessWidget {
             BoxShadow(color: Colors.grey.withOpacity(0.1), blurRadius: 12.0, spreadRadius: 14.0),
           ],
           color: Colors.white,
-          borderRadius: BorderRadius.only(topLeft: Radius.circular(50.0), topRight: Radius.circular(50.0))
+          borderRadius: BorderRadius.circular(50.0),
         ),
         width: MediaQuery.of(context).size.width,
         height: 150.0,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Text("가계이름:  ${this.store?.storeName}"),
-            Text("전화번호:  ${this.store?.phoneNumber}"),
-            Text("주소:     ${this.store?.address}"),
-            Text("SNS:     ${this.store?.snsLink}"),
+            Text("가계이름: ${this.store?.name}"),
+            Text("주소: ${this.store?.address}"),
+            Text("전화번호: ${this.store?.number}"),
+            Text("우대혜택: ${this.store?.benefit}"),
           ],
         ),
       ),

@@ -27,7 +27,7 @@ Widget build(BuildContext context) {
         .then((value) => _webViewController = value); 
         _completerController.complete(webViewController); 
         }, 
-        initialUrl: 'https://github.com/osamhack2022-v2/WEB_APP_Goondae-goonde_Open-mind',
+        initialUrl: 'http://ec2-52-79-185-182.ap-northeast-2.compute.amazonaws.com:3000/',
         javascriptMode: JavascriptMode.unrestricted, 
       ), 
     ), 

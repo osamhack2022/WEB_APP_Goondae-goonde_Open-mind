@@ -5,13 +5,13 @@ import 'package:naver_map_plugin/naver_map_plugin.dart' show LocationTrackingMod
 import '../custom_class/location_class.dart';
 import '../custom_class/marker_class.dart';
 import '../custom_class/store_class.dart' show StoreType;
-import '../practice_data.dart';
+import '../GDGDdata.dart';
 
 class MapProvider with ChangeNotifier {
   final LocationService _locationService = LocationService();
   final LocationClass initLocation = LocationService.initLocation;
 
-  final List<CustomMarker> myMarkers = PracticeData.myMarkers();
+  final List<CustomMarker> myMarkers = GDdata.myMarkers();
 
   MapProvider(){
     Future(this.setCurrentLocation);
@@ -33,7 +33,7 @@ class MapProvider with ChangeNotifier {
   }
 
   void onTapMarker(String uid){
-    final StoreType _store = PracticeData.myStores.firstWhere((StoreType s) => s.uid == uid);
+    final StoreType _store = GDdata.myStores.firstWhere((StoreType s) => s.uid == uid);
     this._selectedStore = _store;
     this.notifyListeners();
   }
