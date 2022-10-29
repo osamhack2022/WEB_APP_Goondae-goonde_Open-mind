@@ -153,7 +153,7 @@ const Place = ({
                   {reviews && (
                     <button
                       onClick={() => setVisible(true)}
-                      className='ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500'
+                      className='ml-3 text-sm font-medium text-green-600 hover:text-green-500'
                     >
                       {reviews.count} reviews
                     </button>
@@ -192,7 +192,7 @@ const Place = ({
             <form className='mt-10'>
               <button
                 type='submit'
-                className='mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                className='mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-green-600 py-3 px-8 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2'
               >
                 사이트 바로가기
               </button>
