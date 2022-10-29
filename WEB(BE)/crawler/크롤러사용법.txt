@@ -1,2 +1,69 @@
+### 실행법 ###
 1. cd WEB\(BE\), python manage.py migrate
-2. cd crawler, python main.py → 지역 선택 크롤링 → db → 5. data_proccesing(카카오 REST API KEY 필수) → 2. db.into_db() → back → exit
+2. cd crawler, python main.py 
+
+###크롤러 초기 세팅###
+(WEB_APP_Goondae-goonde_Open-mind/WEB(BE)/crawler/crawling)
+
+# kakao rest api key
+self.rest_key = '*'
+
+위 코드에서 * 부분을 https://developers.kakao.com/console/app 에서 발급받은 REST API 키로 변경해주세요.
+
+### 크롤링 순서 ###
+
+[지역 업소 정보 크롤링] 
+지역 선택 크롤링 → db → 5. data_proccesing(카카오 REST API KEY 필수) → 2. db.into_db() → back
+
+[MOU 정보 크롤링] 
+88. MOUdata → db → 7. MOU_into_db() → back
+
+[TMO 정보 크롤링]
+99. TMOdata → db → 10. TMO_into_db → back
+
+[종료]
+exit
+
+### 기능 설명 ###
+[크롤링]
+-지역
+0. ALL : 모두
+1. deogyanggu : 경기도 덕양구
+2. goseonggun : 강원도 고성군
+3. hwacheongun : 강원도 화천군
+4. yanggugun : 강원도 양구군
+5. cheolwongun : 강원도 철원군
+6. uijeongbusi : 경기도 의정부시
+7. donghaesi : 강원도 동해시
+8. sokchosi : 강원도 속초시
+9. injegun : 강원도 인제군
+10. pajusi : 경기도 파주시
+11. hongcheongun : 강원도 홍천군
+12. pocheonsi : 경기도 포천시
+13. changwonsi : 경남 창원시
+14. nonsansi : 충남 논산시
+15. yeongcheonsi : 경북 영천시
+
+-MOU
+88. MOUdata : 국방부 mou 업체 데이터
+
+-TMO
+99. TMOdata : TMO 데이터
+
+[DB]
+-지역
+(사용x)1. db.creat_db() : db생성
+2. db.into_db() : 지역 크롤링 데이터 db에 저장
+(사용x)3. db.close_db()
+4. db.crawled_amount : db에 저장된 지역 크롤링 데이터 갯수 확인
+5. data_proccesing(카카오 REST API KEY 필수) : kakao 지도 사용을 위한 주소 변환
+
+-MOUdb
+(사용x)6. MOU_create_db()
+7. MOU_into_db() : MOU 크롤링 데이터 db에 저장
+8. MOU_crawled_amount() : db에 저장된 MOU 크롤링 데이터 갯수 확인
+
+-TMOdb
+(사용x)9. TMO_create_db()
+10. TMO_into_db : TMO 크롤링 데이터 db에 저장
+11. TMO_crawled_amount : db에 저장된 TMO 크롤링 데이터 갯수 확인

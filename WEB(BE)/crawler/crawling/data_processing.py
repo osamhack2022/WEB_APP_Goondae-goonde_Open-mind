@@ -6,7 +6,7 @@ from PyKakao import KakaoLocal
 class processing:
     def __init__(self):
         # kakao rest api key
-        self.rest_key = '1efa2b4df40a7214e970a937e5be20c5'
+        self.rest_key = '*'
         self.local = KakaoLocal(self.rest_key)
         
         
