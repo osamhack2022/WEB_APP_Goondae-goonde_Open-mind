@@ -28,10 +28,12 @@ const Place = ({
             <li>
               <div className='flex items-center'>
                 <Link
-                  to={`/index/?category=${location.category}`}
+                  to={`/index/?category=${
+                    location.category || location.region
+                  }`}
                   className=' mr-2 text-sm font-medium text-gray-900'
                 >
-                  {location.category || 'MOU'}
+                  {location.category || `${location.region}`}
                 </Link>
                 <svg
                   width={16}
@@ -101,7 +103,7 @@ const Place = ({
               {location.name}{' '}
               <span className='text-md sm:text-lg text-gray-400'>
                 {' '}
-                {location.category}
+                {location.category || location.region}
               </span>
             </h1>
           </div>
@@ -109,11 +111,13 @@ const Place = ({
           {/* Options */}
           <div className='mt-4 lg:row-span-3 lg:mt-0'>
             <h2 className='sr-only'>Product information</h2>
-            <p className='text-2xl tracking-tight text-gray-900'>
+            <a href={`tel:${location.number}`}>
+              <p className='text-xl tracking-tight text-gray-600'>
+                {location.number}
+              </p>
+            </a>
+            <p className='text-2xl tracking-tight text-gray-900 mt-3'>
               {location.address}
-            </p>
-            <p className='text-xl tracking-tight text-gray-600'>
-              {location.number}
             </p>
 
             {/* Reviews */}
@@ -192,7 +196,18 @@ const Place = ({
               <h3 className='sr-only'>Description</h3>
 
               <div className='space-y-6'>
-                <p className='text-base text-gray-900'>{location.benefit}</p>
+                {location.benefit ? (
+                  <p className='text-base text-gray-900'>{location.benefit}</p>
+                ) : (
+                  <>
+                    <p>
+                      <p className='text-base text-gray-900'>
+                        {location.pstnexpln}
+                      </p>
+                      <p className='text-base text-gray-500'>{location.etc}</p>
+                    </p>
+                  </>
+                )}
               </div>
             </div>
           </div>

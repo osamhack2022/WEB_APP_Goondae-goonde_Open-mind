@@ -18,7 +18,7 @@ const PlaceItem = ({ location, image }) => {
         <h3 className='mt-4 text-lg text-gray-900  group-hover:text-gray-400'>
           {location.name}
           <span className='ml-2 text-sm text-gray-600  group-hover:text-gray-300'>
-            {location.category}
+            {location.category || location.region}
           </span>
         </h3>
         <p className='mt-1 text-sm font-normal text-gray-900   group-hover:text-gray-400'>
@@ -29,7 +29,7 @@ const PlaceItem = ({ location, image }) => {
         </p>
 
         <p className='mt-1 text-lg font-medium text-blue-400 group-hover:text-blue-200'>
-          {location.benefit}
+          {location.benefit || location.pstnexpln}
         </p>
       </Link>
     );
