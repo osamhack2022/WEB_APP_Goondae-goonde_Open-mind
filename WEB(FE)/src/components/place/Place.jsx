@@ -31,7 +31,7 @@ const Place = ({
               <div className='flex items-center'>
                 <Link
                   to={`/index/?category=${
-                    location.category || location.region
+                    location.category || location.region || 'TMO'
                   }`}
                   className=' mr-2 text-sm font-medium text-gray-900'
                 >
@@ -57,7 +57,7 @@ const Place = ({
                 aria-current='page'
                 className='font-medium text-gray-500 hover:text-gray-600'
               >
-                {location.name}
+                {name === 'tmo' ? `${location.name}역` : `${location.name}`}
               </a>
             </li>
           </ol>
@@ -102,9 +102,8 @@ const Place = ({
         <div className='mx-auto max-w-2xl px-4 pt-10 pb-16 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pt-16 lg:pb-24'>
           <div className='lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8'>
             <h1 className='text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl'>
-              {location.name}{' '}
+              {name === 'tmo' ? `${location.name}역` : `${location.name}`}
               <span className='text-md sm:text-lg text-gray-400'>
-                {' '}
                 {location.category || location.region}
               </span>
             </h1>
@@ -118,9 +117,21 @@ const Place = ({
                 {location.number}
               </p>
             </a>
-            <p className='text-2xl tracking-tight text-gray-900 mt-3'>
-              {location.address}
-            </p>
+
+            {name === 'tmo' ? (
+              <>
+                <p className='text-2xl tracking-tight text-gray-900 mt-3'>
+                  평일: {location.wkday_strtm} - {location.wkday_endtm}
+                </p>
+                <p className='text-2xl tracking-tight text-gray-900 mt-3'>
+                  휴일: {location.wkend_strtm} - {location.wkend_endtm}
+                </p>
+              </>
+            ) : (
+              <p className='text-2xl tracking-tight text-gray-900 mt-3'>
+                `${location.address}`
+              </p>
+            )}
 
             {/* Reviews */}
             {name === 'tmo' ? (

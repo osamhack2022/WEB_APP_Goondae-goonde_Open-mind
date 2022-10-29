@@ -99,6 +99,10 @@ const PlaceContainer = () => {
   };
 
   const onSubmitStar = (el) => {
+    if (!user) {
+      setIsLogin(true);
+      return;
+    }
     dispatch(starLocation({ placeId, rate: el }));
     setStarCount(starCount + 1);
     setStarTotal(Math.floor((starTotal + el) / (starCount + 1)));

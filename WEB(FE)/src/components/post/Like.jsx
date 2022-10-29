@@ -3,7 +3,7 @@ import LikeImg from '../../lib/img/like.png';
 
 const LikeBtn = ({ likeCnt, clicked, onClick }) => {
   const Like = styled.img`
-    background-color: ${clicked ? 'transparent' : 'lightblue'};
+    background-color: ${clicked ? 'lightblue' : 'transparent'};
     opacity: ${clicked ? '100%' : '40%'};
     border: 1px solid black;
     border-radius: 10px;

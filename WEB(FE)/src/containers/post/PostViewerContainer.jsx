@@ -6,6 +6,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import PostActionButtons from '../../components/post/PostActionButtons';
 import { setOriginalPost } from '../../modules/write';
 import { removePost } from '../../lib/api/posts';
+import LikeContainer from './LikeContainer';
 
 const PostViewerContainer = () => {
   const { postId } = useParams();
@@ -43,14 +44,16 @@ const PostViewerContainer = () => {
 
   const ownPost = (user && user.username) === (post && post.author);
   return (
-    <PostViewer
-      post={post}
-      loading={loading}
-      error={error}
-      actionButtons={
-        ownPost && <PostActionButtons onEdit={onEdit} onRemove={onRemove} />
-      }
-    />
+    <>
+      <PostViewer
+        post={post}
+        loading={loading}
+        error={error}
+        actionButtons={
+          ownPost && <PostActionButtons onEdit={onEdit} onRemove={onRemove} />
+        }
+      />
+    </>
   );
 };
 

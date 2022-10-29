@@ -2,7 +2,7 @@ import client from './client';
 
 export const writePost = ({ title, content }) => {
   const user = JSON.parse(localStorage.getItem('user'));
-
+  console.log(title, content);
   return client.post(
     '/posts/',
     { title, content },

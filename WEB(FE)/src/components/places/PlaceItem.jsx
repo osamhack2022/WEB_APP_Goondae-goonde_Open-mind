@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import LoadingPlaceItem from '../loading/LoadingPlaceItem';
 
-const PlaceItem = ({ location, image }) => {
+const PlaceItem = ({ name, location, image }) => {
   if (image) {
     return (
       <Link to={`${location.id}`} className='group '>
@@ -16,7 +16,7 @@ const PlaceItem = ({ location, image }) => {
           />
         </div>
         <h3 className='mt-4 text-lg text-gray-900  group-hover:text-gray-400'>
-          {location.name}
+          {name === 'tmo' ? `${location.name}역` : `${location.name}`}
           <span className='ml-2 text-sm text-gray-600  group-hover:text-gray-300'>
             {location.category || location.region}
           </span>
