@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Map, MapMarker } from 'react-kakao-maps-sdk';
 import useGeolocation from '../../lib/hooks/useGeolocation';
 

@@ -33,7 +33,6 @@ const PostActionButtons = ({ onEdit, onRemove }) => {
   const [modal, setModal] = useState(false);
 
   const onRemoveClick = () => {
-    console.log('click');
     setModal(true);
   };
 
