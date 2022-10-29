@@ -192,17 +192,22 @@
 		<tr>
 			<td colspan=2>
 				<br>
-				<b>ㆍ 💖 장소 목록 확인</b><br>
+				<b>ㆍ 💖 군인 혜택 장소 확인</b><br>
 				<br>
 			</td>
 		</tr>
 		<tr>
-            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns1.jpg"><img src="/image/sns1.jpg" width="60%" height="60%"></a></div></td>
+            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns1.jpg"><img src="img/2_CATEGORY.png" width="60%" height="60%"></a></div></td>
             <td width="33%">카테고리별 장소 검색</td>
         </tr>
         <tr>
-            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns2.jpg"><img src="/image/sns2.jpg" width="60%" height="60%"></a></div></td>
-           <td width="33%">카카오 지도 연계 위치검색 및 공유</td>
+            <td rowspan="2"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns2.jpg"><img src="img/2_REPLY.png" width="60%" height="60%"></a></div></td>   
+          <td>
+            좋아요 기능  
+          </td>
+        </tr>
+        <tr>
+            <td>댓글기능</td>
         </tr>
    </tbody>
 </table>
@@ -226,19 +231,23 @@
 <table>
         <tbody>
 		<tr>
-			<td colspan=2>
+			<td colspan=3>
 				<br>
 				<b>ㆍ 🥳 로그인/회원가입 기능</b><br>
 				<br>
 			</td>
 		</tr>
 		<tr>
-            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/registration1.jpg"><img src="/image/registration1.jpg" width="60%" height="60%"></a></div></td>
+            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/registration1.jpg"><img src="img/6_LOGIN.png" width="60%" height="60%"></a></div></td>
             <td width="33%"> 로그인 시스템 </td>
         </tr>
         <tr>
-            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/registration2.jpg"><img src="/image/registration2.jpg" width="60%" height="60%"></a></div></td>
+            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/registration2.jpg"><img src="img/6_REGISTER.png" width="60%" height="60%"></a></div></td>
             <td width="33%"> 회원가입 시스템 </td>
+        </tr>
+                <tr>
+            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/registration2.jpg"><img src="img/6_CONFIRM.png" width="60%" height="60%"></a></div></td>
+            <td width="33%">이메일 인증 시스템</td>
         </tr>
    </tbody>
 </table>
