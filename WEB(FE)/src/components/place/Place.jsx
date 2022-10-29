@@ -10,6 +10,8 @@ function classNames(...classes) {
 const Place = ({
   product,
   location,
+  starCount,
+  starTotal,
   reviews,
   fake,
   setVisible,
@@ -17,7 +19,6 @@ const Place = ({
   onClick,
   clicked,
 }) => {
-  console.log(reviews);
   return (
     <div className='bg-white mt-[4rem]'>
       <div className='pt-6'>
@@ -133,16 +134,17 @@ const Place = ({
                     <StarIcon
                       key={rating}
                       className={classNames(
-                        fake.average > rating
-                          ? 'text-gray-900'
-                          : 'text-gray-200',
+                        starTotal > rating ? 'text-gray-900' : 'text-gray-200',
                         'h-5 w-5 flex-shrink-0'
                       )}
                       aria-hidden='true'
                     />
                   ))}
+                  <p className='text-sm font-medium text-gray-300'>
+                    {`(${starCount})`}
+                  </p>
                 </div>
-                <p className='sr-only'>{fake.average} out of 5 stars</p>
+                <p className='sr-only'>{starTotal} out of 5 stars</p>
                 {reviews && (
                   <button
                     onClick={() => setVisible(true)}
