@@ -1,2 +1,19 @@
+### 실행법 ###
 1. cd WEB\(BE\), python manage.py migrate
-2. cd crawler, python main.py → 지역 선택 크롤링 → db → 5. data_proccesing(카카오 REST API KEY 필수) → 2. db.into_db() → back → exit
+2. cd crawler, python main.py 
+
+### 크롤링 순서 ###
+
+[지역 업소 정보 크롤링] 
+지역 선택 크롤링 → db → 5. data_proccesing(카카오 REST API KEY 필수) → 2. db.into_db() → back
+
+[MOU 정보 크롤링] 
+88. MOUdata → db → 7. MOU_into_db() → back
+
+[TMO 정보 크롤링]
+99. TMOdata → db → 10. TMO_into_db → back
+
+[종료]
+exit
+
+### 기능 설명 ###
