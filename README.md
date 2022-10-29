@@ -171,20 +171,17 @@
 		<tr>
 			<td colspan=1>
 				<br>
-				<b>ㆍ 위치 기반 장소 검색</b><br>
+				<b>ㆍ 🗺 위치 기반 장소 확인</b><br>
 				<br>
 			</td>
 		</tr>
 		<tr>
-            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/consulting1.jpg"><img src="/image/consulting1.jpg" width="60%" height="60%"></a></div></td>
-            <td width="33%">내 위치 주변 할인점 검색</td>
+            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/consulting1.jpg"><img src="img/1_MYLOCATION2.png" width="60%" height="60%"></a></div></td>
+            <td width="33%">내 위치 주변 군인 혜택 장소 확인</td>
         </tr>
         <tr>
-            <td rowspan="2"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/consulting2.jpg"><img src="/image/consulting2.jpg" width="60%" height="60%"></a></div></td>
-           <td>별점 기능</td>
-        </tr>
-        <tr>
-           <td>리뷰 기능</td>
+            <td rowspan="2"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/consulting2.jpg"><img src="img/1_MYLOCATION.png" width="60%" height="60%"></a></div></td>
+           <td>이동된 지역 주변 군인 혜택 장소 확인</td>
         </tr>
    </tbody>
 </table>
