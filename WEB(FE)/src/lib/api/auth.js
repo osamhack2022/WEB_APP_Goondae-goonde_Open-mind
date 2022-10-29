@@ -16,7 +16,6 @@ export const register = async ({ username, password1, password2, email }) => {
 export const logout = () => client.post('/rest-auth/logout');
 
 export const passwordChange = (new_password1, new_password2) => {
-  console.log(new_password1, new_password2);
   const user = JSON.parse(localStorage.getItem('user'));
   return client.post(
     '/rest-auth/password/change',

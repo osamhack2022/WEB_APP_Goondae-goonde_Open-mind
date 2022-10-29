@@ -10,8 +10,10 @@ function classNames(...classes) {
 const Place = ({
   product,
   location,
+  starCount,
+  starTotal,
   reviews,
-  fake,
+  name,
   setVisible,
   image,
   onClick,
@@ -28,10 +30,12 @@ const Place = ({
             <li>
               <div className='flex items-center'>
                 <Link
-                  to={`/index/?category=${location.category}`}
+                  to={`/index/?category=${
+                    location.category || location.region
+                  }`}
                   className=' mr-2 text-sm font-medium text-gray-900'
                 >
-                  {location.category || 'MOU'}
+                  {location.category || `${location.region}`}
                 </Link>
                 <svg
                   width={16}
@@ -101,7 +105,7 @@ const Place = ({
               {location.name}{' '}
               <span className='text-md sm:text-lg text-gray-400'>
                 {' '}
-                {location.category}
+                {location.category || location.region}
               </span>
             </h1>
           </div>
@@ -109,77 +113,86 @@ const Place = ({
           {/* Options */}
           <div className='mt-4 lg:row-span-3 lg:mt-0'>
             <h2 className='sr-only'>Product information</h2>
-            <p className='text-2xl tracking-tight text-gray-900'>
+            <a href={`tel:${location.number}`}>
+              <p className='text-xl tracking-tight text-gray-600'>
+                {location.number}
+              </p>
+            </a>
+            <p className='text-2xl tracking-tight text-gray-900 mt-3'>
               {location.address}
-            </p>
-            <p className='text-xl tracking-tight text-gray-600'>
-              {location.number}
             </p>
 
             {/* Reviews */}
-            <div className='mt-6'>
-              <h3 className='sr-only' onClick={() => setVisible(true)}>
-                Reviews
-              </h3>
+            {name === 'tmo' ? (
+              <></>
+            ) : (
+              <div className='mt-6'>
+                <h3 className='sr-only' onClick={() => setVisible(true)}>
+                  Reviews
+                </h3>
 
-              <div className='flex items-center'>
                 <div className='flex items-center'>
-                  {[0, 1, 2, 3, 4].map((rating) => (
-                    <StarIcon
-                      key={rating}
-                      className={classNames(
-                        fake.average > rating
-                          ? 'text-gray-900'
-                          : 'text-gray-200',
-                        'h-5 w-5 flex-shrink-0'
-                      )}
-                      aria-hidden='true'
-                    />
-                  ))}
+                  <div className='flex items-center'>
+                    {[0, 1, 2, 3, 4].map((rating) => (
+                      <StarIcon
+                        key={rating}
+                        className={classNames(
+                          starTotal > rating
+                            ? 'text-gray-900'
+                            : 'text-gray-200',
+                          'h-5 w-5 flex-shrink-0'
+                        )}
+                        aria-hidden='true'
+                      />
+                    ))}
+                    <p className='text-sm font-medium text-gray-300'>
+                      {`(${starCount})`}
+                    </p>
+                  </div>
+                  <p className='sr-only'>{starTotal} out of 5 stars</p>
+                  {reviews && (
+                    <button
+                      onClick={() => setVisible(true)}
+                      className='ml-3 text-sm font-medium text-green-600 hover:text-green-500'
+                    >
+                      {reviews.count} reviews
+                    </button>
+                  )}
                 </div>
-                <p className='sr-only'>{fake.average} out of 5 stars</p>
-                {reviews && (
-                  <button
-                    onClick={() => setVisible(true)}
-                    className='ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500'
-                  >
-                    {reviews.count} reviews
+                <div className='flex mt-4'>
+                  <button className='btn btn-outline btn-ghost mr-3'>
+                    공유하기
                   </button>
-                )}
-              </div>
-              <div className='flex mt-4'>
-                <button className='btn btn-outline btn-ghost mr-3'>
-                  공유하기
-                </button>
-                <button
-                  className={`btn  flex items-center ${
-                    clicked ? 'btn-active' : 'btn-outline btn-ghost'
-                  }`}
-                  onClick={onClick}
-                >
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 24 24'
-                    strokeWidth='1.5'
-                    stroke='currentColor'
-                    className='w-8 h-8  rounded-full p-1'
+                  <button
+                    className={`btn  flex items-center ${
+                      clicked ? 'btn-active' : 'btn-outline btn-ghost'
+                    }`}
+                    onClick={onClick}
                   >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      d='M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z'
-                    />
-                  </svg>
-                  저장하기
-                </button>
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                      strokeWidth='1.5'
+                      stroke='currentColor'
+                      className='w-8 h-8  rounded-full p-1'
+                    >
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        d='M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z'
+                      />
+                    </svg>
+                    저장하기
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
 
             <form className='mt-10'>
               <button
                 type='submit'
-                className='mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                className='mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-green-600 py-3 px-8 text-base font-medium text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2'
               >
                 사이트 바로가기
               </button>
@@ -192,7 +205,18 @@ const Place = ({
               <h3 className='sr-only'>Description</h3>
 
               <div className='space-y-6'>
-                <p className='text-base text-gray-900'>{location.benefit}</p>
+                {location.benefit ? (
+                  <p className='text-base text-gray-900'>{location.benefit}</p>
+                ) : (
+                  <>
+                    <p>
+                      <p className='text-base text-gray-900'>
+                        {location.pstnexpln}
+                      </p>
+                      <p className='text-base text-gray-500'>{location.etc}</p>
+                    </p>
+                  </>
+                )}
               </div>
             </div>
           </div>

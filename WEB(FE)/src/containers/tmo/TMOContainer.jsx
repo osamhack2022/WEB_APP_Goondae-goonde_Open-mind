@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useNavigate } from 'react-router';
+import { useParams } from 'react-router';
 import LoadingPlace from '../../components/loading/LoadingPlace';
 import Place from '../../components/place/Place';
 import { product, reviews as fake } from '../../lib/fakeData/product';
@@ -27,14 +27,23 @@ const TMOContainer = () => {
   useEffect(() => {
     if (!tmo) return;
     dispatch(readImage(tmo.name));
-    return () => dispatch(initializeImage('image'));
+    return () => {
+      dispatch(initializeImage('image'));
+      dispatch(initializeImage('tmo'));
+    };
   }, [tmo]);
 
   return (
     <>
       {!loading && tmo && image ? (
         <>
-          <Place product={product} location={tmo} image={image} fake={fake} />
+          <Place
+            name='tmo'
+            product={product}
+            location={tmo}
+            image={image}
+            fake={fake}
+          />
         </>
       ) : (
         <>

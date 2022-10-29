@@ -15,7 +15,6 @@ const LikeBtn = ({ likeCnt, clicked, onClick }) => {
     }
   `;
 
-  console.log('LikeBtn', likeCnt);
   return (
     <button onClick={onClick}>
       <Like src={LikeImg} alt='like' />

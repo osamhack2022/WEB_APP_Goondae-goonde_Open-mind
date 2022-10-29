@@ -1,14 +1,20 @@
+import { useState } from 'react';
+import { useEffect } from 'react';
 import PlaceItem from './PlaceItem';
-const userStorage = JSON.parse(localStorage.getItem('user'));
 
-const h2 = {
-  location: '군 혜택',
-  mou: 'MOU 혜택',
-  LikeMOU: `${userStorage.username}의 MOU 혜택`,
-  tmo: 'TMO',
-  LikeLocation: `${userStorage.username}의 군 혜택 `,
-};
 const PlaceList = ({ name, locations, images }) => {
+  const [h2, setH2] = useState({});
+  useEffect(() => {
+    const userStorage = JSON.parse(localStorage.getItem('user'));
+    setH2({
+      location: '군 혜택',
+      mou: 'MOU 혜택',
+      LikeMOU: `${userStorage?.username || 'user'}의 MOU 혜택`,
+      tmo: 'TMO',
+      LikeLocation: `${userStorage?.username || 'user'}의 군 혜택 `,
+    });
+  }, []);
+
   return (
     <div className='bg-white min-h-[64.5vh]'>
       <div className='mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8'>

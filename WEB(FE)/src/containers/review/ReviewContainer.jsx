@@ -10,6 +10,7 @@ const ReviewContainer = ({
   onSubmit,
   onChange,
   handleClose,
+  onSubmitStar,
 }) => {
   return (
     <ReviewModal
@@ -22,6 +23,7 @@ const ReviewContainer = ({
       onSubmit={onSubmit}
       onChange={onChange}
       handleClose={handleClose}
+      onSubmitStar={onSubmitStar}
     />
   );
 };

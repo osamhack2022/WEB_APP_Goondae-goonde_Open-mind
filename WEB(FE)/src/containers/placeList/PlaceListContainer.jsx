@@ -6,7 +6,6 @@ import Pagination from '../../components/common/Pagination';
 import PlaceList from '../../components/places/PlaceList';
 import LoadingPlaceList from '../../components/loading/LoadingPlaceList';
 import { imagesList, list } from '../../modules/locations';
-import search from '../../lib/api/search';
 import { useState } from 'react';
 
 const PlaceListContainer = () => {
@@ -23,18 +22,17 @@ const PlaceListContainer = () => {
   );
   const page = parseInt(searchParams.get('page'), 10) || 1;
   const category = searchParams.get('category');
-  const buildLink = ({ username, page, category }) => {
-    const query = qs.stringify({ category, page });
+  const likePK = searchParams.get('like');
+  const buildLink = ({ username, page, category, like }) => {
+    const query = qs.stringify({ category, page, like });
     return username ? `@${username}?${query}` : `?${query}`;
   };
 
   useEffect(() => {
-    const likePK = searchParams.get('like');
     if (likePK) setIsLikePK(true);
     else setIsLikePK(false);
-
     dispatch(list({ category, page, likePK }));
-  }, [dispatch, category, page]);
+  }, [dispatch, category, page, likePK]);
 
   useEffect(() => {
     if (!locations) return;

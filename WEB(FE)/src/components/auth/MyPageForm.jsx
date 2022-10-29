@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import Responsive from '../common/Responsive';
 
 const MyPageForm = ({ user, setVisible }) => {
   const userStorage = JSON.parse(localStorage.getItem('user'));
@@ -21,7 +20,7 @@ const MyPageForm = ({ user, setVisible }) => {
             <li>
               <button
                 onClick={() => console.log('click')}
-                className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+                className='inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2'
               >
                 이미지 변경하기
               </button>
@@ -71,7 +70,7 @@ const MyPageForm = ({ user, setVisible }) => {
                   name='username'
                   id='username'
                   autoComplete='username'
-                  className='px-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
+                  className='px-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm'
                   placeholder={user.username}
                 />
               </div>
@@ -87,7 +86,7 @@ const MyPageForm = ({ user, setVisible }) => {
                   name='first-name'
                   id='first-name'
                   autoComplete='given-name'
-                  className='px-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
+                  className='px-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm'
                 />
               </div>
 
@@ -103,7 +102,7 @@ const MyPageForm = ({ user, setVisible }) => {
                   name='last-name'
                   id='last-name'
                   autoComplete='family-name'
-                  className='px-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
+                  className='px-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm'
                 />
               </div>
 
@@ -119,7 +118,7 @@ const MyPageForm = ({ user, setVisible }) => {
                   name='email-address'
                   id='email-address'
                   autoComplete='email'
-                  className='px-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
+                  className='px-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm'
                   placeholder={user.email}
                 />
               </div>
@@ -135,7 +134,7 @@ const MyPageForm = ({ user, setVisible }) => {
                   id='country'
                   name='country'
                   autoComplete='country-name'
-                  className='mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
+                  className='mt-1 block w-full rounded-md border border-gray-300 bg-white py-2 px-3 shadow-sm focus:border-green-500 focus:outline-none focus:ring-green-500 sm:text-sm'
                 >
                   <option>United States</option>
                   <option>Canada</option>
@@ -156,7 +155,7 @@ const MyPageForm = ({ user, setVisible }) => {
                   name='street-address'
                   id='street-address'
                   autoComplete='street-address'
-                  className='px-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
+                  className='px-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm'
                 />
               </div>
 
@@ -172,7 +171,7 @@ const MyPageForm = ({ user, setVisible }) => {
                   name='city'
                   id='city'
                   autoComplete='address-level2'
-                  className='px-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm'
+                  className='px-2 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500 sm:text-sm'
                 />
               </div>
             </div>
@@ -181,13 +180,13 @@ const MyPageForm = ({ user, setVisible }) => {
           <div className='bg-gray-50 px-4 py-3 text-right sm:px-6'>
             <button
               onClick={handleClick}
-              className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 mr-5'
+              className='inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 mr-5'
             >
               비밀번호 변경하기
             </button>
             <button
               type='submit'
-              className='inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'
+              className='inline-flex justify-center rounded-md border border-transparent bg-green-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2'
             >
               Save
             </button>

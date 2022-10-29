@@ -22,8 +22,12 @@ export const locationsList = ({ category, page, likePK }) => {
   }
 };
 
-export const readLocation = ({ placeId }) =>
-  client.get(`/locations/location/${placeId}/`);
+export const readLocation = ({ placeId }) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  return client.get(`/locations/location/${placeId}/`, {
+    headers: { Authorization: `jwt ${user.token}` },
+  });
+};
 
 export const getLocationReviews = async ({ placeId }) =>
   client.get(`/locations/location/${placeId}/reviews/`);
@@ -64,6 +68,21 @@ export const likeLocation = (placeId) => {
   return client.patch(
     `/locations/location/${placeId}/like`,
     {},
+    {
+      headers: {
+        Authorization: `jwt ${user.token}`,
+      },
+    }
+  );
+};
+
+export const starLocation = ({ placeId, rate }) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  return client.patch(
+    `/locations/location/${placeId}/star`,
+    {
+      rate,
+    },
     {
       headers: {
         Authorization: `jwt ${user.token}`,

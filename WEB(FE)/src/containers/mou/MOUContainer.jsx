@@ -6,6 +6,7 @@ import Place from '../../components/place/Place';
 import ReviewModal from '../../components/review/ReviewModal';
 import { removeMOUReview } from '../../lib/api/mou';
 import { product, reviews as fake } from '../../lib/fakeData/product';
+import { starLocation } from '../../modules/location';
 import {
   initializeImage,
   likeMOU,
@@ -19,10 +20,14 @@ import {
   likeReview,
   list,
 } from '../../modules/reviews';
+import AskLoginModal from '../common/AskLoginModal';
 
 const PlaceContainer = () => {
   const [visible, setVisible] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
   const [reviewsArray, setReviewsArray] = useState([]);
+  const [starTotal, setStarTotal] = useState(0);
+  const [starCount, setStarCount] = useState(0);
   const [clicked, setClicked] = useState(false);
   const navigate = useNavigate();
   const { placeId } = useParams();
@@ -47,6 +52,10 @@ const PlaceContainer = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    if (!user) {
+      setIsLogin(true);
+      return;
+    }
     dispatch(
       createReview({
         content: review,
@@ -63,6 +72,10 @@ const PlaceContainer = () => {
 
   const onEdit = () => {};
   const onClick = (reviewId) => {
+    if (!user) {
+      setIsLogin(true);
+      return;
+    }
     dispatch(likeReview({ placeId, reviewId }));
   };
 
@@ -77,8 +90,18 @@ const PlaceContainer = () => {
   };
 
   const addLike = () => {
+    if (!user) {
+      setIsLogin(true);
+      return;
+    }
     setClicked(!clicked);
     dispatch(likeMOU(placeId));
+  };
+
+  const onSubmitStar = (el) => {
+    dispatch(starLocation({ placeId, rate: el }));
+    setStarCount(starCount + 1);
+    setStarTotal(Math.floor((starTotal + el) / (starCount + 1)));
   };
 
   useEffect(() => {
@@ -96,12 +119,21 @@ const PlaceContainer = () => {
   useEffect(() => {
     if (!mou) return;
     dispatch(readImage(mou.name));
-    return () => dispatch(initializeImage('image'));
+    return () => {
+      dispatch(initializeImage('image'));
+      dispatch(initializeImage('mou'));
+    };
   }, [mou]);
 
   useEffect(() => {
     reviews && setReviewsArray(reviews.results);
   }, [dispatch, reviews]);
+
+  useEffect(() => {
+    if (!mou) return;
+    setStarTotal(mou.total_stars);
+    setStarCount(mou.count_stars);
+  }, [mou]);
 
   return (
     <>
@@ -110,6 +142,8 @@ const PlaceContainer = () => {
           <Place
             product={product}
             location={mou}
+            starCount={starCount}
+            starTotal={starTotal}
             image={image}
             reviews={reviews}
             fake={fake}
@@ -131,7 +165,9 @@ const PlaceContainer = () => {
             onEdit={onEdit}
             onRemove={onRemove}
             onClick={onClick}
+            onSubmitStar={onSubmitStar}
           />
+          <AskLoginModal visible={isLogin} setVisible={setIsLogin} />
         </>
       ) : (
         <>
