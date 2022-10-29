@@ -571,6 +571,16 @@ $ python manage.py migrate
 (WEB_APP_Goondae-goonde_Open-mind\WEB(BE)\crawler)
 $ python main.py
 ```
+>크롤러 초기 세팅 <br>
+>(WEB_APP_Goondae-goonde_Open-mind/WEB(BE)/crawler/crawling)
+>
+>```python
+># kakao rest api key
+>self.rest_key = '*' 
+>```
+>
+>위 코드에서 * 부분을 https://developers.kakao.com/console/app 에서 발급받은 REST API 키로 변경해주세요.
+
 > 크롤링 순서
 >1. 지역 업소 정보 크롤링<br>
 >지역 선택 크롤링 → db → 5. data_proccesing(카카오 REST API KEY 필수) → 2. db.into_db() → back
