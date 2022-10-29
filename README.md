@@ -562,7 +562,17 @@ $ yarn or npm install
 3. Back 설치
 (WEB_APP_Goondae-goonde_Open-mind\WEB(BE))
 $ pip install -r requirements.txt
-
+```
+> Back 초기 세팅 <br>
+>(/WEB_APP_Goondae-goonde_Open-mind/WEB(BE)/myboard/settings.py)
+>```python
+>EMAIL_HOST_USER = '*' # 발신할 이메일 : 계정 인증 메일을 보낼 gmail 주소를 입력하세요.
+>
+>EMAIL_HOST_PASSWORD = '*' # 발신할 메일의 비밀번호 : 보안 - 2단계 인증 사용 설정 후 앱 비밀번호 를 생성하여 입력하세요.
+>```
+>
+>
+```bash
 4. Back db 생성
 $ python manage.py makemigrations
 $ python manage.py migrate
@@ -571,7 +581,7 @@ $ python manage.py migrate
 (WEB_APP_Goondae-goonde_Open-mind\WEB(BE)\crawler)
 $ python main.py
 ```
->크롤러 초기 세팅 <br>
+> 크롤러 초기 세팅 <br>
 >(WEB_APP_Goondae-goonde_Open-mind/WEB(BE)/crawler/crawling)
 >
 >```python
