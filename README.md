@@ -143,10 +143,10 @@
 3. 군인에게 혜택을 제공하는 장소, MOU 업체, TMO에 대한 정보를 통합하여 제공한다.
    <br><br>
 
-<p align="center"><img src="img/Introduce.jpg"></p>
+<p align="center"><img src="img/0_INTRODUCE.png"></p>
    <table><tbody><tr>
    <td width="50%"><h4 align="center"><a href="https://raw.githubusercontent.com/osamhack2022-v2/WEB_APP_Goondae-goonde_Open-mind/main/img/0_HOME.png"><img src="img/0_HOME.png" width="72.3307%" height="72.3307%"></a><br><br>군데군대 메인화면</h4></td>
-   <td width="50%"><h4 align="center"><a href="https://raw.githubusercontent.com/osamhack2022-v2/WEB_APP_Goondae-goonde_Open-mind/main/img/0_HOME_MOB.png"><img src="/img/0_HOME_MOB.png" width="75%" height="75%"></a><br><br>모바일 버전</h4></td>
+   <td width="50%"><h4 align="center"><a href="https://raw.githubusercontent.com/osamhack2022-v2/WEB_APP_Goondae-goonde_Open-mind/main/img/0_HOME_MOB.png"><img src="img/0_HOME_MOB.png" width="75%" height="75%"></a><br><br>모바일 버전</h4></td>
     </tr></tbody></table>
     </tr></tbody></table>
     <br><br>
@@ -551,6 +551,7 @@
 <br>
 
 #### 초기 설치 순서
+
 ```bash
 1. 프로젝트 설치
 $ git clone git주소
@@ -563,15 +564,16 @@ $ yarn or npm install
 (WEB_APP_Goondae-goonde_Open-mind\WEB(BE))
 $ pip install -r requirements.txt
 ```
+
 > Back 초기 세팅 <br>
->(/WEB_APP_Goondae-goonde_Open-mind/WEB(BE)/myboard/settings.py)
->```python
->EMAIL_HOST_USER = '*' # 발신할 이메일 : 계정 인증 메일을 보낼 gmail 주소를 입력하세요.
+> (/WEB_APP_Goondae-goonde_Open-mind/WEB(BE)/myboard/settings.py)
 >
->EMAIL_HOST_PASSWORD = '*' # 발신할 메일의 비밀번호 : 보안 - 2단계 인증 사용 설정 후 앱 비밀번호 를 생성하여 입력하세요.
->```
+> ```python
+> EMAIL_HOST_USER = '*' # 발신할 이메일 : 계정 인증 메일을 보낼 gmail 주소를 입력하세요.
 >
->
+> EMAIL_HOST_PASSWORD = '*' # 발신할 메일의 비밀번호 : 보안 - 2단계 인증 사용 설정 후 앱 비밀번호 를 생성하여 입력하세요.
+> ```
+
 ```bash
 4. Back db 생성
 $ python manage.py makemigrations
@@ -581,27 +583,30 @@ $ python manage.py migrate
 (WEB_APP_Goondae-goonde_Open-mind\WEB(BE)\crawler)
 $ python main.py
 ```
+
 > 크롤러 초기 세팅 <br>
->(WEB_APP_Goondae-goonde_Open-mind/WEB(BE)/crawler/crawling)
+> (WEB_APP_Goondae-goonde_Open-mind/WEB(BE)/crawler/crawling)
 >
->```python
-># kakao rest api key
->self.rest_key = '*' 
->```
+> ```python
+> # kakao rest api key
+> self.rest_key = '*'
+> ```
 >
->위 코드에서 * 부분을 https://developers.kakao.com/console/app 에서 발급받은 REST API 키로 변경해주세요.
+> 위 코드에서 \* 부분을 https://developers.kakao.com/console/app 에서 발급받은 REST API 키로 변경해주세요.
 
 > 크롤링 순서
->1. 지역 업소 정보 크롤링<br>
->지역 선택 크롤링 → db → 5. data_proccesing(카카오 REST API KEY 필수) → 2. db.into_db() → back
->2. MOU 정보 크롤링<br>
->(88)MOUdata → db → 7. MOU_into_db() → back
->3. TMO 정보 크롤링<br>
->(99)TMOdata → db → 10. TMO_into_db → back
->4. 종료<br>
->exit
+>
+> 1.  지역 업소 정보 크롤링<br>
+>     지역 선택 크롤링 → db → 5. data_proccesing(카카오 REST API KEY 필수) → 2. db.into_db() → back
+> 2.  MOU 정보 크롤링<br>
+>     (88)MOUdata → db → 7. MOU_into_db() → back
+> 3.  TMO 정보 크롤링<br>
+>     (99)TMOdata → db → 10. TMO_into_db → back
+> 4.  종료<br>
+>     exit
 
 #### 실행법
+
 ```bash
 [Back]
 (WEB_APP_Goondae-goonde_Open-mind\WEB(BE))
@@ -612,20 +617,27 @@ $ python manage.py runserver
 $ npm start
 
 ```
+
 <br>
 
 ### Android app 설치안내
+
 [- 구글 드라이브에서 빌드 된 앱 다운로드](https://drive.google.com/file/d/1Oh8wqNz3fny8tXhNVuCpREfjdsfaOL4O/view?usp=drivesdk)
 
 - Flutter로 직접 빌드
+
 1. 프로젝트 폴더에 접근
+
 ```
 $ cd APP/gdgd_app
 ```
+
 2. 다음 명령어로 apk파일 빌드(Flutter 개발환경 구축 필요)
+
 ```
 $ flutter build apk --no-sound-null-safey
 ```
+
 3. 프로젝트 폴더의 build/app/outputs/flutter-apk/ 안에 있는 app-release.apk 파일을 다운로드 하여 안드로이드 기기에서 설치 및 실행
 
 <br><br><br>

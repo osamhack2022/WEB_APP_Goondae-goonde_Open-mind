@@ -24,9 +24,13 @@ export const locationsList = ({ category, page, likePK }) => {
 
 export const readLocation = ({ placeId }) => {
   const user = JSON.parse(localStorage.getItem('user'));
-  return client.get(`/locations/location/${placeId}/`, {
-    headers: { Authorization: `jwt ${user.token}` },
-  });
+  if (user) {
+    return client.get(`/locations/location/${placeId}/`, {
+      headers: { Authorization: `jwt ${user.token}` },
+    });
+  } else {
+    return client.get(`/locations/location/${placeId}/`);
+  }
 };
 
 export const getLocationReviews = async ({ placeId }) =>

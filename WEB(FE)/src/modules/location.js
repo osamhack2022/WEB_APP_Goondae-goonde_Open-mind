@@ -8,7 +8,6 @@ import { takeLatest } from 'redux-saga/effects';
 
 const [READ_LOCATION, READ_LOCATION_SUCCESS, READ_LOCATION_FAILURE] =
   createRequestActionTypes('location/READ_LOCATION');
-
 const [READ_IMAGE, READ_IMAGE_SUCCESS, READ_IMAGE_FAILURE] =
   createRequestActionTypes('location/READ_IMAGE');
 const [LIKE_LOCATION, LIKE_LOCATION_SUCCESS, LIKE_LOCATION_FAILURE] =
