@@ -119,14 +119,19 @@ const PlaceContainer = () => {
   useEffect(() => {
     if (!location) return;
     dispatch(readImage(location.name));
-    return () => dispatch(initializeImage('image'));
+    return () => {
+      dispatch(initializeImage('image'));
+      dispatch(initializeImage('location'));
+    };
   }, [location]);
 
   useEffect(() => {
     reviews && setReviewsArray(reviews.results);
   }, [dispatch, reviews]);
+
   useEffect(() => {
     if (!location) return;
+    if (location.user_liked) setClicked(true);
     setStarTotal(location.total_stars);
     setStarCount(location.count_stars);
   }, [location]);

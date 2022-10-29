@@ -10,7 +10,6 @@ const IndexPage = () => {
         <title>군대군데 - 혜택보기</title>
       </Helmet>
       <HeaderContainer />
-
       <PlaceListContainer />
       <FooterContainer />
     </>

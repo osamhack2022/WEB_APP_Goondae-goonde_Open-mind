@@ -27,14 +27,23 @@ const TMOContainer = () => {
   useEffect(() => {
     if (!tmo) return;
     dispatch(readImage(tmo.name));
-    return () => dispatch(initializeImage('image'));
+    return () => {
+      dispatch(initializeImage('image'));
+      dispatch(initializeImage('tmo'));
+    };
   }, [tmo]);
 
   return (
     <>
       {!loading && tmo && image ? (
         <>
-          <Place product={product} location={tmo} image={image} fake={fake} />
+          <Place
+            name='tmo'
+            product={product}
+            location={tmo}
+            image={image}
+            fake={fake}
+          />
         </>
       ) : (
         <>
