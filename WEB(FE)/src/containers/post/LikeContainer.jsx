@@ -1,4 +1,5 @@
 import { click } from '@testing-library/user-event/dist/click';
+import { useEffect, useRef } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -20,13 +21,18 @@ const LikeContainer = () => {
     loading: loading['post/ADD_LIKE'],
   }));
 
-  let likeCnt = 0;
+  const [likeCnt, setLikeCnt] = useState(0);
+  useEffect(() => {
+    if (!post) return;
+    console.log(post.likes);
+    setLikeCnt(post.likes.length);
+  }, [post]);
 
   const onClick = () => {
     setClicked(!clicked);
     dispatch(addLike({ postId }));
-    if (clicked) likeCnt++;
-    else likeCnt--;
+    if (!clicked) setLikeCnt(likeCnt + 1);
+    else setLikeCnt(likeCnt - 1);
   };
 
   return (

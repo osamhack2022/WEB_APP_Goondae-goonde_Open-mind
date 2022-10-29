@@ -3,7 +3,8 @@ import Button from '../../components/common/Button';
 import Responsive from '../../components/common/Responsive';
 import SubInfo from '../../components/common/SubInfo';
 import palette from '../../lib/styles/palette';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
+import search from '../../lib/api/search';
 
 const PostListBlock = styled(Responsive)`
   margin-top: 7rem;
@@ -51,13 +52,16 @@ const PostItem = ({ post }) => {
 };
 
 const PostList = ({ loading, error, posts, showWriteButton }) => {
+  const [searchParams] = useSearchParams();
+  const like = searchParams.get('like');
+
   if (error) {
     return <PostListBlock>에러가 발생했습니다.</PostListBlock>;
   }
   return (
     <PostListBlock>
       <WritePostButtonWrapper>
-        {showWriteButton && (
+        {showWriteButton && !like && (
           <Button cyan to='write'>
             새 글 작성하기
           </Button>
