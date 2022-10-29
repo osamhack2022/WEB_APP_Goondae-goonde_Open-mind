@@ -209,6 +209,83 @@
         <tr>
             <td>댓글기능</td>
         </tr>
+        <tr>
+      <td rowspan="1">
+        <div align="center">
+          <a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns1.jpg"><img src="img/2_CATEGORY.png" width="60%" height="60%"></a>
+        </div>
+      </td>
+      <td width="33%">사용자 좋아요 모음</td>
+    </tr>
+   </tbody>
+</table>
+<table>
+        <tbody>
+		<tr>
+			<td colspan=2>
+				<br>
+				<b>ㆍ 💖 군 MOU 장소 확인</b><br>
+				<br>
+			</td>
+		</tr>
+		<tr>
+      <td rowspan="1">
+        <div align="center">
+          <a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns1.jpg"><img src="img/3_MOU.png" width="60%" height="60%"></a>
+        </div>
+      </td>
+      <td width="33%">MOU 내용 확인</td>
+    </tr>
+    <tr>
+      <td rowspan="2">
+        <div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns2.jpg"><img src="img/3_REPLY.png" width="60%" height="60%"></a>
+        </div>
+      </td>   
+      <td>
+        좋아요 기능  
+      </td>
+    </tr>
+    <tr>
+      <td>댓글기능</td>
+    </tr>
+    		<tr>
+      <td rowspan="1">
+        <div align="center">
+          <a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns1.jpg"><img src="img/2_CATEGORY.png" width="60%" height="60%"></a>
+        </div>
+      </td>
+      <td width="33%">사용자 좋아요 모음</td>
+    </tr>
+   </tbody>
+</table>
+
+<table>
+        <tbody>
+		<tr>
+			<td colspan=1>
+				<br>
+				<b>ㆍ 💖 TMO 정보 확인</b><br>
+				<br>
+			</td>
+		</tr>
+    <tr>
+      <td rowspan="1">
+        <div align="center">
+          <a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns1.jpg"><img src="img/2_CATEGORY.png" width="60%" height="60%"></a>
+        </div>
+      </td>
+      <td width="33%">TMO 목록 확인</td>
+    </tr>
+        <tr>
+            <td rowspan="2"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns2.jpg"><img src="img/2_REPLY.png" width="60%" height="60%"></a></div></td>   
+          <td>
+            TMO 위치 확인  
+          </td>
+        </tr>
+        <tr>
+            <td>TMO 휴무일 등 확인</td>
+        </tr>
+        
    </tbody>
 </table>
 <table>
@@ -222,8 +299,12 @@
 		</tr>
 		<tr>
             <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns1.jpg"><img src="/image/sns1.jpg" width="60%" height="60%"></a></div></td>
+            <td width="33%">CRUD 기능</td>
+    </tr>
+    <tr>
+            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns1.jpg"><img src="/image/sns1.jpg" width="60%" height="60%"></a></div></td>
             <td width="33%">좋아요 기능</td>
-        </tr>
+    </tr>
    </tbody>
 </table>
 <br><br>
@@ -272,6 +353,25 @@
         </tr>
    </tbody>
 </table>
+<table>
+        <tbody>
+		<tr>
+			<td colspan=2>
+				<br>
+				<b>ㆍ 📱 모바일 앱 제공</b><br>
+				<br>
+			</td>
+		</tr>
+		<tr>
+            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/mypage1.jpg"><img src="/image/mypage1.jpg" width="60%" height="60%"></a></div></td>
+            <td width="33%"> 모바일 앱 내 웹뷰를 제공 </td>
+        </tr>
+        <tr>
+            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/9_LIKE.jpg"><img src="img/7_MAP.jpg" width="30%" height="30%"></a></div></td>
+           <td width="33%">모바일 앱 내 지도를 통한 정보 제공</td>
+        </tr>
+   </tbody>
+</table>
 <br><br>
 
 **지역 내 수만명의 장병들의 힘을 모아, 위수 지역 내 정보를 공유하는 Plat Form "군데군대" 입니다.**
@@ -311,7 +411,7 @@
 
 구체적인 개발문서의 양호도 및 구체적 표현성
 
-- Gitbook을 이용한 개발문서 정리
+- Swagger를 이용한 개발문서 정리
 - Database ERD 제공
 - OPEN API 제공
 
@@ -320,18 +420,16 @@
 뚜렷한 독창성 유무 정도
 
 - 자율과제 및 지정과제를 포함한 추가 기능 구현
-- SNS 서비스를 통한 국방 소셜 네트워크 구축
-- 카카오톡과 연동하여 새로운 플랫폼 활용도 기대
-- 웹/모바일 완벽 지원 및 PWA를 이용한 앱 활용 가능
+- 게시판을 통한 MOU, TMO, 군 지역내 서비스에 대한 SNS 구축
+- 반응형 웹페이지로 구성, 앱 내 웹뷰를 사용한 앱 구축
 
 ### 🌱 발전 가능성
 
 커뮤니티, 비즈니스 등에 대한 발전 가능성
 
-- 비대면 상담 서비스, 국방 SNS 기능을 통한 커뮤니티 구축
-- 누구나 쉽게 서비스를 관리할 수 있도록 데이터 관리 페이지 구축
+- 많은 장병들의 사용을 통해 더 큰 커뮤니티와 활용 가능성 존재
 - 오픈소스로 이루어진 프로그램으로 플랫폼 구축 비용 절감
-- 구체적인 개발문서 정리로 개발 관련 커뮤니티 발전도 가능
+- Swagger를 통한 Documents 제공을 통해, 서비스 확대 가능
 
 ### 🚀 완성도(작품데모)
 
@@ -339,11 +437,52 @@
 
 - 즉시 서비스를 시행할 수 있도록 완성도 있게 제작
 - 모든 기능들은 사용자별 권한 설정이 완료 되고 원활하게 구현되어짐
-- 관리자 페이지를 제공하여 보다 체계적인 관리가 가능
+- Django를 통한 관리자 페이지 제공을 통해 원활한 관리 가능
   <br><br><br>
 
 <h2 id="must-computer" align="center">컴퓨터 구성 / 필수 조건 안내 (Prerequisites)</h2>
 <hr>
+
+<h4> 🌏: 브라우저 </h4>
+
+- ECMAScript 6 지원 브라우저 사용
+- 권장: Google Chrome 버젼 77 이상
+
+<table width="900">
+
+<thead>
+
+<tr>
+
+<th width="180" align="center"><img src="img/icons/chrome.ico" alt="Chrome" width="20px" height="20px" /> Chrome</th>
+
+<th width="240" align="center"><img src="img/icons/ie.ico" alt="IE" width="20px" height="20px" /> Internet Explorer</th>
+
+<th width="180" align="center"><img src="img/icons/edge.ico" alt="Edge" width="20px" height="20px" /> Edge</th>
+
+<th width="180" align="center"><img src="img/icons/safari.ico" alt="Safari" width="20px" height="20px" /> Safari</th>
+
+<th width="180" align="center"><img src="img/icons/firefox.ico" alt="Firefox" width="20px" height="20px" /> Firefox</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td align="center">YES</td>
+<td align="center">11+</td>
+<td align="center">YES</td>
+<td align="center">YES</td>
+<td align="center">YES</td>
+</tr>
+
+</table>
+
+<br/>
+
+---
 
 <!-- <p><img src="/image/prerequisites.png"></p> -->
 
@@ -407,12 +546,12 @@
   </td>
   <td>
    <div align="center"><a href="https://www.w3.org/html/" target="_blank"> 
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="tailwindcss" width="40" height="40"/> </a><br>tailwindcss</div>
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="tailwindcss" width="40" height="40"/> </a><br>HTML5</div>
   </td>
     <td>
    <div align="center"><a href="https://www.w3.org/html/" target="_blank"> 
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg"
-           alt="html5" width="40" height="40"/> </a><br>Html5</div>
+           alt="html5" width="40" height="40"/> </a><br>Tailwindcss</div>
   </td>
   <td>
    <div align="center"><a href="https://babeljs.io/" target="_blank"> <img src="https://www.vectorlogo.zone/logos/babeljs/babeljs-icon.svg" alt="babel" width="40" height="40"/> </a><br>Babel</div>
@@ -426,6 +565,7 @@
  </tr>
  </tbody></table>
  <br>
+
 ### App
 
 <table><tbody>
