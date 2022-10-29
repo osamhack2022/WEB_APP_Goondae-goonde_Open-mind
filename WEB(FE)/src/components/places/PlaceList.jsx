@@ -7,7 +7,7 @@ const PlaceList = ({ name, locations, images }) => {
   const [h2, setH2] = useState({});
   const [searchParams] = useSearchParams();
   const category = searchParams.get('category');
-  console.log(category);
+
   useEffect(() => {
     const userStorage = JSON.parse(localStorage.getItem('user'));
     setH2({
