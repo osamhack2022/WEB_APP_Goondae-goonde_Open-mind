@@ -17,6 +17,7 @@ const Place = ({
   onClick,
   clicked,
 }) => {
+  console.log(reviews);
   return (
     <div className='bg-white mt-[4rem]'>
       <div className='pt-6'>

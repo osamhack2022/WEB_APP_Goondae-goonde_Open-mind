@@ -60,15 +60,7 @@ const location = handleActions(
       error,
     }),
     [LIKE_LOCATION_SUCCESS]: (state) => {
-      const bool = state.location.user_liked;
-      const location = state.location;
-      if (bool) {
-        location.total_likes++;
-      } else {
-        location.total_likes--;
-      }
-
-      return { ...state, location };
+      return state;
     },
     [LIKE_LOCATION_FAILURE]: (state, { payload: error }) => ({
       ...state,
