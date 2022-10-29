@@ -2,6 +2,15 @@ import { Link } from 'react-router-dom';
 import LoadingPlaceItem from '../loading/LoadingPlaceItem';
 
 const PlaceItem = ({ name, location, image }) => {
+  const category =
+    location.category && location.category.length > 5
+      ? `${location.category.slice(0, 10)}...`
+      : `${location.category}`;
+  const categoryObject = {
+    location: category,
+    mou: location.region,
+    tmo: '',
+  };
   if (image) {
     return (
       <Link to={`${location.id}`} className='group '>
@@ -18,7 +27,7 @@ const PlaceItem = ({ name, location, image }) => {
         <h3 className='mt-4 text-lg text-gray-900  group-hover:text-gray-400'>
           {name === 'tmo' ? `${location.name}역` : `${location.name}`}
           <span className='ml-2 text-sm text-gray-600  group-hover:text-gray-300'>
-            {location.category || location.region}
+            {categoryObject[name]}
           </span>
         </h3>
         <p className='mt-1 text-sm font-normal text-gray-900   group-hover:text-gray-400'>
