@@ -31,11 +31,11 @@ const Place = ({
               <div className='flex items-center'>
                 <Link
                   to={`/index/?category=${
-                    location.category || location.region || 'TMO'
+                    location.category || location.region
                   }`}
                   className=' mr-2 text-sm font-medium text-gray-900'
                 >
-                  {location.category || `${location.region}`}
+                  {location.category || `${location.region}` || 'TMO'}
                 </Link>
                 <svg
                   width={16}
@@ -129,7 +129,7 @@ const Place = ({
               </>
             ) : (
               <p className='text-2xl tracking-tight text-gray-900 mt-3'>
-                `${location.address}`
+                {location.address}
               </p>
             )}
 
