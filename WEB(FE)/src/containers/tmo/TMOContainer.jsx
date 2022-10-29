@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useNavigate } from 'react-router';
+import { useParams } from 'react-router';
 import LoadingPlace from '../../components/loading/LoadingPlace';
 import Place from '../../components/place/Place';
 import { product, reviews as fake } from '../../lib/fakeData/product';

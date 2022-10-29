@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import Responsive from '../common/Responsive';
 
 const MyPageForm = ({ user, setVisible }) => {
   const userStorage = JSON.parse(localStorage.getItem('user'));

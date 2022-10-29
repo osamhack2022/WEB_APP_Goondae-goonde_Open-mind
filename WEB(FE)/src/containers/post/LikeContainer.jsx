@@ -15,15 +15,14 @@ const LikeContainer = () => {
   const [clicked, setClicked] = useState(false);
   const { postId } = useParams();
   const dispatch = useDispatch();
-  const { post, loading } = useSelector(({ post, loading }) => ({
+  const { post } = useSelector(({ post, loading }) => ({
     post: post.post,
     loading: loading['post/ADD_LIKE'],
   }));
-  const likes = post ? post.likes : undefined;
+
   let likeCnt = 0;
-  console.log('rerender');
+
   const onClick = () => {
-    console.log('click', post, clicked);
     setClicked(!clicked);
     dispatch(addLike({ postId }));
     if (clicked) likeCnt++;

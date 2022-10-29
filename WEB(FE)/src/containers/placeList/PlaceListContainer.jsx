@@ -6,7 +6,6 @@ import Pagination from '../../components/common/Pagination';
 import PlaceList from '../../components/places/PlaceList';
 import LoadingPlaceList from '../../components/loading/LoadingPlaceList';
 import { imagesList, list } from '../../modules/locations';
-import search from '../../lib/api/search';
 import { useState } from 'react';
 
 const PlaceListContainer = () => {

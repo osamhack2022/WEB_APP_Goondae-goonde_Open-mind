@@ -20,7 +20,6 @@ const MyLocatinMapContainer = () => {
   const { markers } = useSelector(({ markers }) => ({
     markers: markers.markers,
   }));
-  console.log('markers', markers);
   const handleCenterChanged = (map) =>
     setInfo({
       center: {
@@ -86,7 +85,6 @@ const MyLocatinMapContainer = () => {
       {markers &&
         markers.map((marker) => {
           const position = { lat: marker.y, lng: marker.x };
-          console.log(position);
           return (
             <div key={marker.id}>
               <CustomOverlayMap
