@@ -13,12 +13,18 @@ const [READ_IMAGE, READ_IMAGE_SUCCESS, READ_IMAGE_FAILURE] =
   createRequestActionTypes('location/READ_IMAGE');
 const [LIKE_LOCATION, LIKE_LOCATION_SUCCESS, LIKE_LOCATION_FAILURE] =
   createRequestActionTypes('location/LIKE_LOCATION');
+const [STAR_LOCATION, STAR_LOCATION_SUCCESS, STAR_LOCATION_FAILURE] =
+  createRequestActionTypes('location/STAR_LOCATION');
 
 const UNLOAD_LOCATION = 'location/UNLOAD_LOCATION';
 const INITIALIZE_IMAGE = 'location/INITIALIZE_IMAGE';
 
 export const readLocation = createAction(READ_LOCATION, (placeId) => placeId);
 export const likeLocation = createAction(LIKE_LOCATION, (placeId) => placeId);
+export const starLocation = createAction(
+  STAR_LOCATION,
+  ({ placeId, rate }) => ({ placeId, rate })
+);
 export const readImage = createAction(READ_IMAGE, (title) => title);
 export const unloadLocation = createAction(UNLOAD_LOCATION);
 export const initializeImage = createAction(INITIALIZE_IMAGE, (form) => form);
@@ -31,11 +37,16 @@ const likeLocationSaga = createRequestSaga(
   LIKE_LOCATION,
   locationsAPI.likeLocation
 );
+const starLocationSaga = createRequestSaga(
+  STAR_LOCATION,
+  locationsAPI.starLocation
+);
 const readImageSaga = createRequestSaga(READ_IMAGE, imagesAPI.readImage);
 
 export function* locationSaga() {
   yield takeLatest(READ_LOCATION, readLocationSaga);
   yield takeLatest(LIKE_LOCATION, likeLocationSaga);
+  yield takeLatest(STAR_LOCATION, starLocationSaga);
   yield takeLatest(READ_IMAGE, readImageSaga);
 }
 
@@ -63,6 +74,13 @@ const location = handleActions(
       return state;
     },
     [LIKE_LOCATION_FAILURE]: (state, { payload: error }) => ({
+      ...state,
+      error,
+    }),
+    [STAR_LOCATION_SUCCESS]: (state, { payload: rate }) => ({
+      ...state,
+    }),
+    [STAR_LOCATION_FAILURE]: (state, { payload: error }) => ({
       ...state,
       error,
     }),

@@ -1,18 +1,13 @@
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import { StarIcon } from '@heroicons/react/20/solid';
 import ReviewItem from './ReviewItem';
 import ReviewActionButtons from './ReviewActionButtons';
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
+import ReviewStarContainer from '../../containers/review/ReviewStarContainer';
 
 const ReviewModal = ({
   location,
   reviews,
-  product,
   visible,
   review,
   setVisible,
@@ -23,6 +18,7 @@ const ReviewModal = ({
   onEdit,
   onRemove,
   onClick,
+  onSubmitStar,
 }) => {
   if (!visible) return null;
   return (
@@ -80,21 +76,13 @@ const ReviewModal = ({
                           <h4 className='sr-only'>Reviews</h4>
                           <div className='flex items-center'>
                             <div className='flex items-center'>
-                              {[0, 1, 2, 3, 4].map((rating) => (
-                                <StarIcon
-                                  key={rating}
-                                  className={classNames(
-                                    product.rating > rating
-                                      ? 'text-gray-900'
-                                      : 'text-gray-200',
-                                    'h-5 w-5 flex-shrink-0'
-                                  )}
-                                  aria-hidden='true'
-                                />
-                              ))}
+                              <ReviewStarContainer
+                                handleSubmit={onSubmitStar}
+                                ownStar={location.user_star_rated}
+                              />
                             </div>
                             <p className='sr-only'>
-                              {product.rating} out of 5 stars
+                              {reviews.count} out of 5 stars
                             </p>
                             <span className='ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500'>
                               {reviews.count} reviews

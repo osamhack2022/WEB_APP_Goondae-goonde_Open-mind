@@ -64,11 +64,25 @@ export const addLikeLocationReview = async ({ placeId, reviewId }) => {
 };
 
 export const likeLocation = (placeId) => {
-  console.log('like');
   const user = JSON.parse(localStorage.getItem('user'));
   return client.patch(
     `/locations/location/${placeId}/like`,
     {},
+    {
+      headers: {
+        Authorization: `jwt ${user.token}`,
+      },
+    }
+  );
+};
+
+export const starLocation = ({ placeId, rate }) => {
+  const user = JSON.parse(localStorage.getItem('user'));
+  return client.patch(
+    `/locations/location/${placeId}/star`,
+    {
+      rate,
+    },
     {
       headers: {
         Authorization: `jwt ${user.token}`,
