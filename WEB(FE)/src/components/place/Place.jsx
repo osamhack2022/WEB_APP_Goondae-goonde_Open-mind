@@ -13,7 +13,7 @@ const Place = ({
   starCount,
   starTotal,
   reviews,
-  fake,
+  name,
   setVisible,
   image,
   onClick,
@@ -123,65 +123,71 @@ const Place = ({
             </p>
 
             {/* Reviews */}
-            <div className='mt-6'>
-              <h3 className='sr-only' onClick={() => setVisible(true)}>
-                Reviews
-              </h3>
+            {name === 'tmo' ? (
+              <></>
+            ) : (
+              <div className='mt-6'>
+                <h3 className='sr-only' onClick={() => setVisible(true)}>
+                  Reviews
+                </h3>
 
-              <div className='flex items-center'>
                 <div className='flex items-center'>
-                  {[0, 1, 2, 3, 4].map((rating) => (
-                    <StarIcon
-                      key={rating}
-                      className={classNames(
-                        starTotal > rating ? 'text-gray-900' : 'text-gray-200',
-                        'h-5 w-5 flex-shrink-0'
-                      )}
-                      aria-hidden='true'
-                    />
-                  ))}
-                  <p className='text-sm font-medium text-gray-300'>
-                    {`(${starCount})`}
-                  </p>
+                  <div className='flex items-center'>
+                    {[0, 1, 2, 3, 4].map((rating) => (
+                      <StarIcon
+                        key={rating}
+                        className={classNames(
+                          starTotal > rating
+                            ? 'text-gray-900'
+                            : 'text-gray-200',
+                          'h-5 w-5 flex-shrink-0'
+                        )}
+                        aria-hidden='true'
+                      />
+                    ))}
+                    <p className='text-sm font-medium text-gray-300'>
+                      {`(${starCount})`}
+                    </p>
+                  </div>
+                  <p className='sr-only'>{starTotal} out of 5 stars</p>
+                  {reviews && (
+                    <button
+                      onClick={() => setVisible(true)}
+                      className='ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500'
+                    >
+                      {reviews.count} reviews
+                    </button>
+                  )}
                 </div>
-                <p className='sr-only'>{starTotal} out of 5 stars</p>
-                {reviews && (
-                  <button
-                    onClick={() => setVisible(true)}
-                    className='ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500'
-                  >
-                    {reviews.count} reviews
+                <div className='flex mt-4'>
+                  <button className='btn btn-outline btn-ghost mr-3'>
+                    공유하기
                   </button>
-                )}
-              </div>
-              <div className='flex mt-4'>
-                <button className='btn btn-outline btn-ghost mr-3'>
-                  공유하기
-                </button>
-                <button
-                  className={`btn  flex items-center ${
-                    clicked ? 'btn-active' : 'btn-outline btn-ghost'
-                  }`}
-                  onClick={onClick}
-                >
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    fill='none'
-                    viewBox='0 0 24 24'
-                    strokeWidth='1.5'
-                    stroke='currentColor'
-                    className='w-8 h-8  rounded-full p-1'
+                  <button
+                    className={`btn  flex items-center ${
+                      clicked ? 'btn-active' : 'btn-outline btn-ghost'
+                    }`}
+                    onClick={onClick}
                   >
-                    <path
-                      strokeLinecap='round'
-                      strokeLinejoin='round'
-                      d='M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z'
-                    />
-                  </svg>
-                  저장하기
-                </button>
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                      strokeWidth='1.5'
+                      stroke='currentColor'
+                      className='w-8 h-8  rounded-full p-1'
+                    >
+                      <path
+                        strokeLinecap='round'
+                        strokeLinejoin='round'
+                        d='M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z'
+                      />
+                    </svg>
+                    저장하기
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
 
             <form className='mt-10'>
               <button
