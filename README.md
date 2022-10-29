@@ -556,11 +556,11 @@
 $ git clone git주소
 
 2. Front 설치
-(WEB_APP_Goondae-goonde_Open-mind\WEB\(FE\))
+(WEB_APP_Goondae-goonde_Open-mind\WEB(FE))
 $ yarn or npm install
 
 3. Back 설치
-(WEB_APP_Goondae-goonde_Open-mind\WEB\(BE\))
+(WEB_APP_Goondae-goonde_Open-mind\WEB(BE))
 $ pip install -r requirements.txt
 
 4. Back db 생성
@@ -568,7 +568,7 @@ $ python manage.py makemigrations
 $ python manage.py migrate
 
 4. 크롤링
-(WEB_APP_Goondae-goonde_Open-mind\WEB\(BE\)\crawler)
+(WEB_APP_Goondae-goonde_Open-mind\WEB(BE)\crawler)
 $ python main.py
 ```
 > 크롤링 순서
@@ -584,11 +584,11 @@ $ python main.py
 #### 실행법
 ```bash
 [Back]
-(WEB_APP_Goondae-goonde_Open-mind\WEB\(BE\))
+(WEB_APP_Goondae-goonde_Open-mind\WEB(BE))
 $ python manage.py runserver
 
 [Front]
-(WEB_APP_Goondae-goonde_Open-mind\WEB\(FE\))
+(WEB_APP_Goondae-goonde_Open-mind\WEB(FE))
 $ npm start
 
 ```
