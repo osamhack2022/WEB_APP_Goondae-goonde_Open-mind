@@ -145,8 +145,8 @@
 
 <p align="center"><img src="img/Introduce.jpg"></p>
    <table><tbody><tr>
-   <td width="50%"><h4 align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/0_HOME.jpg"><img src="img/0_HOME.png" width="72.3307%" height="72.3307%"></a><br><br>군데군대 메인화면</h4></td>
-   <td width="50%"><h4 align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/0_HOME_MOB.jpg"><img src="/image/0_HOME_MOB.jpg" width="75%" height="75%"></a><br><br>모바일 버전</h4></td>
+   <td width="50%"><h4 align="center"><a href="https://raw.githubusercontent.com/osamhack2022-v2/WEB_APP_Goondae-goonde_Open-mind/main/img/0_HOME.png"><img src="img/0_HOME.png" width="72.3307%" height="72.3307%"></a><br><br>군데군대 메인화면</h4></td>
+   <td width="50%"><h4 align="center"><a href="https://raw.githubusercontent.com/osamhack2022-v2/WEB_APP_Goondae-goonde_Open-mind/main/img/0_HOME_MOB.png"><img src="/img/0_HOME_MOB.png" width="75%" height="75%"></a><br><br>모바일 버전</h4></td>
     </tr></tbody></table>
     <br><br>
 
@@ -420,6 +420,22 @@
  </tbody></table>
  <br>
 
+### App
+
+<table><tbody>
+ <tr>
+  <td>
+   <div align="center"><a href="https://flutter.dev" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="git" width="40" height="40"/> </a><br>Flutter</div>
+  </td>
+  <td>
+   <div align="center"><a href="https://dart.dev" target="_blank"> 
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original-wordmark.svg" alt="aws" width="40" height="40"/>
+           </a><br>Dart</div>
+  </td>
+ </tr>
+ </tbody></table>
+ <br>
+
 ### Database
 
  <table><tbody>
@@ -545,6 +561,22 @@ $ pip install -r requirements.txt
 $ python manage.py runserver
 
 ```
+
+<br>
+
+### Android app 설치안내
+[- 구글 드라이브에서 빌드 된 앱 다운로드](https://drive.google.com/file/d/1Oh8wqNz3fny8tXhNVuCpREfjdsfaOL4O/view?usp=drivesdk)
+
+- Flutter로 직접 빌드
+1. 프로젝트 폴더에 접근
+```
+$ cd APP/gdgd_app
+```
+2. 다음 명령어로 apk파일 빌드(Flutter 개발환경 구축 필요)
+```
+$ flutter build apk --no-sound-null-safey
+```
+3. 프로젝트 폴더의 build/app/outputs/flutter-apk/ 안에 있는 app-release.apk 파일을 다운로드 하여 안드로이드 기기에서 설치 및 실행
 
 <br><br><br>
 
