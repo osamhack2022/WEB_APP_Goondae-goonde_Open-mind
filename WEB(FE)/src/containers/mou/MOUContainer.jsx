@@ -19,9 +19,11 @@ import {
   likeReview,
   list,
 } from '../../modules/reviews';
+import AskLoginModal from '../common/AskLoginModal';
 
 const PlaceContainer = () => {
   const [visible, setVisible] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
   const [reviewsArray, setReviewsArray] = useState([]);
   const [clicked, setClicked] = useState(false);
   const navigate = useNavigate();
@@ -47,6 +49,10 @@ const PlaceContainer = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    if (!user) {
+      setIsLogin(true);
+      return;
+    }
     dispatch(
       createReview({
         content: review,
@@ -63,6 +69,10 @@ const PlaceContainer = () => {
 
   const onEdit = () => {};
   const onClick = (reviewId) => {
+    if (!user) {
+      setIsLogin(true);
+      return;
+    }
     dispatch(likeReview({ placeId, reviewId }));
   };
 
@@ -77,6 +87,10 @@ const PlaceContainer = () => {
   };
 
   const addLike = () => {
+    if (!user) {
+      setIsLogin(true);
+      return;
+    }
     setClicked(!clicked);
     dispatch(likeMOU(placeId));
   };
@@ -132,6 +146,7 @@ const PlaceContainer = () => {
             onRemove={onRemove}
             onClick={onClick}
           />
+          <AskLoginModal visible={isLogin} setVisible={setIsLogin} />
         </>
       ) : (
         <>
