@@ -81,7 +81,7 @@
 			<a href="https://www.youtube.com/watch?v=Wa4uaZ68Z_A"><img src="img/YOUTUBE.png"></a>
 		</td>
 		<td>
-			<a href="https://drive.google.com/file/d/1w2Wd1qvTY9NCivuP6xOHIXCT_JmGg5H-/view?usp=sharing"><img src=""></a>
+			<a href="https://drive.google.com/file/d/1w2Wd1qvTY9NCivuP6xOHIXCT_JmGg5H-/view?usp=sharing"><img src="img/presentation.jpg"></a>
 	</tr>
 	<tr>
 		<td align="center">
@@ -93,7 +93,7 @@
 	</tr>
 </table>
 
-<h4 align="center">이미지 클릭 시 youtube 영상으로 이동합니다.</h4><br><br><br>
+<h4 align="center">이미지 클릭 시 youtube 영상, pdf 파일로 이동합니다.</h4><br><br><br>
 <br>
 
 <h2 id="team-introduce" align="center">팀 소개</h2>
