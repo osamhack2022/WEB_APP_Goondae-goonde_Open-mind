@@ -388,7 +388,7 @@ href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open
         </tr>
         <tr>
             <td rowspan="1"><div align="center"><a 
-href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/7_MAP.jpg"><img src="img/7_MAP.jpg" width="30%" height="30%"></a></div></td>
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/8_MAP.jpg"><img src="img/8_MAP.jpg" width="30%" height="30%"></a></div></td>
            <td width="33%">모바일 앱 내 지도를 통한 정보 제공</td>
         </tr>
    </tbody>
