@@ -330,17 +330,17 @@ href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open
 		</tr>
 		<tr>
             <td rowspan="1"><div align="center"><a 
-href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/6_LOGIN.png"><img src="img/6_LOGIN.png" width="60%" height="60%"></a></div></td>
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/7_LOGIN.png"><img src="img/7_LOGIN.png" width="60%" height="60%"></a></div></td>
             <td width="33%"> 로그인 시스템 </td>
         </tr>
         <tr>
             <td rowspan="1"><div align="center"><a 
-href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/6_REGISTER.png"><img src="img/6_REGISTER.png" width="60%" height="60%"></a></div></td>
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/7_REGISTER.png"><img src="img/7_REGISTER.png" width="60%" height="60%"></a></div></td>
             <td width="33%"> 회원가입 시스템 </td>
         </tr>
                 <tr>
             <td rowspan="1"><div align="center"><a 
-href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/6_CONFIRM.png"><img src="img/6_CONFIRM.png" width="60%" height="60%"></a></div></td>
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/7_CONFIRM.png"><img src="img/7_CONFIRM.png" width="60%" height="60%"></a></div></td>
             <td width="33%">이메일 인증 시스템</td>
         </tr>
    </tbody>
