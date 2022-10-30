@@ -728,6 +728,8 @@ href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open
 
 #### 초기 설치 순서
 
+<br>
+
 ```bash
 1. 프로젝트 설치
 $ git clone git주소
@@ -795,8 +797,35 @@ $ npm start
 ```
 
 <br>
+<br>
+
+### Web page 실행 안내
+
+<br>
+
+1. 기존 배포된 페이지 이용
+
+2. 로컬에서 프로젝트 실행
+
+```br
+1) WEB(FE) / public / index.html 내 javascript key 추가
+<script type="text/javascript"
+    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=본인의 APPKEY 사용&libraries=services,clusterer">
+</script>
+
+2) WEB(FE) / src / lib / api / images.js 내 process.env.REACT_APP_KAKAO_KEY 대신 RESTI API key 추가
+
+3) WEB(FE) 폴더 내에서 npm install
+
+4) npm run start
+```
+
+  <br>
+  <br>
 
 ### Android app 설치안내
+
+<br>
 
 [- 구글 드라이브에서 빌드 된 앱 다운로드](https://drive.google.com/file/d/1Oh8wqNz3fny8tXhNVuCpREfjdsfaOL4O/view?usp=drivesdk)
 
