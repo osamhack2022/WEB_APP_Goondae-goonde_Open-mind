@@ -27,7 +27,7 @@
 <h2>목차</h2>
 <ol>
 <li>
-<a href="#project-introduce-video"><p>프로젝트 설명 영상</p></a>
+<a href="#project-introduce-video"><p>프로젝트 설명 영상 및 소개 자료</p></a>
 </li>
 <li>
 <a href="#team-introduce"><p>팀 소개</p></a>
@@ -72,7 +72,7 @@
 <br>
 <br>
 <br>
-<h2 id="project-introduce-video" align="center">프로젝트 설명 영상</h2>
+<h2 id="project-introduce-video" align="center">프로젝트 설명 영상 및 소개 자료</h2>
 <hr><br>
 
 <table>
@@ -80,10 +80,15 @@
 		<td>
 			<a href="https://www.youtube.com/watch?v=Wa4uaZ68Z_A"><img src="img/YOUTUBE.png"></a>
 		</td>
+		<td>
+			<a href="https://drive.google.com/file/d/1w2Wd1qvTY9NCivuP6xOHIXCT_JmGg5H-/view?usp=sharing"><img src=""></a>
 	</tr>
 	<tr>
 		<td align="center">
 			<b>소개 영상</b>
+		</td>
+		<td align="center">
+			<b>소개 자료</b>
 		</td>
 	</tr>
 </table>
