@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import Responsive from '../../components/common/Responsive';
 import LikeBtn from '../../components/post/Like';
 import { addLike } from '../../modules/post';
+import AskLoginModal from '../common/AskLoginModal';
 
 const LikeWrapper = styled(Responsive)`
   margin-bottom: 4rem;
@@ -14,11 +15,13 @@ const LikeWrapper = styled(Responsive)`
 
 const LikeContainer = () => {
   const [clicked, setClicked] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
   const { postId } = useParams();
   const dispatch = useDispatch();
-  const { post } = useSelector(({ post, loading }) => ({
+  const { post, user } = useSelector(({ post, user, loading }) => ({
     post: post.post,
     loading: loading['post/ADD_LIKE'],
+    user: user.user,
   }));
 
   const [likeCnt, setLikeCnt] = useState(0);
@@ -29,6 +32,7 @@ const LikeContainer = () => {
   }, [post]);
 
   const onClick = () => {
+    if (!user) return;
     setClicked(!clicked);
     dispatch(addLike({ postId }));
     if (!clicked) setLikeCnt(likeCnt + 1);
@@ -36,9 +40,12 @@ const LikeContainer = () => {
   };
 
   return (
-    <LikeWrapper>
-      <LikeBtn likeCnt={likeCnt} clicked={clicked} onClick={onClick} />
-    </LikeWrapper>
+    <>
+      <LikeWrapper>
+        <LikeBtn likeCnt={likeCnt} clicked={clicked} onClick={onClick} />
+      </LikeWrapper>
+      <AskLoginModal visible={isLogin} setVisible={setIsLogin} />
+    </>
   );
 };
 

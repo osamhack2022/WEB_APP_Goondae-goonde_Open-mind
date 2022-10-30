@@ -78,10 +78,10 @@
 <table>
 	<tr>
 		<td>
-			<a href="https://www.youtube.com/watch?v=suvEYpgqv18"><img src="img/INTRO_THUMBNAIL.png"></a>
+			<a href="https://www.youtube.com/watch?v=Wa4uaZ68Z_A"><img src="img/INTRO_THUMBNAIL.png"></a>
 		</td>
 		<td>
-			<a href="https://www.youtube.com/watch?v=Oh-SFOLAom0"><img src="img/GUIDE_THUMBNAIL.png"></a>
+			<a href="https://www.youtube.com/watch?v=Wa4uaZ68Z_A"><img src="img/GUIDE_THUMBNAIL.png"></a>
 		</td>
 	</tr>
 	<tr>
