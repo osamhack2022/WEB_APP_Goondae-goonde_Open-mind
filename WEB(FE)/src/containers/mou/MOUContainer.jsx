@@ -144,6 +144,7 @@ const PlaceContainer = () => {
       {!loading && mou && image && reviews ? (
         <>
           <Place
+            name='mou'
             product={product}
             location={mou}
             starCount={starCount}
