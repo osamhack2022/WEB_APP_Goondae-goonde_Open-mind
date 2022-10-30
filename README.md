@@ -8,7 +8,7 @@
 	<a href="https://goondaegoonde.com:3000">
 		<img src="img/DEMO_BUTTON.png" />
 	</a>
-	<a href="http://ec2-52-79-185-182.ap-northeast-2.compute.amazonaws.com:8000/swagger">
+	<a href="https://goondaegoonde.com:8000/swagger">
 		<img src="img/DOCUMNET_BUTTON.png" />
 	</a>
 	<a href="https://github.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/issues?q=is%3Aissue+is%3Aclosed">

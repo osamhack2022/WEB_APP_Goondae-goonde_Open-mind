@@ -35,7 +35,11 @@ const Place = ({
                   }`}
                   className=' mr-2 text-sm font-medium text-gray-900'
                 >
-                  {location.category || `${location.region}` || 'TMO'}
+                  {name === 'tmo'
+                    ? 'TMO'
+                    : name === 'mou' /* eslint-disable */
+                    ? `${location.region}` /* eslint-disable */
+                    : `${location.category}`}
                 </Link>
                 <svg
                   width={16}
