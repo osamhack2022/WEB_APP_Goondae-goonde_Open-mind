@@ -27,7 +27,8 @@
 <h2>목차</h2>
 <ol>
 <li>
-<a href="#project-introduce-video"><p>프로젝트 설명 영상</p></a>
+<a href="#project-introduce-video"><p>프로젝트 설명 영상</p></a>![LOGO](https://user-images.githubusercontent.com/111727754/198858522-2e0b5c2d-d1a4-4224-929c-5ae6e8fa5549.gif)
+
 </li>
 <li>
 <a href="#team-introduce"><p>팀 소개</p></a>
@@ -145,8 +146,10 @@
 
 <p align="center"><img src="img/0_INTRODUCE.png"></p>
    <table><tbody><tr>
-   <td width="50%"><h4 align="center"><a href="https://raw.githubusercontent.com/osamhack2022-v2/WEB_APP_Goondae-goonde_Open-mind/main/img/0_HOME.png"><img src="img/0_HOME.png" width="72.3307%" height="72.3307%"></a><br><br>군데군대 메인화면</h4></td>
-   <td width="50%"><h4 align="center"><a href="https://raw.githubusercontent.com/osamhack2022-v2/WEB_APP_Goondae-goonde_Open-mind/main/img/0_HOME_MOB.png"><img src="img/0_HOME_MOB.png" width="75%" height="75%"></a><br><br>모바일 버전</h4></td>
+   <td width="50%"><h4 align="center"><a
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/0_HOME.png"><img src="img/0_HOME.png" width="72.3307%" height="72.3307%"></a><br><br>군데군대 메인화면</h4></td>
+   <td width="50%"><h4 align="center"><a
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/0_HOME_MOB.png"><img src="img/0_HOME_MOB.png" width="75%" height="75%"></a><br><br>모바일 버전</h4></td>
     </tr></tbody></table>
     </tr></tbody></table>
     <br><br>
@@ -176,11 +179,13 @@
 			</td>
 		</tr>
 		<tr>
-            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/consulting1.jpg"><img src="img/1_MYLOCATION2.png" width="60%" height="60%"></a></div></td>
+            <td rowspan="1"><div align="center"><a 
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/1_MYLOCATION2.png"><img src="img/1_MYLOCATION2.png" width="60%" height="60%"></a></div></td>
             <td width="33%">내 위치 주변 군인 혜택 장소 확인</td>
         </tr>
         <tr>
-            <td rowspan="2"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/consulting2.jpg"><img src="img/1_MYLOCATION.png" width="60%" height="60%"></a></div></td>
+            <td rowspan="2"><div align="center"><a
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/1_MYLOCATION.png"><img src="img/1_MYLOCATION.png" width="60%" height="60%"></a></div></td>
            <td>이동된 지역 주변 군인 혜택 장소 확인</td>
         </tr>
    </tbody>
@@ -197,11 +202,13 @@
 			</td>
 		</tr>
 		<tr>
-            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns1.jpg"><img src="img/2_CATEGORY.png" width="60%" height="60%"></a></div></td>
+            <td rowspan="1"><div align="center"><a 
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/2_CATEGORY.png"><img src="img/2_CATEGORY.png" width="60%" height="60%"></a></div></td>
             <td width="33%">카테고리별 장소 검색</td>
         </tr>
         <tr>
-            <td rowspan="2"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns2.jpg"><img src="img/2_REPLY.png" width="60%" height="60%"></a></div></td>   
+            <td rowspan="2"><div align="center"><a 
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/2_REPLY.png"><img src="img/2_REPLY.png" width="60%" height="60%"></a></div></td>   
           <td>
             좋아요 기능  
           </td>
@@ -212,7 +219,7 @@
         <tr>
       <td rowspan="1">
         <div align="center">
-          <a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns1.jpg"><img src="img/2_LIKE.png" width="60%" height="60%"></a>
+          <a href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/2_LIKE.png"><img src="img/2_LIKE.png" width="60%" height="60%"></a>
         </div>
       </td>
       <td width="33%">사용자 좋아요 모음</td>
@@ -231,14 +238,14 @@
 		<tr>
       <td rowspan="1">
         <div align="center">
-          <a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns1.jpg"><img src="img/3_MOU.png" width="60%" height="60%"></a>
+          <a href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/3_MOU.png"><img src="img/3_MOU.png" width="60%" height="60%"></a>
         </div>
       </td>
       <td width="33%">MOU 내용 확인</td>
     </tr>
     <tr>
       <td rowspan="2">
-        <div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns2.jpg"><img src="img/3_REPLY.png" width="60%" height="60%"></a>
+        <div align="center"><a href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/3_REPLY.png"><img src="img/3_REPLY.png" width="60%" height="60%"></a>
         </div>
       </td>   
       <td>
@@ -251,7 +258,7 @@
     		<tr>
       <td rowspan="1">
         <div align="center">
-          <a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns1.jpg"><img src="img/3_LIKE.png" width="60%" height="60%"></a>
+          <a href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/3_LIKE.png"><img src="img/3_LIKE.png" width="60%" height="60%"></a>
         </div>
       </td>
       <td width="33%">사용자 좋아요 모음</td>
@@ -271,13 +278,14 @@
     <tr>
       <td rowspan="1">
         <div align="center">
-          <a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns1.jpg"><img src="img/4_TMO.png" width="60%" height="60%"></a>
+          <a href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/4_TMO.png"><img src="img/4_TMO.png" width="60%" height="60%"></a>
         </div>
       </td>
       <td width="33%">TMO 목록 확인</td>
     </tr>
         <tr>
-            <td rowspan="2"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns2.jpg"><img src="img/4_LIKE.png" width="60%" height="60%"></a></div></td>   
+            <td rowspan="2"><div align="center"><a 
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/4_LIKE.png"><img src="img/4_LIKE.png" width="60%" height="60%"></a></div></td>   
           <td>
             TMO 위치 확인  
           </td>
@@ -298,11 +306,13 @@
 			</td>
 		</tr>
 		<tr>
-            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns1.jpg"><img src="img/6_BOARDS.png" width="60%" height="60%"></a></div></td>
+            <td rowspan="1"><div align="center"><a 
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/6_BOARDS.png"><img src="img/6_BOARDS.png" width="60%" height="60%"></a></div></td>
             <td width="33%">CRUD 기능</td>
     </tr>
     <tr>
-            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/sns1.jpg"><img src="img/6_LIKE.png" width="60%" height="60%"></a></div></td>
+            <td rowspan="1"><div align="center"><a 
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/6_LIKE.png"><img src="img/6_LIKE.png" width="60%" height="60%"></a></div></td>
             <td width="33%">좋아요 기능</td>
     </tr>
    </tbody>
@@ -319,15 +329,18 @@
 			</td>
 		</tr>
 		<tr>
-            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/registration1.jpg"><img src="img/6_LOGIN.png" width="60%" height="60%"></a></div></td>
+            <td rowspan="1"><div align="center"><a 
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/6_LOGIN.png"><img src="img/6_LOGIN.png" width="60%" height="60%"></a></div></td>
             <td width="33%"> 로그인 시스템 </td>
         </tr>
         <tr>
-            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/registration2.jpg"><img src="img/6_REGISTER.png" width="60%" height="60%"></a></div></td>
+            <td rowspan="1"><div align="center"><a 
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/6_REGISTER.png"><img src="img/6_REGISTER.png" width="60%" height="60%"></a></div></td>
             <td width="33%"> 회원가입 시스템 </td>
         </tr>
                 <tr>
-            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/registration2.jpg"><img src="img/6_CONFIRM.png" width="60%" height="60%"></a></div></td>
+            <td rowspan="1"><div align="center"><a 
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/6_CONFIRM.png"><img src="img/6_CONFIRM.png" width="60%" height="60%"></a></div></td>
             <td width="33%">이메일 인증 시스템</td>
         </tr>
    </tbody>
@@ -344,11 +357,13 @@
 			</td>
 		</tr>
 		<tr>
-            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/mypage1.jpg"><img src="img/8_MYPAGE.png" width="60%" height="60%"></a></div></td>
+            <td rowspan="1"><div align="center"><a 
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/8_MYPAGE.png"><img src="img/8_MYPAGE.png" width="60%" height="60%"></a></div></td>
             <td width="33%">내 정보, 이미지 수정 </td>
         </tr>
         <tr>
-            <td rowspan="2"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/9_LIKE.jpg"><img src="img/8_LIKE.png" width="60%" height="60%"></a></div></td>
+            <td rowspan="2"><div align="center"><a 
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/8_LIKE.png"><img src="img/8_LIKE.png" width="60%" height="60%"></a></div></td>
            <td width="33%"> 좋아요 게시물 리스트 확인</td>
         </tr>
         <tr>
@@ -367,11 +382,13 @@
 			</td>
 		</tr>
 		<tr>
-            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/mypage1.jpg"><img src="img/9_WEBVIEW.png" width="30%" height="60%"></a></div></td>
+            <td rowspan="1"><div align="center"><a 
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/9_WEBVIEW.png"><img src="img/9_WEBVIEW.png" width="30%" height="60%"></a></div></td>
             <td width="33%"> 모바일 앱 내 웹뷰를 제공 </td>
         </tr>
         <tr>
-            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/9_LIKE.jpg"><img src="img/7_MAP.jpg" width="30%" height="30%"></a></div></td>
+            <td rowspan="1"><div align="center"><a 
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/7_MAP.jpg"><img src="img/7_MAP.jpg" width="30%" height="30%"></a></div></td>
            <td width="33%">모바일 앱 내 지도를 통한 정보 제공</td>
         </tr>
    </tbody>
@@ -386,7 +403,8 @@
 			</td>
 		</tr>
 		<tr>
-            <td rowspan="1"><div align="center"><a href="https://raw.githubusercontent.com/osamhack2020/WEB_KookbangFriends_Woowahan/master/image/mypage1.jpg"><img src="img/10_ADMIN.png" width="60%" height="60%"></a></div></td>
+            <td rowspan="1"><div align="center"><a 
+href="https://raw.githubusercontent.com/osamhack2022/WEB_APP_Goondae-goonde_Open-mind/main/img/10_ADMIN.png"><img src="img/10_ADMIN.png" width="60%" height="60%"></a></div></td>
             <td width="33%"> 사용자, 게시물, 리뷰등 관리하는 페이지 제공 </td>
         </tr>
    </tbody>
