@@ -27,8 +27,7 @@
 <h2>목차</h2>
 <ol>
 <li>
-<a href="#project-introduce-video"><p>프로젝트 설명 영상</p></a>![LOGO](https://user-images.githubusercontent.com/111727754/198858522-2e0b5c2d-d1a4-4224-929c-5ae6e8fa5549.gif)
-
+<a href="#project-introduce-video"><p>프로젝트 설명 영상</p></a>
 </li>
 <li>
 <a href="#team-introduce"><p>팀 소개</p></a>
