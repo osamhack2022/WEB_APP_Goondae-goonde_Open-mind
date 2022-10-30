@@ -5,7 +5,7 @@
 </div>
 <p>&nbsp;</p>
 <p align="center">
-	<a href="https://www.youtube.com/watch?v=Wa4uaZ68Z_A">
+	<a href="https://goondaegoonde.com:3000">
 		<img src="img/DEMO_BUTTON.png" />
 	</a>
 	<a href="http://ec2-52-79-185-182.ap-northeast-2.compute.amazonaws.com:8000/swagger">
